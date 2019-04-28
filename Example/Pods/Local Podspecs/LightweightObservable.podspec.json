@@ -1,0 +1,22 @@
+{
+  "name": "LightweightObservable",
+  "version": "0.1.0",
+  "summary": "A short description of LightweightObservable.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Felix Mau/LightweightObservable",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Felix Mau": "me@felix.hamburg"
+  },
+  "source": {
+    "git": "https://github.com/Felix Mau/LightweightObservable.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "LightweightObservable/Classes/**/*"
+}

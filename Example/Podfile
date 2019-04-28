@@ -1,0 +1,14 @@
+use_frameworks!
+
+target 'LightweightObservable_Example' do
+  pod 'LightweightObservable', :path => '../'
+
+  # Development pods
+  pod 'SwiftFormat/CLI'
+  pod 'SwiftLint'
+
+  target 'LightweightObservable_Tests' do
+    inherit! :search_paths
+
+  end
+end
