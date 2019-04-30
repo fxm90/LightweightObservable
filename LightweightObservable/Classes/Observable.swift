@@ -8,7 +8,8 @@
 
 import Foundation
 
-///
+/// An observable sequence that you can subscribe on. Any of these subscriber will receive the most
+/// recent element and everything that is emitted by that sequence after the subscription happened.
 public class Observable<T> {
     // MARK: - Types
 
@@ -73,7 +74,7 @@ public class Observable<T> {
     }
 }
 
-///
+/// Additonal helper methods for an observable that can be compared for equality.
 public extension Observable where T: Equatable {
     // MARK: - Types
 
@@ -104,7 +105,7 @@ public extension Observable where T: Equatable {
     }
 }
 
-///
+/// A special form of an observable sequence, that you can subscribe on AND dynamically add elements.
 public final class Variable<T>: Observable<T> {
     // MARK: - Public properties
 
