@@ -37,7 +37,7 @@ class ObservableTestCase: XCTestCase {
 
     // MARK: - Test method `observe(:)`
 
-    func testObservableShouldInformObserverWithCorrectValues() {
+    func testObservableShouldInformSubscriberWithCorrectValues() {
         // Given
         let variable = Variable(0)
 
@@ -52,7 +52,7 @@ class ObservableTestCase: XCTestCase {
         XCTAssertNil(oldValue)
     }
 
-    func testObservableShouldUpdateObserverWithCorrectValues() {
+    func testObservableShouldUpdateSubscriberWithCorrectValues() {
         // Given
         let variable = Variable(0)
 
@@ -71,9 +71,9 @@ class ObservableTestCase: XCTestCase {
         }
     }
 
-    // MARK: - Test method `observe(filter:)`
+    // MARK: - Test method `subscribe(filter:)`
 
-    func testObservableShouldUpdateObserverOnlyIfFilterMatches() {
+    func testObservableShouldUpdateSubscriberOnlyOnFilterMatched() {
         // Given
         let assertNewValueIsEvenFilter: (Int, Int?) -> Bool = { newValue, _ in
             newValue.isEven
@@ -101,9 +101,9 @@ class ObservableTestCase: XCTestCase {
         waitForExpectations(timeout: 0.1, handler: nil)
     }
 
-    // MARK: - Test method `observeDistinct(:)`
+    // MARK: - Test method `subscribeDistinct(:)`
 
-    func testObservableShouldInformDistinctObserverWithCorrectValues() {
+    func testObservableShouldInformDistinctSubscriberWithCorrectValues() {
         // Given
         let variable = Variable(0)
 
@@ -118,7 +118,7 @@ class ObservableTestCase: XCTestCase {
         XCTAssertNil(oldValue)
     }
 
-    func testObservableShouldUpdateDistinctObserverWithCorrectValues() {
+    func testObservableShouldUpdateDistinctSubscriberWithCorrectValues() {
         // Given
         let variable = Variable(0)
 
@@ -137,7 +137,7 @@ class ObservableTestCase: XCTestCase {
         }
     }
 
-    func testObservableShouldUpdateDistinctObserverJustOnceForSameValue() {
+    func testObservableShouldUpdateDistinctSubscriberJustOnceForSameValue() {
         // Given
         let expectation = self.expectation(description: "Expected distinct observer to be informed two times: The inital call and the new value.")
         expectation.expectedFulfillmentCount = 2
@@ -162,9 +162,30 @@ class ObservableTestCase: XCTestCase {
         waitForExpectations(timeout: 0.1, handler: nil)
     }
 
-    // MARK: - Test deallocated dispose bag
+    // MARK: - Test deallocated disposable
 
-    func testObservableShouldNotInformObserverAfterDeallocatedDisposeBag() {
+    func testObservableShouldNotInformSubscriberAfterDeallocatedDisposable() {
+        // Given
+        let variable = Variable(0)
+
+        var disposable: Disposable? = variable.asObservable.subscribe { newValue, oldValue in
+            self.newValue = newValue
+            self.oldValue = oldValue
+        }
+
+        // Workaround to fix warning `Variable 'disposable' was written to, but never read`
+        XCTAssertNotNil(disposable, "Precondition failed - Expected to have a valid instance at this point.")
+
+        // When
+        disposable = nil
+        variable.value = 1
+
+        // Then
+        XCTAssertEqual(newValue, 0, "As we've deallocated our disposable the observer should not be updated.")
+        XCTAssertNil(oldValue)
+    }
+
+    func testObservableShouldNotInformSubscriberAfterDeallocatedDisposeBag() {
         // Given
         let variable = Variable(0)
 
@@ -178,7 +199,7 @@ class ObservableTestCase: XCTestCase {
         variable.value = 1
 
         // Then
-        XCTAssertEqual(newValue, 0)
+        XCTAssertEqual(newValue, 0, "As we've deallocated our disposable the observer should not be updated.")
         XCTAssertNil(oldValue)
     }
 }
