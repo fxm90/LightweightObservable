@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  LightweightObservable_Example
 //
-//  Created by Felix Mau on 04/27/2019.
-//  Copyright (c) 2019 Felix Mau. All rights reserved.
+//  Created by Felix Mau on 04/27/19.
+//  Copyright © 2019 Felix Mau. All rights reserved.
 //
 
 import UIKit
