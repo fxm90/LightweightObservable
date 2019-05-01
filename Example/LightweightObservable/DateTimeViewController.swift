@@ -1,5 +1,5 @@
 //
-//  TimeViewController.swift
+//  DateTimeViewController.swift
 //  LightweightObservable_Example
 //
 //  Created by Felix Mau on 04/27/19.

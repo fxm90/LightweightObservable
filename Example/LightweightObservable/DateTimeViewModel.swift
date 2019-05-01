@@ -34,7 +34,7 @@ class DateTimeViewModel {
         // Initialize variables with current date and time.
         formattedDateSubject.value = makeFormattedDate()
         formattedTimeSubject.value = makeFormattedTime()
-        
+
         // Update variables with current date and time every second.
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
             guard let self = self else { return }
