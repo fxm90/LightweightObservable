@@ -55,7 +55,7 @@ formattedTime.subscribe { [weak self] newFormattedTime, oldFormattedTime in
 }
 ```
 
-Please notice that the old value (`oldFormattedTime`) is an optional, as we don't have this value on the initial call to the subscriber.
+Please notice that the old value (`oldFormattedTime`) is an optional of the underlying type, as we don't have this value on the initial call to the subscriber.
 
 **Important:** To avoid retain cycles and/or crashes, **always** use `[weak self]` when self is needed by an observer.
 
@@ -85,8 +85,12 @@ formattedDate.subscribe { [weak self] newFormattedDate, oldFormattedDate in
 
 #### – Observing `Equatable` values
 If you create an Observable which underlying type conforms to `Equtable` you can subscribe to changes using a specific filter. Therefore this pod contains the method:
-```swift 
+```swift
+typealias Filter = (NewValue, OldValue) -> Bool
+
 func subscribe(filter: @escaping Filter, observer: @escaping Observer) -> Disposable {
+    // ...
+}
 ```
 
 Now the observer will only be notified on changes if the filter matches.
