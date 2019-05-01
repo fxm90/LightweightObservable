@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9xA-Oj-2Nx">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -9,35 +9,65 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Current Time ⏰-->
+        <!--Current Date&Time ⏰-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="TimeViewController" customModule="LightweightObservable_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="DateTimeViewController" customModule="LightweightObservable_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apr 20, 2019 at 4:20:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPr-GM-r44">
-                                <rect key="frame" x="16" y="166" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Its always wine oclock" translatesAutoresizingMaskIntoConstraints="NO" id="qNt-jB-lbN" userLabel="Wine Image View">
+                                <rect key="frame" x="0.0" y="174" width="414" height="688"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PpZ-OI-pSP" userLabel="Label Stack View">
+                                <rect key="frame" x="20" y="190" width="374" height="20.333333333333343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apr 20, 2019" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPr-GM-r44" userLabel="Date Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="98.333333333333329" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="–" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPs-a0-fgK" userLabel="Separator Label">
+                                        <rect key="frame" x="102.33333333333333" y="0.0" width="8.3333333333333286" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="4:20:00 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5U-p0-NKY" userLabel="Time Label">
+                                        <rect key="frame" x="114.66666666666666" y="0.0" width="259.33333333333337" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="UPr-GM-r44" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="17h-6e-GVn"/>
-                            <constraint firstItem="UPr-GM-r44" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="WuI-Ik-tNJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UPr-GM-r44" secondAttribute="trailing" id="nRM-nm-yDq"/>
+                            <constraint firstItem="qNt-jB-lbN" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="F94-wC-Rfo"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qNt-jB-lbN" secondAttribute="bottom" id="Ghl-jn-aeG"/>
+                            <constraint firstItem="qNt-jB-lbN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Jun-UW-ba2"/>
+                            <constraint firstItem="PpZ-OI-pSP" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="M5g-71-chS"/>
+                            <constraint firstItem="PpZ-OI-pSP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="NeH-G2-7WU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PpZ-OI-pSP" secondAttribute="trailing" id="XSG-Pq-mxn"/>
+                            <constraint firstAttribute="trailing" secondItem="qNt-jB-lbN" secondAttribute="trailing" id="pVp-R9-ctE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Current Time ⏰" prompt="LightweightObservable Example" id="V9R-9v-GpT"/>
+                    <navigationItem key="navigationItem" title="Current Date&amp;Time ⏰" prompt="Lightweight Observable Example" id="V9R-9v-GpT"/>
                     <connections>
-                        <outlet property="timeLabel" destination="UPr-GM-r44" id="1vA-Po-6Aq"/>
+                        <outlet property="dateLabel" destination="UPr-GM-r44" id="6Fh-9B-OLE"/>
+                        <outlet property="timeLabel" destination="i5U-p0-NKY" id="Fmg-7x-JJk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -51,7 +81,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qk2-wx-ppF">
-                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -64,4 +94,7 @@
             <point key="canvasLocation" x="269.60000000000002" y="792.95352323838085"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Its always wine oclock" width="895" height="1214"/>
+    </resources>
 </document>

@@ -9,14 +9,15 @@
 import UIKit
 import LightweightObservable
 
-class TimeViewController: UIViewController {
+class DateTimeViewController: UIViewController {
     // MARK: - Outlets
 
+    @IBOutlet private var dateLabel: UILabel!
     @IBOutlet private var timeLabel: UILabel!
 
     // MARK: - Private properties
 
-    private let timeViewModel = TimeViewModel()
+    private let timeViewModel = DateTimeViewModel()
 
     private var disposeBag = DisposeBag()
 
@@ -24,6 +25,10 @@ class TimeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        timeViewModel.formattedDate.subscribeDistinct { [weak self] newFormattedDate, _ in
+            self?.dateLabel.text = newFormattedDate
+        }.add(to: &disposeBag)
 
         timeViewModel.formattedTime.subscribe { [weak self] newFormattedTime, _ in
             self?.timeLabel.text = newFormattedTime
