@@ -3,7 +3,7 @@ LightweightObservable
 
 ![Swift5.0](https://img.shields.io/badge/Swift-5.0-green.svg?style=flat) [![CI Status](http://img.shields.io/travis/fxm90/LightweightObservable.svg?style=flat)](https://travis-ci.org/fxm90/LightweightObservable) [![Version](https://img.shields.io/cocoapods/v/LightweightObservable.svg?style=flat)](http://cocoapods.org/pods/LightweightObservable) [![License](https://img.shields.io/cocoapods/l/LightweightObservable.svg?style=flat)](http://cocoapods.org/pods/LightweightObservable) [![Platform](https://img.shields.io/cocoapods/p/LightweightObservable.svg?style=flat)](http://cocoapods.org/pods/LightweightObservable)
 
-A super lightweight implementation of an observable sequence that you can subscribe on.
+A lightweight implementation of an observable sequence that you can subscribe to.
 
 **Credits:** The code was heavily influenced by [roberthein/observable](https://github.com/roberthein/Observable). But I needed something that was syntactically closer to [RxSwift](https://github.com/ReactiveX/RxSwift), which is why I came up with this code, and for reusability reasons afterwards moved it into a CocoaPod.
 
@@ -26,12 +26,16 @@ Run carthage update to build the framework and drag the built `LightweightObserv
 
 ### Hot to use
 The pod provides two classes `Observable` and `Variable`:
- - `Observable`: You can subscribe this class and get notified on changes, but changing the value directly is not possible. This is useful in order to avoid side-effects on an internal API. 
+ - `Observable`: Contains an immutable value, you only can subscribe to. This is useful in order to avoid side-effects on an internal API. 
  - `Variable`: Subclass of `Observable`, where you can modify the value as well.
 
 #### – Create a variable
 ```swift
-private let formattedTimeSubject = Variable("")
+let formattedTimeSubject = Variable("")
+
+// ...
+
+formattedTimeSubject.value = "4:20 PM"
 ```
 
 #### – Create an observable
@@ -53,7 +57,7 @@ formattedTime.subscribe { [weak self] newFormattedTime, oldFormattedTime in
 
 Please notice that the old value (`oldFormattedTime`) is an optional, as we don't have this value on the initial call to the subscriber.
 
-**Important:** Always pass in a `weak` reference to the subscribe closure of the object holding observable, as this would otherwise lead to a retain cycle!
+**Important:** To avoid retain cycles and/or crashes, **always** use `[weak self]` when self is needed by an observer.
 
 #### – Memory Management (`Disposable` / `DisposeBag`)
 
