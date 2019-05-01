@@ -28,10 +28,10 @@ class DateTimeViewController: UIViewController {
 
         timeViewModel.formattedDate.subscribeDistinct { [weak self] newFormattedDate, _ in
             self?.dateLabel.text = newFormattedDate
-        }.add(to: &disposeBag)
+        }.disposed(by: &disposeBag)
 
         timeViewModel.formattedTime.subscribe { [weak self] newFormattedTime, _ in
             self?.timeLabel.text = newFormattedTime
-        }.add(to: &disposeBag)
+        }.disposed(by: &disposeBag)
     }
 }

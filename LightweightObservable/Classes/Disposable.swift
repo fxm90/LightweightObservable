@@ -39,8 +39,8 @@ public final class Disposable {
 
     // MARK: - Public methods
 
-    /// Adds the current closure to an array of closures.
-    public func add(to disposeBag: inout DisposeBag) {
-        disposeBag.append(self)
+    /// Adds the current disposable to an array of disposables.
+    public func disposed(by bag: inout DisposeBag) {
+        bag.append(self)
     }
 }

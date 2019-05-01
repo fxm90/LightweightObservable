@@ -45,7 +45,7 @@ class ObservableTestCase: XCTestCase {
         variable.asObservable.subscribe { newValue, oldValue in
             self.newValue = newValue
             self.oldValue = oldValue
-        }.add(to: &disposeBag)
+        }.disposed(by: &disposeBag)
 
         // Then
         XCTAssertEqual(newValue, 0)
@@ -59,7 +59,7 @@ class ObservableTestCase: XCTestCase {
         variable.asObservable.subscribe { newValue, oldValue in
             self.newValue = newValue
             self.oldValue = oldValue
-        }.add(to: &disposeBag)
+        }.disposed(by: &disposeBag)
 
         // When
         for value in 1 ..< 10 {
@@ -90,7 +90,7 @@ class ObservableTestCase: XCTestCase {
             }
 
             expectation.fulfill()
-        }).add(to: &disposeBag)
+        }).disposed(by: &disposeBag)
 
         // When
         for value in 1 ..< 10 {
@@ -111,7 +111,7 @@ class ObservableTestCase: XCTestCase {
         variable.asObservable.subscribeDistinct { newValue, oldValue in
             self.newValue = newValue
             self.oldValue = oldValue
-        }.add(to: &disposeBag)
+        }.disposed(by: &disposeBag)
 
         // Then
         XCTAssertEqual(newValue, 0)
@@ -125,7 +125,7 @@ class ObservableTestCase: XCTestCase {
         variable.asObservable.subscribeDistinct { newValue, oldValue in
             self.newValue = newValue
             self.oldValue = oldValue
-        }.add(to: &disposeBag)
+        }.disposed(by: &disposeBag)
 
         // When
         for value in 1 ..< 10 {
@@ -148,7 +148,7 @@ class ObservableTestCase: XCTestCase {
             self.oldValue = oldValue
 
             expectation.fulfill()
-        }.add(to: &disposeBag)
+        }.disposed(by: &disposeBag)
 
         // When
         for _ in 1 ..< 10 {
@@ -192,7 +192,7 @@ class ObservableTestCase: XCTestCase {
         variable.asObservable.subscribe { newValue, oldValue in
             self.newValue = newValue
             self.oldValue = oldValue
-        }.add(to: &disposeBag)
+        }.disposed(by: &disposeBag)
 
         // When
         disposeBag = nil
