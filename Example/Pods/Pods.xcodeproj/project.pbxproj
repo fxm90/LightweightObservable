@@ -34,8 +34,9 @@
 		0AAADE8D4A4D3AFF20565C5089C1C7F0 /* Pods-LightweightObservable_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC9E9BCE72694D94F94590D19652E8A /* Pods-LightweightObservable_Example-dummy.m */; };
 		16717DE2B1649E2B3105901A96ACD25B /* LightweightObservable-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F151215373175D48CD2EDBA44E12C8B7 /* LightweightObservable-dummy.m */; };
 		5A087805FCC1CA3B994C021B952DFBFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		6401D5B12279ADD70048D349 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6401D5AF2279ADD70048D349 /* Observable.swift */; };
+		6401D5B32279ADF90048D349 /* Observable+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6401D5B22279ADF90048D349 /* Observable+Equatable.swift */; };
 		64447355227470C100F3E12F /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64447353227470C100F3E12F /* Disposable.swift */; };
-		64447356227470C100F3E12F /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64447354227470C100F3E12F /* Observable.swift */; };
 		7979B7ACE7642190730E05761ABABF17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 		9AB06117EE5ED5FA88D045D1EFBC0B69 /* Pods-LightweightObservable_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C7C7125F5AFD77F2DCDB87DD64542E46 /* Pods-LightweightObservable_Tests-dummy.m */; };
 		CF5A972FC52848EFFA5840F5E323F7B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
@@ -85,8 +86,9 @@
 		475C8D047CF4625A85CCCB52462B1C10 /* Pods-LightweightObservable_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LightweightObservable_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		549ECE3D4A5A2BA1051A53148D21494E /* SwiftFormat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftFormat.xcconfig; sourceTree = "<group>"; };
 		5C5440920FE3BBC10A8D62BC29EF4D1A /* LightweightObservable.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LightweightObservable.modulemap; sourceTree = "<group>"; };
+		6401D5AF2279ADD70048D349 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		6401D5B22279ADF90048D349 /* Observable+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Equatable.swift"; sourceTree = "<group>"; };
 		64447353227470C100F3E12F /* Disposable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
-		64447354227470C100F3E12F /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		66F344D1591D948287B6A81C550258B2 /* Pods-LightweightObservable_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LightweightObservable_Tests-Info.plist"; sourceTree = "<group>"; };
 		6BEE264D8DA0D4A9BA53DCB72ECC172B /* Pods_LightweightObservable_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LightweightObservable_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		754D06E052772035397E0AB61F090DE1 /* Pods-LightweightObservable_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LightweightObservable_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,11 +213,20 @@
 			path = "Target Support Files/Pods-LightweightObservable_Tests";
 			sourceTree = "<group>";
 		};
+		6401D5AD2279ADD70048D349 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				6401D5AF2279ADD70048D349 /* Observable.swift */,
+				6401D5B22279ADF90048D349 /* Observable+Equatable.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
 		64447352227470C100F3E12F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6401D5AD2279ADD70048D349 /* Observable */,
 				64447353227470C100F3E12F /* Disposable.swift */,
-				64447354227470C100F3E12F /* Observable.swift */,
 			);
 			name = Classes;
 			path = LightweightObservable/Classes;
@@ -469,8 +480,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6401D5B12279ADD70048D349 /* Observable.swift in Sources */,
+				6401D5B32279ADF90048D349 /* Observable+Equatable.swift in Sources */,
 				16717DE2B1649E2B3105901A96ACD25B /* LightweightObservable-dummy.m in Sources */,
-				64447356227470C100F3E12F /* Observable.swift in Sources */,
 				64447355227470C100F3E12F /* Disposable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,8 @@ import Foundation
 
 /// An observable sequence that you can subscribe on. Any of these subscriber will receive the most
 /// recent element and everything that is emitted by that sequence after the subscription happened.
+///
+/// - Note: Implementation based on [roberthein/Observable](https://github.com/roberthein/Observable).
 public class Observable<T> {
     // MARK: - Types
 
@@ -74,38 +76,10 @@ public class Observable<T> {
     }
 }
 
-/// Additonal helper methods for an observable that can be compared for equality.
-public extension Observable where T: Equatable {
-    // MARK: - Types
-
-    /// The type for the filter closure.
-    typealias Filter = (NewValue, OldValue) -> Bool
-
-    // MARK: - Public methods
-
-    /// Informs the given observer on changes to our `value`, only if the given filter matches.
-    ///
-    /// - Parameters:
-    ///   - filter: The filer-closure, that must return `true` in order for the observer to be notified.
-    ///   - observer: The observer-closure that is notified on changes.
-    func subscribe(filter: @escaping Filter, observer: @escaping Observer) -> Disposable {
-        return subscribe { nextValue, prevValue in
-            guard filter(nextValue, prevValue) else { return }
-
-            observer(nextValue, prevValue)
-        }
-    }
-
-    /// Informs the given observer on **distinct** changes to our `value`.
-    ///
-    /// - Parameter observer: The observer-closure that is notified on changes.
-    func subscribeDistinct(_ observer: @escaping Observer) -> Disposable {
-        return subscribe(filter: { $0 != $1 },
-                         observer: observer)
-    }
-}
-
 /// A special form of an observable sequence, that you can subscribe on AND dynamically add elements.
+///
+/// - Note: Has to be declared in the same file as `Observable`, to overwrite `fileprivate` setter for property `value`.
+///         (Workaround for a "protected" property).
 public final class Variable<T>: Observable<T> {
     // MARK: - Public properties
 
