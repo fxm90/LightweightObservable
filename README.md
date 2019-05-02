@@ -61,7 +61,19 @@ Please notice that the old value (`oldFormattedTime`) is an optional of the unde
 
 #### – Memory Management (`Disposable` / `DisposeBag`)
 
-@TODO: Explain why 
+When you subscribe to an `Observable`, the subscription returns a `Disposable`, which is basically a reference to the new subscription.
+
+We need to maintain it, in order to properly control the lifecycle of that subscription.
+
+Let me explain you why in a little example:
+
+Imagine having a MVVM application using a service layer for network calls. A service is used as a singleton across the app.
+
+The view-model has a reference to a service and subscribes to an observable property. The subscription-closure is now saved inside the observable property on the service.
+
+If the view-model now gets deallocated (e.g. due to a dismissed view-controller), without noticing the observable property somehow, the closure would continue to be alive. 
+
+As a workaround, we store the returned disposable from the subscription on the view-model. On deallocation of the disposable, it automatically informs the observable property to remove the referenced subscription closure.
 
 In case you only use a single subscriber you can store the returned `Disposable` to a variable:
 ```swift
@@ -82,6 +94,8 @@ formattedDate.subscribe { [weak self] newFormattedDate, oldFormattedDate in
     // ...
 }.disposed(by: &disposeBag)
 ```
+
+A `DisposeBag` is exactly what it says it is, a bag (or array) of disposables.
 
 #### – Observing `Equatable` values
 If you create an Observable which underlying type conforms to `Equtable` you can subscribe to changes using a specific filter. Therefore this pod contains the method:
