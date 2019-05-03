@@ -1,9 +1,11 @@
-LightweightObservable
+Lightweight Observable
 ====================
 
 ![Swift5.0](https://img.shields.io/badge/Swift-5.0-green.svg?style=flat) [![CI Status](http://img.shields.io/travis/fxm90/LightweightObservable.svg?style=flat)](https://travis-ci.org/fxm90/LightweightObservable) [![Version](https://img.shields.io/cocoapods/v/LightweightObservable.svg?style=flat)](http://cocoapods.org/pods/LightweightObservable) [![License](https://img.shields.io/cocoapods/l/LightweightObservable.svg?style=flat)](http://cocoapods.org/pods/LightweightObservable) [![Platform](https://img.shields.io/cocoapods/p/LightweightObservable.svg?style=flat)](http://cocoapods.org/pods/LightweightObservable)
 
 A lightweight implementation of an observable sequence that you can subscribe to.
+
+![Header](https://felix.hamburg/files/github/lightweight-observable/header.png)
 
 **Credits:** The code was heavily influenced by [roberthein/observable](https://github.com/roberthein/Observable). But I needed something that was syntactically closer to [RxSwift](https://github.com/ReactiveX/RxSwift), which is why I came up with this code, and for reusability reasons afterwards moved it into a CocoaPod.
 
@@ -47,7 +49,7 @@ var formattedTime: Observable<String> {
 ```
 
 #### – Subscribe to changes
-Every subscriber gets informed with the initial / current value and on all further changes to the observable value.
+Every subscriber gets initialized with the current value and updated on all further changes to the observable value.
 
 ```swift
 formattedTime.subscribe { [weak self] newFormattedTime, oldFormattedTime in
@@ -61,7 +63,7 @@ Please notice that the old value (`oldFormattedTime`) is an optional of the unde
 
 #### – Memory Management (`Disposable` / `DisposeBag`)
 
-When you subscribe to an `Observable`, the subscription returns a `Disposable`, which is basically a reference to the new subscription.
+When you subscribe to an `Observable` the method returns a `Disposable`, which is basically a reference to the new subscription.
 
 We need to maintain it, in order to properly control the lifecycle of that subscription.
 
