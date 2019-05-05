@@ -25,10 +25,12 @@ github "fxm90/LightweightObservable" ~> 1.0
 ```
 Run carthage update to build the framework and drag the built `LightweightObservable.framework` into your Xcode project.
 
-### Hot to use
+### How to use
 The pod provides two classes `Observable` and `Variable`:
  - `Observable`: Contains an immutable value, you only can subscribe to. This is useful in order to avoid side-effects on an internal API. 
  - `Variable`: Subclass of `Observable`, where you can modify the value as well.
+
+Feel free to check out the example application for a better understanding of this approach.
 
 #### – Create a variable
 ```swift
@@ -68,13 +70,13 @@ We need to maintain it, in order to properly control the lifecycle of that subsc
 
 Let me explain you why in a little example:
 
-Imagine having a MVVM application using a service layer for network calls. A service is used as a singleton across the app.
-
-The view-model has a reference to a service and subscribes to an observable property. The subscription-closure is now saved inside the observable property on the service.
-
-If the view-model now gets deallocated (e.g. due to a dismissed view-controller), without noticing the observable property somehow, the closure would continue to be alive. 
-
-As a workaround, we store the returned disposable from the subscription on the view-model. On deallocation of the disposable, it automatically informs the observable property to remove the referenced subscription closure.
+> Imagine having a MVVM application using a service layer for network calls. A service is used as a singleton across the app.
+> 
+> The view-model has a reference to a service and subscribes to an observable property. The subscription-closure is now saved inside the observable property on the service.
+> 
+> If the view-model now gets deallocated (e.g. due to a dismissed view-controller), without noticing the observable property somehow, the closure would continue to be alive. 
+> 
+> As a workaround, we store the returned disposable from the subscription on the view-model. On deallocation of the disposable, it automatically informs the observable property to remove the referenced subscription closure.
 
 In case you only use a single subscriber you can store the returned `Disposable` to a variable:
 ```swift
