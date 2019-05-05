@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LightweightObservable'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of LightweightObservable.'
+  s.version          = '1.0.0'
+  s.summary          = 'A lightweight implementation of an observable sequence that you can subscribe to.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,17 +18,17 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+A lightweight implementation of an observable sequence that you can subscribe to.
                        DESC
 
-  s.homepage         = 'https://github.com/Felix Mau/LightweightObservable'
+  s.homepage         = 'https://github.com/fxm90/LightweightObservable'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Felix Mau' => 'me@felix.hamburg' }
-  s.source           = { :git => 'https://github.com/Felix Mau/LightweightObservable.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Felix Mau' => 'contact@felix.hamburg' }
+  s.source           = { :git => 'https://github.com/fxm90/LightweightObservable.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/askfxm90'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'LightweightObservable/Classes/**/*'
   
