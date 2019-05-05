@@ -18,7 +18,9 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-A lightweight implementation of an observable sequence that you can subscribe to.
+A lightweight implementation of an observable sequence that you can subscribe to. 
+Using this Framework you can easily set up UI-Bindings in an MVVM application, 
+handle asynchronous network calls and much more.
                        DESC
 
   s.homepage         = 'https://github.com/fxm90/LightweightObservable'

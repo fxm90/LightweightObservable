@@ -1,10 +1,16 @@
 ![Header](https://felix.hamburg/files/github/lightweight-observable/header.png)
 
-![Swift5.0](https://img.shields.io/badge/Swift-5.0-green.svg?style=flat) [![CI Status](http://img.shields.io/travis/fxm90/LightweightObservable.svg?style=flat)](https://travis-ci.org/fxm90/LightweightObservable) [![Version](https://img.shields.io/cocoapods/v/LightweightObservable.svg?style=flat)](http://cocoapods.org/pods/LightweightObservable) [![License](https://img.shields.io/cocoapods/l/LightweightObservable.svg?style=flat)](http://cocoapods.org/pods/LightweightObservable) [![Platform](https://img.shields.io/cocoapods/p/LightweightObservable.svg?style=flat)](http://cocoapods.org/pods/LightweightObservable)
+<p align="center">
+	<img src="https://img.shields.io/badge/Swift-5.0-green.svg?style=flat" alt="Swift Version" />
+	<img src="http://img.shields.io/travis/fxm90/LightweightObservable.svg?style=flat" alt="CI Status" />
+	<img src="https://img.shields.io/cocoapods/v/LightweightObservable.svg?style=flat" alt="Version" />
+	<img src="https://img.shields.io/cocoapods/l/LightweightObservable.svg?style=flat" alt="License" />
+	<img src="https://img.shields.io/cocoapods/p/LightweightObservable.svg?style=flat" alt="Platform" />
+</p>
 
----
+## Features
 
-A lightweight implementation of an observable sequence that you can subscribe to.
+Lightweight Obserservable is a simple implementation of an observable sequence that you can subscribe to. Using this Framework you can easily set up UI-Bindings in an MVVM application, handle asynchronous network calls and much more.
 
 **Credits:** The code was heavily influenced by [roberthein/observable](https://github.com/roberthein/Observable). But I needed something that was syntactically closer to [RxSwift](https://github.com/ReactiveX/RxSwift), which is why I came up with this code, and for reusability reasons afterwards moved it into a CocoaPod.
 
