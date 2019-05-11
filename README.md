@@ -10,7 +10,7 @@
 
 ## Features
 
-Lightweight Obserservable is a simple implementation of an observable sequence that you can subscribe to. Using this Framework you can easily set up UI-Bindings in an MVVM application, handle asynchronous network calls and much more.
+Lightweight Obserservable is a simple implementation of an observable sequence that you can subscribe to. The framework is designed to be minimal meanwhile convenient. The entire code is only ~80 lines (without comments). With Lightweight Observable you can easily set up UI-Bindings in an MVVM application, handle asynchronous network calls and a lot more.
 
 **Credits:** The code was heavily influenced by [roberthein/observable](https://github.com/roberthein/Observable). But I needed something that was syntactically closer to [RxSwift](https://github.com/ReactiveX/RxSwift), which is why I came up with this code, and for reusability reasons afterwards moved it into a CocoaPod.
 
