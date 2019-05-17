@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'LightweightObservable'
   s.version          = '1.0.0'
-  s.summary          = 'A lightweight implementation of an observable sequence that you can subscribe to.'
+  s.summary          = 'Lightweight Obserservable is a simple implementation of an observable sequence that you can subscribe to.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,9 +18,9 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-A lightweight implementation of an observable sequence that you can subscribe to. 
-Using this Framework you can easily set up UI-Bindings in an MVVM application, 
-handle asynchronous network calls and much more.
+Lightweight Obserservable is a simple implementation of an observable sequence that you can subscribe to.
+The framework is designed to be minimal meanwhile convenient. The entire code is only ~80 lines (excluding comments). 
+With Lightweight Observable you can easily set up UI-Bindings in an MVVM application, handle asynchronous network calls and a lot more.
                        DESC
 
   s.homepage         = 'https://github.com/fxm90/LightweightObservable'
