@@ -10,9 +10,9 @@
 
 ## Features
 
-Lightweight Obserservable is a simple implementation of an observable sequence that you can subscribe to. The framework is designed to be minimal meanwhile convenient. The entire code is only ~80 lines (without comments). With Lightweight Observable you can easily set up UI-Bindings in an MVVM application, handle asynchronous network calls and a lot more.
+Lightweight Obserservable is a simple implementation of an observable sequence that you can subscribe to. The framework is designed to be minimal meanwhile convenient. The entire code is only ~80 lines (excluding comments). With Lightweight Observable you can easily set up UI-Bindings in an MVVM application, handle asynchronous network calls and a lot more.
 
-**Credits:** The code was heavily influenced by [roberthein/observable](https://github.com/roberthein/Observable). But I needed something that was syntactically closer to [RxSwift](https://github.com/ReactiveX/RxSwift), which is why I came up with this code, and for reusability reasons afterwards moved it into a CocoaPod.
+**Credits:** The code was heavily influenced by [roberthein/observable](https://github.com/roberthein/Observable). However I needed something that was syntactically closer to [RxSwift](https://github.com/ReactiveX/RxSwift), which is why I came up with this code, and for reusability reasons afterwards moved it into a CocoaPod.
 
 ### Example
 To run the example project, clone the repo, and open the workspace from the Example directory.
@@ -32,7 +32,7 @@ github "fxm90/LightweightObservable" ~> 1.0
 Run carthage update to build the framework and drag the built `LightweightObservable.framework` into your Xcode project.
 
 ### How to use
-The pod provides two classes `Observable` and `Variable`:
+The framework provides two classes `Observable` and `Variable`:
  - `Observable`: Contains an immutable value, you only can subscribe to. This is useful in order to avoid side-effects on an internal API. 
  - `Variable`: Subclass of `Observable`, where you can modify the value as well.
 
@@ -76,7 +76,7 @@ We need to maintain it, in order to properly control the lifecycle of that subsc
 
 Let me explain you why in a little example:
 
-> Imagine having a MVVM application using a service layer for network calls. A service is used as a singleton across the app.
+> Imagine having a MVVM application using a service layer for network calls. A service is used as a singleton across the entire app.
 > 
 > The view-model has a reference to a service and subscribes to an observable property. The subscription-closure is now saved inside the observable property on the service.
 > 
