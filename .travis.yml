@@ -16,3 +16,5 @@ script:
 - ./Scripts/swift-lint.sh
 - ./Scripts/test.sh
 - ./Scripts/pod-lint.sh
+after_success:
+- bash <(curl -s https://codecov.io/bash)
