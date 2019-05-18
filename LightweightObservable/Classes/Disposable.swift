@@ -11,23 +11,23 @@ import Foundation
 /// Helper to allow storing multiple disposables (and matching name from RxSwift).
 public typealias DisposeBag = [Disposable]
 
-/// Executes a given closure on `deinit`.
+/// Executes a given closure on deallocation.
 public final class Disposable {
     // MARK: - Types
 
-    /// Type for closure to be executed on `deinit`.
+    /// Type for closure to be executed on deallocation.
     public typealias Dispose = () -> Void
 
     // MARK: - Private properties
 
-    /// Closure to be executed on `deinit`.
+    /// Closure to be executed on deallocation.
     private let dispose: Dispose
 
     // MARK: - Initializer
 
     /// Creates a new instance.
     ///
-    /// - Parameter dispose: The closure that is executed on `deinit`.
+    /// - Parameter dispose: The closure that is executed on deallocation.
     public init(_ dispose: @escaping Dispose) {
         self.dispose = dispose
     }

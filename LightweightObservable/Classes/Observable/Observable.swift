@@ -69,7 +69,7 @@ public class Observable<T> {
         // Inform observer with initial value.
         observer(value, nil)
 
-        // Return a disposable, that removes the entry for this observer when it's deallocated.
+        // Return a disposable, that removes the entry for this observer on it's deallocation.
         return Disposable { [weak self] in
             self?.observers[currentIndex] = nil
         }
