@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// An observable sequence that you can subscribe on. Any of these subscriber will receive the most
+/// An observable sequence that you can subscribe to. Any of the subscriber will receive the most
 /// recent element and everything that is emitted by that sequence after the subscription happened.
 ///
 /// - Note: Implementation based on [roberthein/Observable](https://github.com/roberthein/Observable).
@@ -76,7 +76,7 @@ public class Observable<T> {
     }
 }
 
-/// A special form of an observable sequence, that you can subscribe on AND dynamically add elements.
+/// A special form of an observable sequence, that you can subscribe to AND dynamically add elements.
 ///
 /// - Note: Has to be declared in the same file as `Observable`, to overwrite `fileprivate` setter for property `value`.
 ///         (Workaround for a "protected" property).
