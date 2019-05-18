@@ -80,7 +80,7 @@ Let me explain you why in a little example:
 > 
 > The view-model has a reference to a service and subscribes to an observable property. The subscription-closure is now saved inside the observable property on the service.
 > 
-> If the view-model now gets deallocated (e.g. due to a dismissed view-controller), without noticing the observable property somehow, the closure would continue to be alive. 
+> If the view-model gets deallocated (e.g. due to a dismissed view-controller), without noticing the observable property somehow, the subscription-closure would continue to be alive. 
 > 
 > As a workaround, we store the returned disposable from the subscription on the view-model. On deallocation of the disposable, it automatically informs the observable property to remove the referenced subscription closure.
 
@@ -91,7 +91,7 @@ let disposable = formattedTime.subscribe { [weak self] newFormattedTime, oldForm
 }
 ```
 
-In case you're having multiple observers, you can store all returned `Disposable` in an array of `Disposable`. (To match the RX syntax, this pod contains a typealias called `DisposeBag`, which is an array of `Disposable`).
+In case you're having multiple observers, you can store all returned `Disposable` in an array of `Disposable`. (To match the syntax from [RxSwift](https://github.com/ReactiveX/RxSwift), this pod contains a typealias called `DisposeBag`, which is an array of `Disposable`).
 ```swift
 var disposeBag = DisposeBag()
 
@@ -111,18 +111,16 @@ If you create an Observable which underlying type conforms to `Equtable` you can
 ```swift
 typealias Filter = (NewValue, OldValue) -> Bool
 
-func subscribe(filter: @escaping Filter, observer: @escaping Observer) -> Disposable {
-    // ...
-}
+func subscribe(filter: @escaping Filter, observer: @escaping Observer) -> Disposable {}
 ```
 
-Now the observer will only be notified on changes if the filter matches.
+Using this method, the observer will only be notified on changes if the corresponding filter matches.
 
-This pod comes with one predefined filter method, called `subscribeDistinct`. Subscribing to an observable using this method, will only notify the subscriber if the new value is different from the old value. This is useful to prevent unnecessary UI-Updates.
+This pod comes with one predefined filter method, called `subscribeDistinct`. Subscribing to an observable using this method, will only notify the observer if the new value is different from the old value. This is useful to prevent unnecessary UI-Updates.
 
 Feel free to add more filters, by extending the `Observable` like this:
 ```swift
-public extension Observable where T: Equatable {}
+extension Observable where T: Equatable {}
 ```
 
 ### Author
