@@ -1,0 +1,2 @@
+ignore:
+  - "Example/LightweightObservable" # ignore example application
