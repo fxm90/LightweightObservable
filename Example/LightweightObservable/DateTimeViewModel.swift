@@ -12,18 +12,30 @@ import LightweightObservable
 class DateTimeViewModel {
     // MARK: - Public properties
 
+    /// The current date as a formatted string.
+    ///
+    /// - Note: As this is a public property the value is immutable, so you can only subscribe to changes.
     var formattedDate: Observable<String> {
         return formattedDateSubject.asObservable
     }
 
+    /// The current time as a formatted string.
+    ///
+    /// - Note: As this is a public property the value is immutable, so you can only subscribe to changes.
     var formattedTime: Observable<String> {
         return formattedTimeSubject.asObservable
     }
 
     // MARK: - Private properties
 
+    /// The current date as a formatted string.
+    ///
+    /// - Note: As this is our private property the value is mutable, so only this class can modify it.
     private let formattedDateSubject: Variable<String> = Variable("")
 
+    /// The current time as a formatted string.
+    ///
+    /// - Note: As this is our private property the value is mutable, so only this class can modify it.
     private let formattedTimeSubject: Variable<String> = Variable("")
 
     private var timer: Timer?

@@ -17,8 +17,11 @@ class DateTimeViewController: UIViewController {
 
     // MARK: - Private properties
 
+    /// The view model calculating the current date and time.
     private let timeViewModel = DateTimeViewModel()
 
+    /// The dispose bag for this view controller. On it's deallocation, it removes the
+    /// subscribtion-closures from the corresponding observable-properties.
     private var disposeBag = DisposeBag()
 
     // MARK: - Public methods
@@ -26,6 +29,12 @@ class DateTimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        bindViewModelToView()
+    }
+
+    // MARK: - Private methods
+
+    private func bindViewModelToView() {
         timeViewModel.formattedDate.subscribeDistinct { [weak self] newFormattedDate, _ in
             self?.dateLabel.text = newFormattedDate
         }.disposed(by: &disposeBag)
