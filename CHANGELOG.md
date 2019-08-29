@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+## [1.0.2] - 2019-29-08
+### Fixed
+ - Added missing `public` attribute, so the value of an observable is readable without observing it.
+
 ## [1.0.1] - 2019-09-06
 ### Fixed
  - Fix Carthage build failed due to non shared scheme.
@@ -15,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Initial release.
 
 
-[Unreleased]: https://github.com/fxm90/GradientProgressBar/compare/1.2.8...master
-[1.0.1]: https://github.com/fxm90/GradientProgressBar/compare/1.0.0...1.0.1
-[1.0.0]: https://github.com/fxm90/GradientProgressBar
+[Unreleased]: https://github.com/fxm90/LightweightObservable/compare/1.0.2...master
+[1.0.2]: https://github.com/fxm90/LightweightObservable/compare/1.0.1...1.0.2
+[1.0.1]: https://github.com/fxm90/LightweightObservable/compare/1.0.0...1.0.1
+[1.0.0]: https://github.com/fxm90/LightweightObservable
