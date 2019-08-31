@@ -107,6 +107,6 @@ extension ObservableTestCase {
 
 private extension Int {
     var isEven: Bool {
-        return self % 2 == 0
+        return isMultiple(of: 2)
     }
 }
