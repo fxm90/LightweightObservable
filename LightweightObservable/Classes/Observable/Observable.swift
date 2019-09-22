@@ -51,7 +51,7 @@ public class Observable<T> {
     /// Initializes a new observable with the given value.
     ///
     /// - Note: Declared `fileprivate` in order to prevent directly initializing an observable, which can not be updated.
-    fileprivate init(_ value: T) {
+    private init(_ value: T) {
         self.value = value
     }
 
