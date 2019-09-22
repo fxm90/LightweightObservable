@@ -51,7 +51,8 @@ public class Observable<T> {
     /// Initializes a new observable with the given value.
     ///
     /// - Note: Declared `fileprivate` in order to prevent directly initializing an observable, which can not be updated.
-    private init(_ value: T) {
+    fileprivate init(_ value: T) {
+        // swiftformat:disable:previous redundantFileprivate
         self.value = value
     }
 
