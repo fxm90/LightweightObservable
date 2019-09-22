@@ -7,8 +7,7 @@
 //
 
 import XCTest
-
-@testable import LightweightObservable
+import LightweightObservable
 
 class DisposableTestCase: XCTestCase {
     func testDisposeClosureShouldNotBeCalledBeforeDeinit() {

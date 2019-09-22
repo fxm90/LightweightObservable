@@ -7,8 +7,7 @@
 //
 
 import XCTest
-
-@testable import LightweightObservable
+import LightweightObservable
 
 class ObservableTestCase: XCTestCase {
     // MARK: - Private properties

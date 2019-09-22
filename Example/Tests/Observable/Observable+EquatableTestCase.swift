@@ -7,8 +7,7 @@
 //
 
 import XCTest
-
-@testable import LightweightObservable
+import LightweightObservable
 
 extension ObservableTestCase {
     // MARK: - Test method `subscribe(filter:)`
