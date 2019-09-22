@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.description      = <<-DESC
 Lightweight Obserservable is a simple implementation of an observable sequence that you can subscribe to.
-The framework is designed to be minimal meanwhile convenient. The entire code is only ~80 lines (excluding comments). 
+The framework is designed to be minimal meanwhile convenient. The entire code is only ~80 lines (excluding comments).
 With Lightweight Observable you can easily set up UI-Bindings in an MVVM application, handle asynchronous network calls and a lot more.
                        DESC
 
@@ -34,7 +34,7 @@ With Lightweight Observable you can easily set up UI-Bindings in an MVVM applica
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'LightweightObservable/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'LightweightObservable' => ['LightweightObservable/Assets/*.png']
   # }
