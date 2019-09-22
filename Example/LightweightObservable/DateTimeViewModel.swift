@@ -31,12 +31,12 @@ class DateTimeViewModel {
     /// The current date as a formatted string.
     ///
     /// - Note: As this is our private property the value is mutable, so only this class can modify it.
-    private let formattedDateSubject: Variable<String> = Variable("")
+    private let formattedDateSubject = Variable("")
 
     /// The current time as a formatted string.
     ///
     /// - Note: As this is our private property the value is mutable, so only this class can modify it.
-    private let formattedTimeSubject: Variable<String> = Variable("")
+    private let formattedTimeSubject = Variable("")
 
     private var timer: Timer?
 
@@ -55,8 +55,6 @@ class DateTimeViewModel {
             self.formattedTimeSubject.value = self.makeFormattedTime()
         })
     }
-
-    deinit {}
 
     // MARK: - Private methods
 
