@@ -1,5 +1,5 @@
 # file options
---exclude "Example/Pods/"
+--exclude "Package.swift,Example/Pods/"
 
 # rules
 --enable "blankLinesAroundMark"
