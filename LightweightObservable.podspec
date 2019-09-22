@@ -26,7 +26,7 @@ With Lightweight Observable you can easily set up UI-Bindings in an MVVM applica
   s.homepage         = 'https://github.com/fxm90/LightweightObservable'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Felix Mau' => 'contact@felix.hamburg' }
+  s.author           = { 'Felix Mau' => 'me@felix.hamburg' }
   s.source           = { :git => 'https://github.com/fxm90/LightweightObservable.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/_fxm90'
 
