@@ -182,7 +182,7 @@ extension Observable where T: Equatable {}
 
 ### Author
 
-Felix Mau, me@felix.hamburg
+Felix Mau (me(@)felix.hamburg)
 
 ### License
 
