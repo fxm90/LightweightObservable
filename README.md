@@ -49,7 +49,7 @@ The framework provides two classes `Observable` and `Variable`:
  - `Observable`: Contains an immutable value, you only can subscribe to. This is useful in order to avoid side-effects on an internal API.
  - `Variable`: Subclass of `Observable`, where you can modify the value as well.
 
-So basically your view-model could look like this:
+Using the given approach, your view-model could look like this:
 ```swift
 class TimeViewModel {
     // MARK: - Public properties
@@ -107,7 +107,7 @@ Feel free to check out the example application for a better understanding of thi
 
 #### Further details
 
-#### – Create a variable
+#### – Create and update variable
 ```swift
 let formattedTimeSubject = Variable("")
 
