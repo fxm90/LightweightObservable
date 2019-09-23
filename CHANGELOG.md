@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
-## [1.0.4] - 2019-22-09
+## [1.0.3] - 2019-22-09
 ### Added
  - Added support for Swift Package Manager.
 
@@ -24,7 +24,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 
 [Unreleased]: https://github.com/fxm90/LightweightObservable/compare/1.0.3...master
-[1.0.2]: https://github.com/fxm90/LightweightObservable/compare/1.0.2...1.0.3
+[1.0.3]: https://github.com/fxm90/LightweightObservable/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/fxm90/LightweightObservable/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/fxm90/LightweightObservable/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/fxm90/LightweightObservable
