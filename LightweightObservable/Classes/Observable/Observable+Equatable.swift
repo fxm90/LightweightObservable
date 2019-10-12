@@ -23,7 +23,7 @@ public extension Observable where T: Equatable {
     ///   - filter: The filer-closure, that must return `true` in order for the observer to be notified.
     ///   - observer: The observer-closure that is notified on changes.
     func subscribe(filter: @escaping Filter, observer: @escaping Observer) -> Disposable {
-        return subscribe { nextValue, prevValue in
+        subscribe { nextValue, prevValue in
             guard filter(nextValue, prevValue) else { return }
 
             observer(nextValue, prevValue)
@@ -34,7 +34,7 @@ public extension Observable where T: Equatable {
     ///
     /// - Parameter observer: The observer-closure that is notified on changes.
     func subscribeDistinct(_ observer: @escaping Observer) -> Disposable {
-        return subscribe(filter: { $0 != $1 },
-                         observer: observer)
+        subscribe(filter: { $0 != $1 },
+                  observer: observer)
     }
 }

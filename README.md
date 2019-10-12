@@ -56,7 +56,7 @@ class TimeViewModel {
 
     /// The current time as a formatted string (**immutable**).
     var formattedTime: Observable<String> {
-        return formattedTimeSubject.asObservable
+        formattedTimeSubject.asObservable
     }
 
     // MARK: - Private properties
@@ -120,7 +120,7 @@ formattedTimeSubject.value = "4:20 PM"
 Initializing an observable directly is not possible, as this would lead to a sequence that will never change. Instead, use the computed property `asObservable` from `Variable` to cast the instance to an observable.
 ```swift
 var formattedTime: Observable<String> {
-    return formattedTimeSubject.asObservable
+    formattedTimeSubject.asObservable
 }
 ```
 

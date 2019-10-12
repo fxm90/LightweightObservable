@@ -86,13 +86,13 @@ public final class Variable<T>: Observable<T> {
 
     /// The current variable converted to an (readonly) `Observable`.
     public var asObservable: Observable<T> {
-        return self as Observable
+        self as Observable
     }
 
     /// The current value of the observable.
     public override var value: T {
         get {
-            return super.value
+            super.value
         }
         set {
             super.value = newValue

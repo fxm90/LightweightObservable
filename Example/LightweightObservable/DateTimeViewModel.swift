@@ -16,14 +16,14 @@ class DateTimeViewModel {
     ///
     /// - Note: As this is a public property the value is immutable, so you can only subscribe to changes.
     var formattedDate: Observable<String> {
-        return formattedDateSubject.asObservable
+        formattedDateSubject.asObservable
     }
 
     /// The current time as a formatted string.
     ///
     /// - Note: As this is a public property the value is immutable, so you can only subscribe to changes.
     var formattedTime: Observable<String> {
-        return formattedTimeSubject.asObservable
+        formattedTimeSubject.asObservable
     }
 
     // MARK: - Private properties
