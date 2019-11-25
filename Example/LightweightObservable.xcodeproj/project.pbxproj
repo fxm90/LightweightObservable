@@ -18,6 +18,8 @@
 		64124C0D228F861D00CEB2EF /* ObservableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64124C0B228F861D00CEB2EF /* ObservableTestCase.swift */; };
 		6444735C2274715600F3E12F /* DisposableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644473572274713400F3E12F /* DisposableTestCase.swift */; };
 		6444735E2274741200F3E12F /* DateTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6444735D2274741200F3E12F /* DateTimeViewModel.swift */; };
+		649FBE38238832B9008D2683 /* VariableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649FBE3623883275008D2683 /* VariableTestCase.swift */; };
+		649FBE3B2388330F008D2683 /* PublishSubjectTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649FBE3923883303008D2683 /* PublishSubjectTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		64124C0B228F861D00CEB2EF /* ObservableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableTestCase.swift; sourceTree = "<group>"; };
 		644473572274713400F3E12F /* DisposableTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisposableTestCase.swift; sourceTree = "<group>"; };
 		6444735D2274741200F3E12F /* DateTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeViewModel.swift; sourceTree = "<group>"; };
+		649FBE3623883275008D2683 /* VariableTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableTestCase.swift; sourceTree = "<group>"; };
+		649FBE3923883303008D2683 /* PublishSubjectTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishSubjectTestCase.swift; sourceTree = "<group>"; };
 		7EF9BBCBB49E911DBF025BDA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8D07A11305F4392FF8BBDE3A /* Pods_LightweightObservable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LightweightObservable_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9F91B319942E9EAB1C5386 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -142,8 +146,11 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				64124C09228F861D00CEB2EF /* Observable */,
+				64124C09228F861D00CEB2EF /* Extensions */,
 				644473572274713400F3E12F /* DisposableTestCase.swift */,
+				64124C0B228F861D00CEB2EF /* ObservableTestCase.swift */,
+				649FBE3923883303008D2683 /* PublishSubjectTestCase.swift */,
+				649FBE3623883275008D2683 /* VariableTestCase.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -167,13 +174,12 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		64124C09228F861D00CEB2EF /* Observable */ = {
+		64124C09228F861D00CEB2EF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				64124C0A228F861D00CEB2EF /* Observable+EquatableTestCase.swift */,
-				64124C0B228F861D00CEB2EF /* ObservableTestCase.swift */,
 			);
-			path = Observable;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,7 +403,9 @@
 			files = (
 				6444735C2274715600F3E12F /* DisposableTestCase.swift in Sources */,
 				64124C0C228F861D00CEB2EF /* Observable+EquatableTestCase.swift in Sources */,
+				649FBE3B2388330F008D2683 /* PublishSubjectTestCase.swift in Sources */,
 				64124C0D228F861D00CEB2EF /* ObservableTestCase.swift in Sources */,
+				649FBE38238832B9008D2683 /* VariableTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

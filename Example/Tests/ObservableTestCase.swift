@@ -34,49 +34,14 @@ class ObservableTestCase: XCTestCase {
         super.tearDown()
     }
 
-    // MARK: - Test method `observe(:)`
-
-    func testObservableShouldInformSubscriberWithCorrectValues() {
-        // Given
-        let variable = Variable(0)
-
-        // When
-        variable.asObservable.subscribe { newValue, oldValue in
-            self.newValue = newValue
-            self.oldValue = oldValue
-        }.disposed(by: &disposeBag)
-
-        // Then
-        XCTAssertEqual(newValue, 0)
-        XCTAssertNil(oldValue)
-    }
-
-    func testObservableShouldUpdateSubscriberWithCorrectValues() {
-        // Given
-        let variable = Variable(0)
-
-        variable.asObservable.subscribe { newValue, oldValue in
-            self.newValue = newValue
-            self.oldValue = oldValue
-        }.disposed(by: &disposeBag)
-
-        // When
-        for value in 1 ..< 10 {
-            variable.value = value
-
-            // Then
-            XCTAssertEqual(newValue, value)
-            XCTAssertEqual(oldValue, value - 1)
-        }
-    }
-
     // MARK: - Test deallocated disposable
 
     func testObservableShouldNotInformSubscriberAfterDeallocatedDisposable() {
         // Given
         let variable = Variable(0)
+        let observable: Observable<Int> = variable
 
-        var disposable: Disposable? = variable.asObservable.subscribe { newValue, oldValue in
+        var disposable: Disposable? = observable.subscribe { newValue, oldValue in
             self.newValue = newValue
             self.oldValue = oldValue
         }
@@ -96,8 +61,9 @@ class ObservableTestCase: XCTestCase {
     func testObservableShouldNotInformSubscriberAfterDeallocatedDisposeBag() {
         // Given
         let variable = Variable(0)
+        let observable: Observable<Int> = variable
 
-        variable.asObservable.subscribe { newValue, oldValue in
+        observable.subscribe { newValue, oldValue in
             self.newValue = newValue
             self.oldValue = oldValue
         }.disposed(by: &disposeBag)

@@ -9,7 +9,31 @@
 import XCTest
 import LightweightObservable
 
-extension ObservableTestCase {
+class ObservableEquatableTestCase: XCTestCase {
+    // MARK: - Private properties
+
+    var disposeBag: DisposeBag!
+
+    var oldValue: Int?
+    var newValue: Int?
+
+    // MARK: - Public methods
+
+    override func setUp() {
+        super.setUp()
+
+        disposeBag = DisposeBag()
+
+        oldValue = nil
+        newValue = nil
+    }
+
+    override func tearDown() {
+        disposeBag = nil
+
+        super.tearDown()
+    }
+
     // MARK: - Test method `subscribe(filter:)`
 
     func testObservableShouldUpdateSubscriberOnlyOnFilterMatched() {
@@ -22,7 +46,7 @@ extension ObservableTestCase {
         expectation.expectedFulfillmentCount = 5
 
         let variable = Variable(0)
-        variable.asObservable.subscribe(filter: assertNewValueIsEvenFilter, observer: { newValue, _ in
+        variable.subscribe(filter: assertNewValueIsEvenFilter, observer: { newValue, _ in
             guard newValue.isEven else {
                 XCTFail("The received value `\(newValue)` is odd!")
                 return
@@ -42,12 +66,12 @@ extension ObservableTestCase {
 
     // MARK: - Test method `subscribeDistinct(:)`
 
-    func testObservableShouldInformDistinctSubscriberWithCorrectValues() {
+    func testObservableShouldInformDistinctSubscriberWithInitialValues() {
         // Given
         let variable = Variable(0)
 
         // When
-        variable.asObservable.subscribeDistinct { newValue, oldValue in
+        variable.subscribeDistinct { newValue, oldValue in
             self.newValue = newValue
             self.oldValue = oldValue
         }.disposed(by: &disposeBag)
@@ -61,7 +85,7 @@ extension ObservableTestCase {
         // Given
         let variable = Variable(0)
 
-        variable.asObservable.subscribeDistinct { newValue, oldValue in
+        variable.subscribeDistinct { newValue, oldValue in
             self.newValue = newValue
             self.oldValue = oldValue
         }.disposed(by: &disposeBag)
@@ -78,11 +102,11 @@ extension ObservableTestCase {
 
     func testObservableShouldUpdateDistinctSubscriberJustOnceForSameValue() {
         // Given
-        let expectation = self.expectation(description: "Expected distinct observer to be informed two times: The inital call and the new value.")
+        let expectation = self.expectation(description: "Expected distinct observer to be informed two times: The initial call and the new value.")
         expectation.expectedFulfillmentCount = 2
 
         let variable = Variable(0)
-        variable.asObservable.subscribeDistinct { newValue, oldValue in
+        variable.subscribeDistinct { newValue, oldValue in
             self.newValue = newValue
             self.oldValue = oldValue
 
