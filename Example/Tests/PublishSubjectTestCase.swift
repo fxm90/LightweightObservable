@@ -34,6 +34,28 @@ class PublishSubjectTestCase: XCTestCase {
         super.tearDown()
     }
 
+    // MARK: - Test property `value`
+
+    func testValueShouldContainNilInitially() {
+        // Given
+        let publishSubject = PublishSubject<Int>()
+
+        // Then
+        XCTAssertNil(publishSubject.value)
+    }
+
+    func testValueShouldContainNextValueAfterUpdating() {
+        // Given
+        let publishSubject = PublishSubject<Int>()
+        let nextValue = 123
+
+        // When
+        publishSubject.update(nextValue)
+
+        // Then
+        XCTAssertEqual(publishSubject.value, nextValue)
+    }
+
     // MARK: - Test method `observe(:)`
 
     func testPublishSubjectShouldNotInformSubscriberWithInitialValue() {

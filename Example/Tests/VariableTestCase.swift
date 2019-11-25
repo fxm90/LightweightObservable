@@ -34,6 +34,29 @@ class VariableTestCase: XCTestCase {
         super.tearDown()
     }
 
+    // MARK: - Test property `value`
+
+    func testValueShouldContainTheInitialValue() {
+        // Given
+        let initialValue = 123
+        let variable = Variable(initialValue)
+
+        // Then
+        XCTAssertEqual(variable.value, initialValue)
+    }
+
+    func testValueShouldContainNextValueValueAfterUpdating() {
+        // Given
+        let variable = Variable(123)
+        let nextValue = 456
+
+        // When
+        variable.value = nextValue
+
+        // Then
+        XCTAssertEqual(variable.value, nextValue)
+    }
+
     // MARK: - Test method `observe(:)`
 
     func testVariableShouldInformSubscriberWithInitialValue() {
