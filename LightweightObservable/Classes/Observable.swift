@@ -115,7 +115,7 @@ public final class PublishSubject<T>: Observable<T> {
 }
 
 /// Starts with an initial value and replays it or the latest element to new subscribers.
-public class Variable<T>: Observable<T> {
+public final class Variable<T>: Observable<T> {
     // MARK: - Public properties
 
     /// The current (read- and writeable) value of the variable.
