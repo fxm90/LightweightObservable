@@ -8,10 +8,9 @@
 
 import Foundation
 
-/// An observable sequence that you can subscribe to. Any of the subscriber will receive the most
-/// recent element and everything that is emitted by that sequence after the subscription happened.
+/// An observable sequence that you can subscribe to.
 ///
-/// - Note: Implementation based on [roberthein/Observable](https://github.com/roberthein/Observable).
+/// - Note: Implementation is partly based on [roberthein/Observable](https://github.com/roberthein/Observable).
 public class Observable<T> {
     // MARK: - Types
 
@@ -24,16 +23,6 @@ public class Observable<T> {
     /// The type for the closure to executed on change of the observable.
     public typealias Observer = (Value, OldValue) -> Void
 
-    /// The current state describing whether a value has been set or not.
-    ///
-    /// - Note: We can't use a simple optional here, as this wouldn't work with having an optional generic value.
-    fileprivate enum State {
-        /// No value has been set.
-        case none
-        /// Some value has been set.
-        case some(Value)
-    }
-
     /// We store all observers within a dictionary, for which this is the type of the key.
     private typealias Index = UInt
 
@@ -41,33 +30,14 @@ public class Observable<T> {
 
     /// The current (readonly) value of the observable (if available).
     ///
-    /// - Note: It's always better to subscribe to a given observable! This **shortcut** should only be used during **testing**.
+    /// - Note: We're using a computed property here, cause we need to override this property with a different nullability in a subclass.
+    ///
+    /// - Attention: It's always better to subscribe to a given observable! This **shortcut** should only be used during **testing**.
     public var value: Value? {
-        switch state {
-        case .none:
-            return nil
-
-        case let .some(value):
-            return value
-        }
+        return nil
     }
 
     // MARK: - Private properties
-
-    fileprivate var state: State = .none {
-        didSet {
-            switch (state, oldValue) {
-            case (.none, _):
-                assertionFailure("⚠️ – Updated `state` to `.none`. This isn't supposed to happen!")
-
-            case (let .some(value), .none):
-                notifyObserver(value, oldValue: nil)
-
-            case let (.some(value), .some(oldValue)):
-                notifyObserver(value, oldValue: oldValue)
-            }
-        }
-    }
 
     /// The index of the last inserted observer.
     private var lastIndex: Index = 0
@@ -102,7 +72,7 @@ public class Observable<T> {
 
     // MARK: - Private methods
 
-    private func notifyObserver(_ value: Value, oldValue: OldValue) {
+    fileprivate func notifyObserver(_ value: Value, oldValue: OldValue) {
         for (_, observer) in observers {
             observer(value, oldValue)
         }
@@ -111,6 +81,17 @@ public class Observable<T> {
 
 /// Starts empty and only emits new elements to subscribers.
 public final class PublishSubject<T>: Observable<T> {
+    // MARK: - Public properties
+
+    /// The current (readonly) value of the observable (if available).
+    public override var value: Value? {
+        return currentValue
+    }
+
+    // MARK: - Private properties
+
+    private var currentValue: Value?
+
     // MARK: - Initializer
 
     /// Initializes a new publish subject.
@@ -122,8 +103,13 @@ public final class PublishSubject<T>: Observable<T> {
 
     // MARK: - Public methods
 
+    /// Updates the publish subject using the given value.
     public func update(_ value: Value) {
-        state = .some(value)
+        let oldValue = currentValue
+        currentValue = value
+
+        // We inform the observer here instead of using `didSet` to prevent unwrapping an optional (`currentValue` is nullable, as we're starting empty!).
+        notifyObserver(value, oldValue: oldValue)
     }
 }
 
@@ -131,19 +117,21 @@ public final class PublishSubject<T>: Observable<T> {
 public class Variable<T>: Observable<T> {
     // MARK: - Public properties
 
-    /// The current value of the variable.
+    /// The current (read- and writeable) value of the variable.
     public override var value: Value {
         get {
-            switch state {
-            case .none:
-                preconditionFailure("⚠️ – Property `state` was `.none`. This isn't supposed to happen, please double check the initialization and setter!")
-
-            case let .some(value):
-                return value
-            }
+            currentValue
         }
         set {
-            super.state = .some(newValue)
+            currentValue = newValue
+        }
+    }
+
+    // MARK: - Private properties
+
+    private var currentValue: Value {
+        didSet {
+            notifyObserver(value, oldValue: oldValue)
         }
     }
 
@@ -153,9 +141,9 @@ public class Variable<T>: Observable<T> {
     ///
     /// - Note: We keep the initializer to the super class `Observable` fileprivate in order to verify always having a value.
     public init(_ value: Value) {
-        super.init()
+        currentValue = value
 
-        state = .some(value)
+        super.init()
     }
 
     // MARK: - Public methods
