@@ -34,7 +34,7 @@ public class Observable<T> {
     ///
     /// - Attention: It's always better to subscribe to a given observable! This **shortcut** should only be used during **testing**.
     public var value: Value? {
-        return nil
+        fatalError("⚠️ – Subclasses need to overwrite this computed property.")
     }
 
     // MARK: - Private properties
