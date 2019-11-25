@@ -1,8 +1,8 @@
-# LightweightObservable 2.0 Migration Guide
+# Lightweight Observable 2.0 Migration Guide
 
-LightweightObservable 2.0 is the latest major release of LightweightObservable. As a major release, following Semantic Versioning conventions, 2.0 introduces some API-breaking changes that one should be aware of.
+Lightweight Observable 2.0 is the latest major release of Lightweight Observable. As a major release, following Semantic Versioning conventions, 2.0 introduces some API-breaking changes that one should be aware of.
 
-This guide is provided in order to ease the transition of existing applications using LightweightObservable 1.x to the latest APIs, as well as explain the design and structure of new and changed functionality.
+This guide is provided in order to ease the transition of existing applications using Lightweight Observable 1.x to the latest APIs, as well as explain the design and structure of new and changed functionality.
 
 ## Benefits of Upgrading
  - **PublishSubject:** A new subject type, that starts empty and only emits new elements to subscribers.
