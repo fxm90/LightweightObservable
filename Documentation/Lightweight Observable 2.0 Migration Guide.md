@@ -15,13 +15,15 @@ This guide is provided in order to ease the transition of existing applications 
 As a `PublishSubject` doesn't have an initial value, the property `value` of the class `Observable` has changed to an optional type. However, it's always better to subscribe to a given observable! This **shortcut** should only be used during **testing**.
 
 ### Removed property `asObservable` from class `Variable`
-Eventhough it is a bit more readable, there is no need to explicitly write `.asObservable` as shown below:
+Eventhough it is a bit more readable there is no need to write `.asObservable` to cast a `Variable` to an `Observable` as Swift can do the casting automatically.
+
+Instead of writing:
 ```swift
 var someVariable: Observable<Int> = {
     someVariableSubject.asObservable
 }
 ```
-Instead you can simply write
+you can simply write:
 ```swift
 var someVariable: Observable<Int> = {
     someVariableSubject
