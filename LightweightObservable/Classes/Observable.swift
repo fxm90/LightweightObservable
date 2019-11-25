@@ -30,7 +30,7 @@ public class Observable<T> {
 
     /// The current (readonly) value of the observable (if available).
     ///
-    /// - Note: We're using a computed property here, cause we need to override this property with a different nullability in a subclass.
+    /// - Note: We're using a computed property here, cause we need to override this property without nullability in the subclass `Variable`.
     ///
     /// - Attention: It's always better to subscribe to a given observable! This **shortcut** should only be used during **testing**.
     public var value: Value? {
@@ -90,6 +90,7 @@ public final class PublishSubject<T>: Observable<T> {
 
     // MARK: - Private properties
 
+    /// The storage for our computed property.
     private var currentValue: Value?
 
     // MARK: - Initializer
@@ -129,6 +130,7 @@ public class Variable<T>: Observable<T> {
 
     // MARK: - Private properties
 
+    /// The storage for our computed property.
     private var currentValue: Value {
         didSet {
             notifyObserver(value, oldValue: oldValue)
