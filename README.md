@@ -11,9 +11,12 @@
 
 ## Features
 
-Lightweight Observable is a simple implementation of an observable sequence that you can subscribe to. The framework is designed to be minimal meanwhile convenient. The entire code is only ~80 lines (excluding comments). With Lightweight Observable you can easily set up UI-Bindings in an MVVM application, handle asynchronous network calls and a lot more.
+Lightweight Observable is a simple implementation of an observable sequence that you can subscribe to. The framework is designed to be minimal meanwhile convenient. The entire code is only ~90 lines (excluding comments). With Lightweight Observable you can easily set up UI-Bindings in an MVVM application, handle asynchronous network calls and a lot more.
 
 **Credits:** The code was influenced by [roberthein/observable](https://github.com/roberthein/Observable). However I needed something that was syntactically closer to [RxSwift](https://github.com/ReactiveX/RxSwift), which is why I came up with this code, and for re-usability reasons afterwards moved it into a CocoaPod.
+
+**Migration Guide:** If you want to update from version 1.x.x, please have a look at the [Lightweight Observable 2.0 Migration Guide
+](Documentation/Lightweight%20Observable%202.0%20Migration%20Guide.md)
 
 ### Example
 To run the example project, clone the repo, and open the workspace from the Example directory.
@@ -50,7 +53,7 @@ The framework provides three classes `Observable`, `PublishSubject` and `Variabl
  - `PublishSubject`: Subclass of `Observable`, that starts empty and only emits new elements to subscribers.
  - `Variable`: Subclass of `Observable`, that starts with an initial value and replays it or the latest element to new subscribers.
 
-#### – Create and update a PublishSubject
+#### – Create and update a `PublishSubject`
 A `PublishSubject` starts empty and only emits new elements to subscribers.
 ```swift
 let userLocationSubject = PublishSubject<CLLocation>()
@@ -60,7 +63,7 @@ let userLocationSubject = PublishSubject<CLLocation>()
 userLocationSubject.value = receivedUserLocation
 ```
 
-#### – Create and update a Variable
+#### – Create and update a `Variable`
 A `Variable` starts with an initial value and replays it or the latest element to new subscribers.
 ```swift
 let formattedTimeSubject = Variable("4:20 PM")
@@ -70,8 +73,8 @@ let formattedTimeSubject = Variable("4:20 PM")
 formattedTimeSubject.value = "4:21 PM"
 ```
 
-#### – Create an observable
-Initializing an observable directly is not possible, as this would lead to a sequence that will never change. Instead you have to cast a `PublishSubject`or a `Variable` to an observable.
+#### – Create an `Observable`
+Initializing an observable directly is not possible, as this would lead to a sequence that will never change. Instead you need to cast a `PublishSubject` or a `Variable` to an observable.
 ```swift
 var formattedTime: Observable<String> {
     formattedTimeSubject
@@ -82,10 +85,11 @@ lazy var formattedTime: Observable<String> = formattedTimeSubject
 ```
 
 #### – Subscribe to changes
-Depending on the subclass of the observer, the subscriber get informed differently:
+A subscriber will be informed at different times, depending on the subclass of the observable:
  - `PublishSubject`: Starts empty and only emits new elements to subscribers.
  - `Variable`: Starts with an initial value and replays it or the latest element to new subscribers.
 
+To subscribe to an observable, you need to use the method `func subscribe(_ observer: @escaping Observer) -> Disposable`.
 ```swift
 formattedTime.subscribe { [weak self] newFormattedTime, oldFormattedTime in
     self?.timeLabel.text = newFormattedTime
