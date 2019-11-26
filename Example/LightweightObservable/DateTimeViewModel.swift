@@ -31,40 +31,36 @@ class DateTimeViewModel {
     /// The current date as a formatted string.
     ///
     /// - Note: As this is our private property the value is mutable, so only this class can modify it.
-    private let formattedDateSubject = Variable("")
+    private let formattedDateSubject = Variable(DateTimeViewModel.makeFormattedDate())
 
     /// The current time as a formatted string.
     ///
     /// - Note: As this is our private property the value is mutable, so only this class can modify it.
-    private let formattedTimeSubject = Variable("")
+    private let formattedTimeSubject = Variable(DateTimeViewModel.makeFormattedTime())
 
     private var timer: Timer?
 
     // MARK: - Initializer
 
     init() {
-        // Initialize variables with current date and time.
-        formattedDateSubject.value = makeFormattedDate()
-        formattedTimeSubject.value = makeFormattedTime()
-
         // Update variables with current date and time every second.
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
             guard let self = self else { return }
 
-            self.formattedDateSubject.value = self.makeFormattedDate()
-            self.formattedTimeSubject.value = self.makeFormattedTime()
+            self.formattedDateSubject.value = Self.makeFormattedDate()
+            self.formattedTimeSubject.value = Self.makeFormattedTime()
         })
     }
 
     // MARK: - Private methods
 
-    private func makeFormattedDate() -> String {
+    private static func makeFormattedDate() -> String {
         return DateFormatter.localizedString(from: Date(),
                                              dateStyle: .medium,
                                              timeStyle: .none)
     }
 
-    private func makeFormattedTime() -> String {
+    private static func makeFormattedTime() -> String {
         return DateFormatter.localizedString(from: Date(),
                                              dateStyle: .none,
                                              timeStyle: .medium)
