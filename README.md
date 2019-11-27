@@ -13,9 +13,11 @@
 
 Lightweight Observable is a simple implementation of an observable sequence that you can subscribe to. The framework is designed to be minimal meanwhile convenient. The entire code is only ~90 lines (excluding comments). With Lightweight Observable you can easily set up UI-Bindings in an MVVM application, handle asynchronous network calls and a lot more.
 
-**Credits:** The code was influenced by [roberthein/observable](https://github.com/roberthein/Observable). However I needed something that was syntactically closer to [RxSwift](https://github.com/ReactiveX/RxSwift), which is why I came up with this code, and for re-usability reasons afterwards moved it into a CocoaPod.
+##### Credits 
+The code was heavily influenced by [roberthein/observable](https://github.com/roberthein/Observable). However I needed something that was syntactically closer to [RxSwift](https://github.com/ReactiveX/RxSwift), which is why I came up with this code, and for re-usability reasons afterwards moved it into a CocoaPod.
 
-**Migration Guide:** If you want to update from version 1.x.x, please have a look at the [Lightweight Observable 2.0 Migration Guide
+##### Migration Guide 
+If you want to update from version 1.x.x, please have a look at the [Lightweight Observable 2.0 Migration Guide
 ](Documentation/Lightweight%20Observable%202.0%20Migration%20Guide.md)
 
 ### Example
@@ -24,12 +26,14 @@ To run the example project, clone the repo, and open the workspace from the Exam
 ### Integration
 ##### CocoaPods
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Lightweight Observable into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
 ```ruby
 pod 'LightweightObservable', '~> 2.0'
 ```
 
 ##### Carthage
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate Lightweight Observable into your Xcode project using Carthage, specify it in your `Cartfile`:
+
 ```ogdl
 github "fxm90/LightweightObservable" ~> 2.0
 ```
@@ -40,6 +44,7 @@ Run carthage update to build the framework and drag the built `LightweightObserv
 The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but Lightweight Observable does support its use on supported platforms.
 
 Once you have your Swift package set up, adding Lightweight Observable as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
 ```swift
 dependencies: [
     .package(url: "https://github.com/fxm90/LightweightObservable", from: "2.0.0")
@@ -49,6 +54,7 @@ dependencies: [
 
 ### How to use
 The framework provides three classes `Observable`, `PublishSubject` and `Variable`:
+
  - `Observable`: An observable sequence that you can subscribe to but not change (immutable). This is useful to avoid side-effects on an internal API.
  - `PublishSubject`: Subclass of `Observable`, that starts empty and only emits new elements to subscribers.
  - `Variable`: Subclass of `Observable`, that starts with an initial value and replays it or the latest element to new subscribers.
@@ -88,7 +94,8 @@ lazy var formattedTime: Observable<String> = formattedTimeSubject
 ```
 
 #### – Subscribe to changes
-A subscriber will be informed at different times, depending on the subclass of the observable:
+A subscriber will be informed at times, depending on the subclass of the observable:
+
  - `PublishSubject`: Starts empty and only emits new elements to subscribers.
  - `Variable`: Starts with an initial value and replays it or the latest element to new subscribers.
 
