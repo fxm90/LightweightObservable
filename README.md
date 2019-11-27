@@ -55,6 +55,7 @@ The framework provides three classes `Observable`, `PublishSubject` and `Variabl
 
 #### – Create and update a `PublishSubject`
 A `PublishSubject` starts empty and only emits new elements to subscribers.
+
 ```swift
 let userLocationSubject = PublishSubject<CLLocation>()
 
@@ -65,6 +66,7 @@ userLocationSubject.value = receivedUserLocation
 
 #### – Create and update a `Variable`
 A `Variable` starts with an initial value and replays it or the latest element to new subscribers.
+
 ```swift
 let formattedTimeSubject = Variable("4:20 PM")
 
@@ -75,6 +77,7 @@ formattedTimeSubject.value = "4:21 PM"
 
 #### – Create an `Observable`
 Initializing an observable directly is not possible, as this would lead to a sequence that will never change. Instead you need to cast a `PublishSubject` or a `Variable` to an observable.
+
 ```swift
 var formattedTime: Observable<String> {
     formattedTimeSubject
@@ -90,6 +93,7 @@ A subscriber will be informed at different times, depending on the subclass of t
  - `Variable`: Starts with an initial value and replays it or the latest element to new subscribers.
 
 To subscribe to an observable, you need to use the method `func subscribe(_ observer: @escaping Observer) -> Disposable`.
+
 ```swift
 formattedTime.subscribe { [weak self] newFormattedTime, oldFormattedTime in
     self?.timeLabel.text = newFormattedTime
@@ -117,6 +121,7 @@ Let me explain you why in a little example:
 > As a workaround, we store the returned disposable from the subscription on the view-model. On deallocation of the disposable, it automatically informs the observable property to remove the referenced subscription closure.
 
 In case you only use a single subscriber you can store the returned `Disposable` to a variable:
+
 ```swift
 let disposable = formattedTime.subscribe { [weak self] newFormattedTime, oldFormattedTime in
 	// ...
@@ -124,6 +129,7 @@ let disposable = formattedTime.subscribe { [weak self] newFormattedTime, oldForm
 ```
 
 In case you're having multiple observers, you can store all returned `Disposable` in an array of `Disposable`. (To match the syntax from [RxSwift](https://github.com/ReactiveX/RxSwift), this pod contains a typealias called `DisposeBag`, which is an array of `Disposable`).
+
 ```swift
 var disposeBag = DisposeBag()
 
@@ -140,6 +146,7 @@ A `DisposeBag` is exactly what it says it is, a bag (or array) of disposables.
 
 #### – Observing `Equatable` values
 If you create an Observable which underlying type conforms to `Equatable` you can subscribe to changes using a specific filter. Therefore this pod contains the method:
+
 ```swift
 typealias Filter = (NewValue, OldValue) -> Bool
 
@@ -151,13 +158,22 @@ Using this method, the observer will only be notified on changes if the correspo
 This pod comes with one predefined filter method, called `subscribeDistinct`. Subscribing to an observable using this method, will only notify the observer if the new value is different from the old value. This is useful to prevent unnecessary UI-Updates.
 
 Feel free to add more filters, by extending the `Observable` like this:
+
 ```swift
 extension Observable where T: Equatable {}
 ```
 
 
+#### Getting the current value synchronously
+You can get the current value of the `Observable` by accessing the property `value`. However it is always better to subscribe to a given observable! This **shortcut** should only be used during **testing**.
+
+```swift
+XCTAssertEqual(viewModel.formattedTime.value, "4:20")
+```
+
 #### Example
 Using the given approach, your view-model could look like this:
+
 ```swift
 class TimeViewModel {
     // MARK: - Public properties
@@ -185,6 +201,7 @@ class TimeViewModel {
 ```
 
 And your view controller like this:
+
 ```swift
 class TimeViewController: UIViewController {
     // MARK: - Outlets
