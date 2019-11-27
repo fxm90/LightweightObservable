@@ -44,16 +44,16 @@ class PublishSubjectTestCase: XCTestCase {
         XCTAssertNil(publishSubject.value)
     }
 
-    func testValueShouldContainNextValueAfterUpdating() {
+    func testValueShouldContainNewValueAfterUpdating() {
         // Given
         let publishSubject = PublishSubject<Int>()
-        let nextValue = 123
+        let newValue = 123
 
         // When
-        publishSubject.update(nextValue)
+        publishSubject.update(newValue)
 
         // Then
-        XCTAssertEqual(publishSubject.value, nextValue)
+        XCTAssertEqual(publishSubject.value, newValue)
     }
 
     // MARK: - Test method `observe(:)`
