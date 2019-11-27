@@ -55,14 +55,14 @@ class DateTimeViewModel {
     // MARK: - Private methods
 
     private static func makeFormattedDate() -> String {
-        return DateFormatter.localizedString(from: Date(),
-                                             dateStyle: .medium,
-                                             timeStyle: .none)
+        DateFormatter.localizedString(from: Date(),
+                                      dateStyle: .medium,
+                                      timeStyle: .none)
     }
 
     private static func makeFormattedTime() -> String {
-        return DateFormatter.localizedString(from: Date(),
-                                             dateStyle: .none,
-                                             timeStyle: .medium)
+        DateFormatter.localizedString(from: Date(),
+                                      dateStyle: .none,
+                                      timeStyle: .medium)
     }
 }

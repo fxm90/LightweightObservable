@@ -47,7 +47,7 @@ public class Observable<T> {
 
     // MARK: - Initalizer
 
-    /// Initializes a new observable with the given value.
+    /// Initializes a new observable.
     ///
     /// - Note: Declared `fileprivate` in order to prevent directly initializing an observable, which can not be updated.
     fileprivate init() {
@@ -85,7 +85,7 @@ public final class PublishSubject<T>: Observable<T> {
 
     /// The current (readonly) value of the observable (if available).
     public override var value: Value? {
-        return currentValue
+        currentValue
     }
 
     // MARK: - Private properties

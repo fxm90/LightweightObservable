@@ -130,6 +130,6 @@ class ObservableEquatableTestCase: XCTestCase {
 
 private extension Int {
     var isEven: Bool {
-        return isMultiple(of: 2)
+        isMultiple(of: 2)
     }
 }
