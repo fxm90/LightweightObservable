@@ -46,6 +46,6 @@ class DisposableTestCase: XCTestCase {
         disposable = nil
 
         // Then
-        wait(for: [expectation], timeout: 0.1)
+        wait(for: [expectation], timeout: 0.001)
     }
 }

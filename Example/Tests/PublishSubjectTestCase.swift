@@ -82,13 +82,13 @@ class PublishSubjectTestCase: XCTestCase {
         }.disposed(by: &disposeBag)
 
         // When
-        for value in 1 ..< 10 {
+        for value in 0 ..< 10 {
             publishSubject.update(value)
 
             // Then
             XCTAssertEqual(newValue, value)
 
-            if value == 1 {
+            if value == 0 {
                 XCTAssertNil(oldValue, "As a `PublishSubject` doesn't have an initial value `oldValue` should still be `nil` during the first iteration.")
             } else {
                 XCTAssertEqual(oldValue, value - 1)
@@ -104,7 +104,6 @@ class PublishSubjectTestCase: XCTestCase {
         }.disposed(by: &disposeBag)
 
         // When
-        publishSubject.update(123)
         publishSubject.update(nil)
 
         // Then
