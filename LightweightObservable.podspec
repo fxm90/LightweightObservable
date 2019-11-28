@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LightweightObservable'
-  s.version          = '1.0.3'
+  s.version          = '2.0.0'
   s.summary          = 'Lightweight Obserservable is a simple implementation of an observable sequence that you can subscribe to.'
 
 # This description is used to generate tags and improve search results.
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.description      = <<-DESC
 Lightweight Obserservable is a simple implementation of an observable sequence that you can subscribe to.
-The framework is designed to be minimal meanwhile convenient. The entire code is only ~80 lines (excluding comments).
+The framework is designed to be minimal meanwhile convenient. The entire code is only ~90 lines (excluding comments).
 With Lightweight Observable you can easily set up UI-Bindings in an MVVM application, handle asynchronous network calls and a lot more.
                        DESC
 

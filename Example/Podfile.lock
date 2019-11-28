@@ -1,5 +1,5 @@
 PODS:
-  - LightweightObservable (1.0.3)
+  - LightweightObservable (2.0.0)
   - SwiftFormat/CLI (0.41.1)
   - SwiftLint (0.37.0)
 
@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LightweightObservable: e8dcf0c72396f4132a7da4599401b899b83c37b5
+  LightweightObservable: f0c032384379a17cb048b861e33de8209155d7be
   SwiftFormat: 03bae03c48218b1facbb735ead26552c41341c4b
   SwiftLint: c078a14d7d7ade75e5507795d185e3da41d844d2
 
