@@ -55,9 +55,9 @@ dependencies: [
 ### How to use
 The framework provides three classes `Observable`, `PublishSubject` and `Variable`:
 
- - `Observable`: An observable sequence that you can subscribe to but not change (immutable). This is useful to avoid side-effects on an internal API.
- - `PublishSubject`: Subclass of `Observable`, that starts empty and only emits new elements to subscribers.
- - `Variable`: Subclass of `Observable`, that starts with an initial value and replays it or the latest element to new subscribers.
+ - `Observable`: An observable sequence that you can subscribe to, but not change the underlying value (immutable). This is useful to avoid side-effects on an internal API.
+ - `PublishSubject`: Subclass of `Observable`, that starts empty and only emits new elements to subscribers (mutable).
+ - `Variable`: Subclass of `Observable`, that starts with an initial value and replays it or the latest element to new subscribers (mutable).
 
 #### – Create and update a `PublishSubject`
 A `PublishSubject` starts empty and only emits new elements to subscribers.
@@ -67,7 +67,7 @@ let userLocationSubject = PublishSubject<CLLocation>()
 
 // ...
 
-userLocationSubject.value = receivedUserLocation
+userLocationSubject.update(receivedUserLocation)
 ```
 
 #### – Create and update a `Variable`
@@ -94,7 +94,7 @@ lazy var formattedTime: Observable<String> = formattedTimeSubject
 ```
 
 #### – Subscribe to changes
-A subscriber will be informed at times, depending on the subclass of the observable:
+A subscriber will be informed at different times, depending on the subclass of the observable:
 
  - `PublishSubject`: Starts empty and only emits new elements to subscribers.
  - `Variable`: Starts with an initial value and replays it or the latest element to new subscribers.

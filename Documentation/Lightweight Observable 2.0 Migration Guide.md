@@ -11,26 +11,30 @@ This guide is provided in order to ease the transition of existing applications 
 
 ## Breaking API Changes
 
-### Changed type of property `value` to optional
+### Type of property `value` changed to optional
 As a `PublishSubject` doesn't have an initial value, the property `value` of the class `Observable` has changed to an optional type. However, it's always better to subscribe to a given observable! This **shortcut** should only be used during **testing**.
 
 ### Removed property `asObservable` from class `Variable`
 Eventhough it is a bit more readable there is no need to write `.asObservable` to cast a `Variable` to an `Observable` as Swift can do the casting automatically.
 
 Instead of writing:
+
 ```swift
 var someVariable: Observable<Int> = {
     someVariableSubject.asObservable
 }
 ```
+
 you can simply write:
+
 ```swift
 var someVariable: Observable<Int> = {
     someVariableSubject
 }
 ```
-or
+
 ```swift
 lazy var someVariable: Observable<Int> = someVariableSubject
 ```
+
 Therefore this computed property has been removed.
