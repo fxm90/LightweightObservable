@@ -13,15 +13,20 @@
 
 Lightweight Observable is a simple implementation of an observable sequence that you can subscribe to. The framework is designed to be minimal meanwhile convenient. The entire code is only ~90 lines (excluding comments). With Lightweight Observable you can easily set up UI-Bindings in an MVVM application, handle asynchronous network calls and a lot more.
 
-##### Credits 
+##### Credits
 The code was heavily influenced by [roberthein/observable](https://github.com/roberthein/Observable). However I needed something that was syntactically closer to [RxSwift](https://github.com/ReactiveX/RxSwift), which is why I came up with this code, and for re-usability reasons afterwards moved it into a CocoaPod.
 
-##### Migration Guide 
+##### Migration Guide
 If you want to update from version 1.x.x, please have a look at the [Lightweight Observable 2.0 Migration Guide
 ](Documentation/Lightweight%20Observable%202.0%20Migration%20Guide.md)
 
 ### Example
 To run the example project, clone the repo, and open the workspace from the Example directory.
+
+### Requirements
+- Swift 5.0
+- Xcode 10.2+
+- iOS 9.0+
 
 ### Integration
 ##### CocoaPods
