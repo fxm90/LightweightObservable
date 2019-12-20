@@ -1,7 +1,7 @@
 PODS:
   - LightweightObservable (2.0.0)
-  - SwiftFormat/CLI (0.41.1)
-  - SwiftLint (0.37.0)
+  - SwiftFormat/CLI (0.43.0)
+  - SwiftLint (0.38.0)
 
 DEPENDENCIES:
   - LightweightObservable (from `../`)
@@ -19,8 +19,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   LightweightObservable: f0c032384379a17cb048b861e33de8209155d7be
-  SwiftFormat: 03bae03c48218b1facbb735ead26552c41341c4b
-  SwiftLint: c078a14d7d7ade75e5507795d185e3da41d844d2
+  SwiftFormat: 2f5705a6e9f4791004478d939722b6803b77fc5a
+  SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
 
 PODFILE CHECKSUM: 190ae8698a97e5352c4b462a64ef399c8feb8349
 
