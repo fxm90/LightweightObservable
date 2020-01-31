@@ -50,9 +50,7 @@ public class Observable<T> {
     /// Initializes a new observable.
     ///
     /// - Note: Declared `fileprivate` in order to prevent directly initializing an observable, which can not be updated.
-    fileprivate init() {
-        // swiftformat:disable:previous redundantFileprivate
-    }
+    fileprivate init() {}
 
     // MARK: - Public methods
 
