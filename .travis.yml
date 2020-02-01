@@ -7,9 +7,9 @@ osx_image: xcode11
 language: swift
 before_script: cd Example/
 script:
-  - fastlane format
-  - fastlane lint
-  - fastlane tests
-  - fastlane pod_lint
+  - bundle exec fastlane format
+  - bundle exec fastlane lint
+  - bundle exec fastlane tests
+  - bundle exec fastlane pod_lint
 after_success:
   - bash <(curl -s https://codecov.io/bash)
