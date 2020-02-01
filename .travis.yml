@@ -5,7 +5,9 @@
 
 osx_image: xcode11
 language: swift
-before_script: cd Example/
+before_script:
+  - cd Example/
+  - bundle install
 script:
   - bundle exec fastlane format
   - bundle exec fastlane lint
