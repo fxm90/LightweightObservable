@@ -5,6 +5,7 @@
 
 osx_image: xcode11
 language: swift
+before_script: cd Example/
 script:
   - fastlane format
   - fastlane lint
