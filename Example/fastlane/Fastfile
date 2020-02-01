@@ -18,11 +18,9 @@ default_platform(:ios)
 platform :ios do
   desc "Execute SwiftFormat and treat any formatting errors as real errors."
   lane :exec_swiftformat do
-    Dir.chdir("..") do
-      # Move outside of `fastlane/` directory.
-      # See <https://docs.fastlane.tools/advanced/fastlane/#directory-behavior> for details.
-      sh("Pods/SwiftFormat/CommandLineTool/swiftformat", "../", "--lint")
-    end
+    swiftformat(executable: "Pods/SwiftFormat/CommandLineTool/swiftformat",
+                path: "../",
+                lint: true)
   end
 
   desc "Execute SwiftLint and treat any formatting errors as real errors."

@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/fxm90/fastlane-plugin-swiftformat
+  revision: 856b68ff12fc97ecb77ad06d867e511d3c94d655
+  specs:
+    fastlane-plugin-swiftformat (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -212,6 +218,7 @@ PLATFORMS
 DEPENDENCIES
   cocoapods
   fastlane
+  fastlane-plugin-swiftformat!
 
 BUNDLED WITH
    2.0.2
