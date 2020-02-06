@@ -2,4 +2,4 @@
 #
 # Ensure this file is checked in to source control!
 
-gem 'fastlane-plugin-swiftformat', git: 'https://github.com/fxm90/fastlane-plugin-swiftformat'
+gem 'fastlane-plugin-swiftformat'
