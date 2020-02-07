@@ -36,3 +36,14 @@ Carthage/Build
 # `pod install` in .travis.yml
 #
 # Pods/
+
+
+#
+# Fastlane specific
+# Based on: https://docs.fastlane.tools/best-practices/source-control/
+#
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots
+**/fastlane/test_output
+**/fastlane/README.md
