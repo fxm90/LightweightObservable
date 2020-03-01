@@ -35,12 +35,14 @@ class DateTimeViewController: UIViewController {
     // MARK: - Private methods
 
     private func bindViewModelToView() {
-        dateTimeViewModel.formattedDate.subscribeDistinct { [weak self] newFormattedDate, _ in
-            self?.dateLabel.text = newFormattedDate
-        }.disposed(by: &disposeBag)
+        dateTimeViewModel
+            .formattedDate
+            .bind(to: \.text, on: dateLabel)
+            .disposed(by: &disposeBag)
 
-        dateTimeViewModel.formattedTime.subscribe { [weak self] newFormattedTime, _ in
-            self?.timeLabel.text = newFormattedTime
-        }.disposed(by: &disposeBag)
+        dateTimeViewModel
+            .formattedTime
+            .bind(to: \.text, on: timeLabel)
+            .disposed(by: &disposeBag)
     }
 }
