@@ -62,15 +62,16 @@ class PublishSubjectTestCase: XCTestCase {
         // Given
         let publishSubject = PublishSubject<Int>()
 
+        let expectation = self.expectation(description: "Expect observer to NOT be informed.")
+        expectation.isInverted = true
+
         // When
-        publishSubject.subscribe { newValue, oldValue in
-            self.newValue = newValue
-            self.oldValue = oldValue
+        publishSubject.subscribe { _, _ in
+            expectation.fulfill()
         }.disposed(by: &disposeBag)
 
         // Then
-        XCTAssertNil(newValue, "As a `PublishSubject` doesn't have an initial value `newValue` should still be `nil`.")
-        XCTAssertNil(oldValue, "As a `PublishSubject` doesn't have an initial value `oldValue` should still be `nil`.")
+        wait(for: [expectation], timeout: 0.1)
     }
 
     func testPublishSubjectShouldUpdateSubscriberWithGivenValues() {
@@ -89,7 +90,7 @@ class PublishSubjectTestCase: XCTestCase {
             XCTAssertEqual(newValue, value)
 
             if value == 0 {
-                XCTAssertNil(oldValue, "As a `PublishSubject` doesn't have an initial value `oldValue` should still be `nil` during the first iteration.")
+                XCTAssertNil(oldValue, "As a `PublishSubject` doesn't have an initial value, the `oldValue` should still be `nil` during the first iteration.")
             } else {
                 XCTAssertEqual(oldValue, value - 1)
             }
@@ -104,6 +105,7 @@ class PublishSubjectTestCase: XCTestCase {
         }.disposed(by: &disposeBag)
 
         // When
+        publishSubject.update(1)
         publishSubject.update(nil)
 
         // Then
