@@ -73,9 +73,9 @@ public class Observable<T> {
     /// - Parameters:
     ///   - keyPath: The key-path that indicates the property to assign.
     ///   - object: The object containing the property to update.
-    public func bind<Root>(to keyPath: WritableKeyPath<Root, Value>, on object: Root) -> Disposable {
-        var mutableObject = object
-        return subscribe { newValue, _ in
+    public func bind<Root: AnyObject>(to keyPath: WritableKeyPath<Root, Value>, on object: Root) -> Disposable {
+        subscribe { newValue, _ in
+            var mutableObject = object
             mutableObject[keyPath: keyPath] = newValue
         }
     }
@@ -89,8 +89,8 @@ public class Observable<T> {
     /// - Note: We need to explicitly define this method for an optional type of `Value`, as otherwise we e.g. could not bind a `String` to the
     ///         optional string property `text` of an `UILabel`
     public func bind<Root>(to keyPath: WritableKeyPath<Root, Value?>, on object: Root) -> Disposable {
-        var mutableObject = object
-        return subscribe { newValue, _ in
+        subscribe { newValue, _ in
+            var mutableObject = object
             mutableObject[keyPath: keyPath] = newValue
         }
     }
