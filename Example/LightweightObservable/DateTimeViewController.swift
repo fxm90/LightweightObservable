@@ -21,7 +21,7 @@ class DateTimeViewController: UIViewController {
     private let dateTimeViewModel = DateTimeViewModel()
 
     /// The dispose bag for this view controller. On it's deallocation, it removes the
-    /// subscribtion-closures from the corresponding observable-properties.
+    /// subscription-closures from the corresponding observable-properties.
     private var disposeBag = DisposeBag()
 
     // MARK: - Public methods

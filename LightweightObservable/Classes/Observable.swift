@@ -54,7 +54,7 @@ public class Observable<T> {
 
     // MARK: - Public methods
 
-    /// Informs the given observer on changes to our `value`.
+    /// Informs the given observer on changes to our property `value`.
     ///
     /// - Parameter observer: The observer-closure that is notified on changes.
     public func subscribe(_ observer: @escaping Observer) -> Disposable {
@@ -134,7 +134,8 @@ public final class PublishSubject<T>: Observable<T> {
         let oldValue = currentValue
         currentValue = value
 
-        // We inform the observer here instead of using `didSet` to prevent unwrapping an optional (`currentValue` is nullable, as we're starting empty!).
+        // We inform the observer here instead of using `didSet` on `currentValue` to prevent unwrapping an optional (`currentValue` is nullable,
+        // as we're starting empty!). Unwrapping lead to issues on having an underlying optional type.
         notifyObserver(value, oldValue: oldValue)
     }
 }
