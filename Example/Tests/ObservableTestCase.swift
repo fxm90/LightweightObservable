@@ -34,7 +34,55 @@ class ObservableTestCase: XCTestCase {
         super.tearDown()
     }
 
-    // MARK: - Test deallocated disposable
+    // MARK: - Test method `bind(to:on)`
+
+    func testBindToShouldUpdatePropertyAccordingly() {
+        // Given
+        // swiftlint:disable:next nesting
+        class IntStorage {
+            var value = 0
+        }
+
+        let intStorage = IntStorage()
+
+        let variable = Variable(0)
+        let observable: Observable<Int> = variable
+
+        // When
+        observable
+            .bind(to: \.value, on: intStorage)
+            .disposed(by: &disposeBag)
+
+        variable.value = 123
+
+        // Then
+        XCTAssertEqual(variable.value, intStorage.value)
+    }
+
+    func testBindToShouldUpdateOptionalPropertyAccordingly() {
+        // Given
+        // swiftlint:disable:next nesting
+        class IntStorage {
+            var value: Int?
+        }
+
+        let intStorage = IntStorage()
+
+        let variable = Variable(0)
+        let observable: Observable<Int> = variable
+
+        // When
+        observable
+            .bind(to: \.value, on: intStorage)
+            .disposed(by: &disposeBag)
+
+        variable.value = 456
+
+        // Then
+        XCTAssertEqual(variable.value, intStorage.value)
+    }
+
+    // MARK: - Test `deinit`
 
     func testObservableShouldNotInformSubscriberAfterDeallocatedDisposable() {
         // Given
