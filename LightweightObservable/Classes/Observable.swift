@@ -139,8 +139,8 @@ public final class PublishSubject<T>: Observable<T> {
         let oldValue = _value
         _value = value
 
-        // We inform the observer here instead of using `didSet` on `currentValue` to prevent unwrapping an optional (`currentValue` is nullable,
-        // as we're starting empty!). Unwrapping lead to issues on having an underlying optional type.
+        // We inform the observer here instead of using `didSet` on `_value` to prevent unwrapping an optional (`_value` is nullable, as we're starting empty!).
+        // Unwrapping lead to issues on having an underlying optional type.
         notifyObserver(value, oldValue: oldValue)
     }
 }
