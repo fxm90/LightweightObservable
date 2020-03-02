@@ -71,36 +71,9 @@ public class Observable<T> {
         }
     }
 
-    /// Updates the property at the given key-path on changes to our property `value`.
-    ///
-    /// - Parameters:
-    ///   - keyPath: The key-path that indicates the property to assign.
-    ///   - object: The object containing the property to update.
-    public func bind<Root: AnyObject>(to keyPath: WritableKeyPath<Root, Value>, on object: Root) -> Disposable {
-        subscribe { newValue, _ in
-            var mutableObject = object
-            mutableObject[keyPath: keyPath] = newValue
-        }
-    }
-
-    /// Updates the property at the given key-path on changes to our property `value`.
-    ///
-    /// - Parameters:
-    ///   - keyPath: The key-path that indicates the property to assign.
-    ///   - object: The object containing the property to update.
-    ///
-    /// - Note: We need to explicitly define this method for an optional type of `Value`, as otherwise we e.g. could not bind a `String` to the
-    ///         optional string property `text` of an `UILabel`
-    public func bind<Root>(to keyPath: WritableKeyPath<Root, Value?>, on object: Root) -> Disposable {
-        subscribe { newValue, _ in
-            var mutableObject = object
-            mutableObject[keyPath: keyPath] = newValue
-        }
-    }
-
     // MARK: - Private methods
 
-    fileprivate func notifyObserver(_ value: Value, oldValue: OldValue) {
+    fileprivate func notifyObserver(with value: Value, from oldValue: OldValue) {
         for (_, observer) in observers {
             observer(value, oldValue)
         }
@@ -141,7 +114,7 @@ public final class PublishSubject<T>: Observable<T> {
 
         // We inform the observer here instead of using `didSet` on `_value` to prevent unwrapping an optional (`_value` is nullable, as we're starting empty!).
         // Unwrapping lead to issues on having an underlying optional type.
-        notifyObserver(value, oldValue: oldValue)
+        notifyObserver(with: value, from: oldValue)
     }
 }
 
@@ -166,7 +139,7 @@ public final class Variable<T>: Observable<T> {
     /// - Note: Workaround for compiler error `Cannot override with a stored property 'value'`.
     private var _value: Value {
         didSet {
-            notifyObserver(_value, oldValue: oldValue)
+            notifyObserver(with: value, from: oldValue)
         }
     }
 

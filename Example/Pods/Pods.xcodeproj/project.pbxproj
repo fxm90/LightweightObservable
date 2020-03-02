@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = SwiftFormat;
+			productName = SwiftFormat;
 		};
 		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
 			isa = PBXAggregateTarget;
@@ -24,6 +25,7 @@
 			dependencies = (
 			);
 			name = SwiftLint;
+			productName = SwiftLint;
 		};
 /* End PBXAggregateTarget section */
 
@@ -38,6 +40,7 @@
 		BC345775DA94E1D27A8F063E348359EA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0113A0BD634E1C64EBE0C5790CBD8 /* Observable.swift */; };
 		C628DF55B66FCFA0AC32C45BF5332DF8 /* Pods-LightweightObservable_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2DBB5D12211145A4B96C24DC531CE5 /* Pods-LightweightObservable_Tests-dummy.m */; };
 		D914498CD2545D863BDE57368ED5467C /* Observable+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D24F681D578BD7FC0FA42DEDC805E2 /* Observable+Equatable.swift */; };
+		DC138BE7240C642E0080F9BF /* Observable+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC138BE6240C642E0080F9BF /* Observable+KeyPath.swift */; };
 		ED54FCED5EE3CC6915AF5B227D989D9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		F0C44578C4892D0EC74335F247DD567E /* LightweightObservable-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4181287B590B19F8FA264D5B23D1CD8F /* LightweightObservable-dummy.m */; };
 /* End PBXBuildFile section */
@@ -77,11 +80,11 @@
 		06B70D97160FECA378C9DABFBBDC0B14 /* SwiftLint.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.xcconfig; sourceTree = "<group>"; };
 		1D80423C2E810683662B9EFF7CEAB8EF /* Pods-LightweightObservable_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LightweightObservable_Example-umbrella.h"; sourceTree = "<group>"; };
 		1F578A4A1B4BE974F4C7507FDF3A0E15 /* Pods-LightweightObservable_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LightweightObservable_Tests-umbrella.h"; sourceTree = "<group>"; };
-		2269A80E8A92166B50F8010E2AB36D39 /* Pods_LightweightObservable_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LightweightObservable_Tests.framework; path = "Pods-LightweightObservable_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2269A80E8A92166B50F8010E2AB36D39 /* Pods_LightweightObservable_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LightweightObservable_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BFA0D99B24BC58BA37BA87B5670D67C /* LightweightObservable-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LightweightObservable-umbrella.h"; sourceTree = "<group>"; };
 		3199C5FA5D3A5923755309AACF938C6C /* Pods-LightweightObservable_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LightweightObservable_Example-dummy.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3D28E0C6285280430AA93D836834393A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		3D28E0C6285280430AA93D836834393A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		3E0E0ADF95EAF67242138263B4229AB4 /* Pods-LightweightObservable_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LightweightObservable_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3FA9ED1F2070E5A6365FCE94984DA86E /* Pods-LightweightObservable_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LightweightObservable_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		4181287B590B19F8FA264D5B23D1CD8F /* LightweightObservable-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LightweightObservable-dummy.m"; sourceTree = "<group>"; };
@@ -89,27 +92,28 @@
 		549ECE3D4A5A2BA1051A53148D21494E /* SwiftFormat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftFormat.xcconfig; sourceTree = "<group>"; };
 		7B3FB2B541E753EF6E077973732F3E9C /* Pods-LightweightObservable_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LightweightObservable_Tests-Info.plist"; sourceTree = "<group>"; };
 		7BE2C53C00202C564EA60F0D2BEC3523 /* Pods-LightweightObservable_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LightweightObservable_Example.modulemap"; sourceTree = "<group>"; };
-		7C79002861EAD4220B4D01C78B200490 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		7C79002861EAD4220B4D01C78B200490 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		81EBC594148D52C9C3A2D25DBC330C81 /* Pods-LightweightObservable_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LightweightObservable_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		88C49400C20A317C54D1BF9AA3424415 /* Pods-LightweightObservable_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LightweightObservable_Example-frameworks.sh"; sourceTree = "<group>"; };
 		8FB3DF98000F7DFCD9662F88E862C35F /* Pods-LightweightObservable_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LightweightObservable_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8FBD3AA57CE048221F7C27FAC3E9C747 /* LightweightObservable-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LightweightObservable-Info.plist"; sourceTree = "<group>"; };
 		91D24F681D578BD7FC0FA42DEDC805E2 /* Observable+Equatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Observable+Equatable.swift"; sourceTree = "<group>"; };
 		98F0113A0BD634E1C64EBE0C5790CBD8 /* Observable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Observable.swift; path = LightweightObservable/Classes/Observable.swift; sourceTree = "<group>"; };
-		9C131D626881112DA0788E78F1A1A3B7 /* LightweightObservable.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = LightweightObservable.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9C131D626881112DA0788E78F1A1A3B7 /* LightweightObservable.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = LightweightObservable.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A1A12D566AFFD931260B7C851A43D173 /* Pods-LightweightObservable_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LightweightObservable_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BA45EAFF7F061E0D8065A2244703BC7E /* Pods-LightweightObservable_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LightweightObservable_Tests.modulemap"; sourceTree = "<group>"; };
 		BAAE9B417DAFA9F534A7D0A80E36BE4B /* Pods-LightweightObservable_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LightweightObservable_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		BC3DC718C466CDF1C7518E3E1DDB2EFD /* Pods-LightweightObservable_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LightweightObservable_Example-Info.plist"; sourceTree = "<group>"; };
 		BD95D6F814D7BB6424A124EB3EB6C5EB /* LightweightObservable.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LightweightObservable.xcconfig; sourceTree = "<group>"; };
 		C9BD457AA83F6A93272FF8A1C52A6E6A /* Pods-LightweightObservable_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LightweightObservable_Example.release.xcconfig"; sourceTree = "<group>"; };
+		DC138BE6240C642E0080F9BF /* Observable+KeyPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+KeyPath.swift"; sourceTree = "<group>"; };
 		DD2DBB5D12211145A4B96C24DC531CE5 /* Pods-LightweightObservable_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LightweightObservable_Tests-dummy.m"; sourceTree = "<group>"; };
 		EAB98ED5A872D80997B7D5A797C19098 /* LightweightObservable.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LightweightObservable.modulemap; sourceTree = "<group>"; };
-		F196AAA163469B17170E99B82C7C4C0A /* LightweightObservable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LightweightObservable.framework; path = LightweightObservable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F196AAA163469B17170E99B82C7C4C0A /* LightweightObservable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LightweightObservable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EE2482ADDB7AFBE5B3F24FFBDADFDE /* Disposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Disposable.swift; path = LightweightObservable/Classes/Disposable.swift; sourceTree = "<group>"; };
 		FCB32841EF19674DDFF7E171A43F1076 /* LightweightObservable-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LightweightObservable-prefix.pch"; sourceTree = "<group>"; };
-		FE58FB7B6DF906B57FCB554211D10B01 /* Pods_LightweightObservable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LightweightObservable_Example.framework; path = "Pods-LightweightObservable_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE58FB7B6DF906B57FCB554211D10B01 /* Pods_LightweightObservable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LightweightObservable_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +193,6 @@
 			children = (
 				4A93726AF8E11A1BEB3E6F8D5D6D533B /* Support Files */,
 			);
-			name = SwiftLint;
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
@@ -232,7 +235,6 @@
 			children = (
 				8930EC6D1973325C6724E7FC84A890A0 /* Support Files */,
 			);
-			name = SwiftFormat;
 			path = SwiftFormat;
 			sourceTree = "<group>";
 		};
@@ -274,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				91D24F681D578BD7FC0FA42DEDC805E2 /* Observable+Equatable.swift */,
+				DC138BE6240C642E0080F9BF /* Observable+KeyPath.swift */,
 			);
 			name = Extensions;
 			path = LightweightObservable/Classes/Extensions;
@@ -485,6 +488,7 @@
 			files = (
 				219DF127375D40826C86FA7B2CCCF2B4 /* Disposable.swift in Sources */,
 				F0C44578C4892D0EC74335F247DD567E /* LightweightObservable-dummy.m in Sources */,
+				DC138BE7240C642E0080F9BF /* Observable+KeyPath.swift in Sources */,
 				D914498CD2545D863BDE57368ED5467C /* Observable+Equatable.swift in Sources */,
 				BC345775DA94E1D27A8F063E348359EA /* Observable.swift in Sources */,
 			);
@@ -700,8 +704,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

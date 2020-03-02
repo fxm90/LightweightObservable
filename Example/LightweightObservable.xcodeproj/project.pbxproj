@@ -20,6 +20,7 @@
 		6444735E2274741200F3E12F /* DateTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6444735D2274741200F3E12F /* DateTimeViewModel.swift */; };
 		649FBE38238832B9008D2683 /* VariableTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649FBE3623883275008D2683 /* VariableTestCase.swift */; };
 		649FBE3B2388330F008D2683 /* PublishSubjectTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649FBE3923883303008D2683 /* PublishSubjectTestCase.swift */; };
+		DC138BEA240CF2450080F9BF /* Observable+KeyPathTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC138BE8240CF22E0080F9BF /* Observable+KeyPathTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		AA9F91B319942E9EAB1C5386 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		AB41479F4E3E72BC193E2A29 /* Pods-LightweightObservable_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightweightObservable_Tests.debug.xcconfig"; path = "Target Support Files/Pods-LightweightObservable_Tests/Pods-LightweightObservable_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB1511F445273C0E0ECEB022 /* Pods-LightweightObservable_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightweightObservable_Example.debug.xcconfig"; path = "Target Support Files/Pods-LightweightObservable_Example/Pods-LightweightObservable_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		DC138BE8240CF22E0080F9BF /* Observable+KeyPathTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+KeyPathTestCase.swift"; sourceTree = "<group>"; };
 		FCC50CFA48F052C08AC66261 /* Pods-LightweightObservable_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LightweightObservable_Tests.release.xcconfig"; path = "Target Support Files/Pods-LightweightObservable_Tests/Pods-LightweightObservable_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				64124C0A228F861D00CEB2EF /* Observable+EquatableTestCase.swift */,
+				DC138BE8240CF22E0080F9BF /* Observable+KeyPathTestCase.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				64124C0C228F861D00CEB2EF /* Observable+EquatableTestCase.swift in Sources */,
 				649FBE3B2388330F008D2683 /* PublishSubjectTestCase.swift in Sources */,
 				64124C0D228F861D00CEB2EF /* ObservableTestCase.swift in Sources */,
+				DC138BEA240CF2450080F9BF /* Observable+KeyPathTestCase.swift in Sources */,
 				649FBE38238832B9008D2683 /* VariableTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
