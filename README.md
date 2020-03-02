@@ -127,7 +127,7 @@ Please notice that the old value (`oldFormattedTime`) is an optional of the unde
 **Declaration**
 
 ```swift
-func bind<Root: AnyObject>(to keyPath: WritableKeyPath<Root, Value>, on object: Root) -> Disposable
+func bind<Root: AnyObject>(to keyPath: ReferenceWritableKeyPath<Root, Value>, on object: Root) -> Disposable
 ```
 
 It is also possible to use Swift's KeyPath feature to bind an observable directly to a property:
