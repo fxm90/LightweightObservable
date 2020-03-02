@@ -37,7 +37,7 @@ public class Observable<T> {
     ///
     /// - Attention: It's always better to subscribe to a given observable! This **shortcut** should only be used during **testing**.
     public var value: Value? {
-        fatalError("⚠️ – Subclasses need to overwrite this computed property.")
+        fatalError("⚠️ – Subclasses need to overwrite and implement this computed property.")
     }
 
     // MARK: - Private properties
@@ -74,7 +74,7 @@ public class Observable<T> {
     // MARK: - Private methods
 
     fileprivate func notifyObserver(with value: Value, from oldValue: OldValue) {
-        for (_, observer) in observers {
+        observers.values.forEach { observer in
             observer(value, oldValue)
         }
     }
@@ -124,12 +124,8 @@ public final class Variable<T>: Observable<T> {
 
     /// The current (read- and writeable) value of the variable.
     public override var value: Value {
-        get {
-            _value
-        }
-        set {
-            _value = newValue
-        }
+        get { _value }
+        set { _value = newValue }
     }
 
     // MARK: - Private properties

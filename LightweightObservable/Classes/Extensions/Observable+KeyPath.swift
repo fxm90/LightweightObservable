@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Additional helper methods for using Swifts `KeyPath` feature to bind an observable to a property.
+/// Additional helper methods for binding an observable to a property using Swifts `KeyPath` feature.
 public extension Observable {
     /// Updates the property at the given key-path on changes to our property `value`.
     ///
