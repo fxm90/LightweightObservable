@@ -61,8 +61,8 @@ dependencies: [
 The framework provides three classes `Observable`, `PublishSubject` and `Variable`:
 
  - `Observable`: An observable sequence that you can subscribe to, but not change the underlying value (immutable). This is useful to avoid side-effects on an internal API.
- - `PublishSubject`: Subclass of `Observable`, that starts empty and only emits new elements to subscribers (mutable).
- - `Variable`: Subclass of `Observable`, that starts with an initial value and replays it or the latest element to new subscribers (mutable).
+ - `PublishSubject`: Subclass of `Observable` that starts empty and only emits new elements to subscribers (mutable).
+ - `Variable`: Subclass of `Observable` that starts with an initial value and replays it or the latest element to new subscribers (mutable).
 
 #### – Create and update a `PublishSubject`
 A `PublishSubject` starts empty and only emits new elements to subscribers.
@@ -158,7 +158,7 @@ In case you only use a single subscriber you can store the returned `Disposable`
 // MARK: - Using `subscribe(_:)`
 
 let disposable = formattedTime.subscribe { [weak self] newFormattedTime, oldFormattedTime in
-	// ...
+    self?.timeLabel.text = newFormattedTime
 }
 
 // MARK: - Using a `bind(to:on:)`
@@ -176,11 +176,11 @@ var disposeBag = DisposeBag()
 // MARK: - Using `subscribe(_:)`
 
 formattedTime.subscribe { [weak self] newFormattedTime, oldFormattedTime in
-    // ...
+    self?.timeLabel.text = newFormattedTime
 }.disposed(by: &disposeBag)
 
 formattedDate.subscribe { [weak self] newFormattedDate, oldFormattedDate in
-    // ...
+    self?.dateLabel.text = newFormattedDate
 }.disposed(by: &disposeBag)
 
 // MARK: - Using a `bind(to:on:)`
