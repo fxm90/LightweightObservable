@@ -15,7 +15,6 @@
 			dependencies = (
 			);
 			name = SwiftFormat;
-			productName = SwiftFormat;
 		};
 		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
 			isa = PBXAggregateTarget;
@@ -25,24 +24,23 @@
 			dependencies = (
 			);
 			name = SwiftLint;
-			productName = SwiftLint;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		1D6B619826D390750A5DA0A458008158 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		219DF127375D40826C86FA7B2CCCF2B4 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EE2482ADDB7AFBE5B3F24FFBDADFDE /* Disposable.swift */; };
+		12D40E9E4AE370BDAD37F786D5C30C8A /* Observable+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE08C93751FF0E8457BC4D7057AD160 /* Observable+KeyPath.swift */; };
+		12EB1573E0CBD8AACA200911C6336038 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C307AAF4EDDD51017D809AD9AE1636C /* Observable.swift */; };
+		2D1E4732154018FAA87742ED0BEC30AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		3BBF50F02BF090279FBB87E2F82227C2 /* Pods-LightweightObservable_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199C5FA5D3A5923755309AACF938C6C /* Pods-LightweightObservable_Example-dummy.m */; };
 		64F673A92DA0A743A7AAEFB8BAEEB086 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		846881AEB2E4695D8541EFD66E834D5D /* LightweightObservable-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BFA0D99B24BC58BA37BA87B5670D67C /* LightweightObservable-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68A73EC4E6DC59695D9E2DCFE4881E95 /* Observable+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8B0BDB9A78C2EDC458DF8FDA93377 /* Observable+Equatable.swift */; };
+		888E4488BD3928F5C6D1AEB63B1A1808 /* LightweightObservable-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EFD6D34B37C8FB3C68DC6311A398F7 /* LightweightObservable-dummy.m */; };
 		8DC5C1C4D7F7DA2AA0C12F349C142C61 /* Pods-LightweightObservable_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F578A4A1B4BE974F4C7507FDF3A0E15 /* Pods-LightweightObservable_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B14EBF4A4D96D93E46CBE990193E93C0 /* Pods-LightweightObservable_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D80423C2E810683662B9EFF7CEAB8EF /* Pods-LightweightObservable_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BC345775DA94E1D27A8F063E348359EA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F0113A0BD634E1C64EBE0C5790CBD8 /* Observable.swift */; };
+		B57606FBCAD115F4F5FD77C915D43F46 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5526D77F4741C532176B7E1DD587FA /* Disposable.swift */; };
+		B9CD3914703720D29018CDD1A95C7BE8 /* LightweightObservable-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 594F73128B49C757DB77B801018DD086 /* LightweightObservable-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C628DF55B66FCFA0AC32C45BF5332DF8 /* Pods-LightweightObservable_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2DBB5D12211145A4B96C24DC531CE5 /* Pods-LightweightObservable_Tests-dummy.m */; };
-		D914498CD2545D863BDE57368ED5467C /* Observable+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D24F681D578BD7FC0FA42DEDC805E2 /* Observable+Equatable.swift */; };
-		DC138BE7240C642E0080F9BF /* Observable+KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC138BE6240C642E0080F9BF /* Observable+KeyPath.swift */; };
 		ED54FCED5EE3CC6915AF5B227D989D9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		F0C44578C4892D0EC74335F247DD567E /* LightweightObservable-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4181287B590B19F8FA264D5B23D1CD8F /* LightweightObservable-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,50 +76,50 @@
 
 /* Begin PBXFileReference section */
 		06B70D97160FECA378C9DABFBBDC0B14 /* SwiftLint.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.xcconfig; sourceTree = "<group>"; };
+		1BE08C93751FF0E8457BC4D7057AD160 /* Observable+KeyPath.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Observable+KeyPath.swift"; sourceTree = "<group>"; };
 		1D80423C2E810683662B9EFF7CEAB8EF /* Pods-LightweightObservable_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LightweightObservable_Example-umbrella.h"; sourceTree = "<group>"; };
 		1F578A4A1B4BE974F4C7507FDF3A0E15 /* Pods-LightweightObservable_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LightweightObservable_Tests-umbrella.h"; sourceTree = "<group>"; };
-		2269A80E8A92166B50F8010E2AB36D39 /* Pods_LightweightObservable_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LightweightObservable_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BFA0D99B24BC58BA37BA87B5670D67C /* LightweightObservable-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LightweightObservable-umbrella.h"; sourceTree = "<group>"; };
+		2269A80E8A92166B50F8010E2AB36D39 /* Pods_LightweightObservable_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LightweightObservable_Tests.framework; path = "Pods-LightweightObservable_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26EFD6D34B37C8FB3C68DC6311A398F7 /* LightweightObservable-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LightweightObservable-dummy.m"; sourceTree = "<group>"; };
 		3199C5FA5D3A5923755309AACF938C6C /* Pods-LightweightObservable_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LightweightObservable_Example-dummy.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3D28E0C6285280430AA93D836834393A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		3C307AAF4EDDD51017D809AD9AE1636C /* Observable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Observable.swift; path = LightweightObservable/Classes/Observable.swift; sourceTree = "<group>"; };
+		3D5526D77F4741C532176B7E1DD587FA /* Disposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Disposable.swift; path = LightweightObservable/Classes/Disposable.swift; sourceTree = "<group>"; };
 		3E0E0ADF95EAF67242138263B4229AB4 /* Pods-LightweightObservable_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LightweightObservable_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3FA9ED1F2070E5A6365FCE94984DA86E /* Pods-LightweightObservable_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LightweightObservable_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		4181287B590B19F8FA264D5B23D1CD8F /* LightweightObservable-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LightweightObservable-dummy.m"; sourceTree = "<group>"; };
 		4EBC7834E83E4714C2B1A027587AC706 /* Pods-LightweightObservable_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LightweightObservable_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		549ECE3D4A5A2BA1051A53148D21494E /* SwiftFormat.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftFormat.xcconfig; sourceTree = "<group>"; };
+		56A8B0BDB9A78C2EDC458DF8FDA93377 /* Observable+Equatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Observable+Equatable.swift"; sourceTree = "<group>"; };
+		5782493589F95073DE2B7D755E58E33E /* LightweightObservable.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = LightweightObservable.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		594F73128B49C757DB77B801018DD086 /* LightweightObservable-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LightweightObservable-umbrella.h"; sourceTree = "<group>"; };
 		7B3FB2B541E753EF6E077973732F3E9C /* Pods-LightweightObservable_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LightweightObservable_Tests-Info.plist"; sourceTree = "<group>"; };
 		7BE2C53C00202C564EA60F0D2BEC3523 /* Pods-LightweightObservable_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LightweightObservable_Example.modulemap"; sourceTree = "<group>"; };
-		7C79002861EAD4220B4D01C78B200490 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		81EBC594148D52C9C3A2D25DBC330C81 /* Pods-LightweightObservable_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LightweightObservable_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		88C49400C20A317C54D1BF9AA3424415 /* Pods-LightweightObservable_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LightweightObservable_Example-frameworks.sh"; sourceTree = "<group>"; };
 		8FB3DF98000F7DFCD9662F88E862C35F /* Pods-LightweightObservable_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LightweightObservable_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		8FBD3AA57CE048221F7C27FAC3E9C747 /* LightweightObservable-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LightweightObservable-Info.plist"; sourceTree = "<group>"; };
-		91D24F681D578BD7FC0FA42DEDC805E2 /* Observable+Equatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Observable+Equatable.swift"; sourceTree = "<group>"; };
-		98F0113A0BD634E1C64EBE0C5790CBD8 /* Observable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Observable.swift; path = LightweightObservable/Classes/Observable.swift; sourceTree = "<group>"; };
-		9C131D626881112DA0788E78F1A1A3B7 /* LightweightObservable.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = LightweightObservable.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		983298D6BBC40F03ED5537F8C1AB54E0 /* LightweightObservable-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LightweightObservable-Info.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9FA724602D9FBC0B1D1DB21F49A86BB6 /* LightweightObservable.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LightweightObservable.xcconfig; sourceTree = "<group>"; };
 		A1A12D566AFFD931260B7C851A43D173 /* Pods-LightweightObservable_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LightweightObservable_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BA45EAFF7F061E0D8065A2244703BC7E /* Pods-LightweightObservable_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LightweightObservable_Tests.modulemap"; sourceTree = "<group>"; };
 		BAAE9B417DAFA9F534A7D0A80E36BE4B /* Pods-LightweightObservable_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LightweightObservable_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		BC3DC718C466CDF1C7518E3E1DDB2EFD /* Pods-LightweightObservable_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LightweightObservable_Example-Info.plist"; sourceTree = "<group>"; };
-		BD95D6F814D7BB6424A124EB3EB6C5EB /* LightweightObservable.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LightweightObservable.xcconfig; sourceTree = "<group>"; };
+		C55D238692015E1F2BCE33E45C2768AA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		C9BD457AA83F6A93272FF8A1C52A6E6A /* Pods-LightweightObservable_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LightweightObservable_Example.release.xcconfig"; sourceTree = "<group>"; };
-		DC138BE6240C642E0080F9BF /* Observable+KeyPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+KeyPath.swift"; sourceTree = "<group>"; };
+		CDE65F2E8D02A3F6E9A46A85E8F6724B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		CFAB91189C3914269A772FBFD55EBF76 /* LightweightObservable-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LightweightObservable-prefix.pch"; sourceTree = "<group>"; };
 		DD2DBB5D12211145A4B96C24DC531CE5 /* Pods-LightweightObservable_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LightweightObservable_Tests-dummy.m"; sourceTree = "<group>"; };
-		EAB98ED5A872D80997B7D5A797C19098 /* LightweightObservable.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LightweightObservable.modulemap; sourceTree = "<group>"; };
-		F196AAA163469B17170E99B82C7C4C0A /* LightweightObservable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LightweightObservable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6EE2482ADDB7AFBE5B3F24FFBDADFDE /* Disposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Disposable.swift; path = LightweightObservable/Classes/Disposable.swift; sourceTree = "<group>"; };
-		FCB32841EF19674DDFF7E171A43F1076 /* LightweightObservable-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LightweightObservable-prefix.pch"; sourceTree = "<group>"; };
-		FE58FB7B6DF906B57FCB554211D10B01 /* Pods_LightweightObservable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LightweightObservable_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F196AAA163469B17170E99B82C7C4C0A /* LightweightObservable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LightweightObservable.framework; path = LightweightObservable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC98960B81719A417D601C03D7F9B5AB /* LightweightObservable.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LightweightObservable.modulemap; sourceTree = "<group>"; };
+		FE58FB7B6DF906B57FCB554211D10B01 /* Pods_LightweightObservable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LightweightObservable_Example.framework; path = "Pods-LightweightObservable_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		80DD2BF3FAE6F39A598EAFE4C5609B88 /* Frameworks */ = {
+		0E18DCECF917E467B6C940F7811473C7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D6B619826D390750A5DA0A458008158 /* Foundation.framework in Frameworks */,
+				2D1E4732154018FAA87742ED0BEC30AB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +142,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D127C56EBEEA608CA588C46DF055AE0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				56A8B0BDB9A78C2EDC458DF8FDA93377 /* Observable+Equatable.swift */,
+				1BE08C93751FF0E8457BC4D7057AD160 /* Observable+KeyPath.swift */,
+			);
+			name = Extensions;
+			path = LightweightObservable/Classes/Extensions;
+			sourceTree = "<group>";
+		};
 		14EA04B20FB662711E47FBDFE54AB6D0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +160,19 @@
 				2269A80E8A92166B50F8010E2AB36D39 /* Pods_LightweightObservable_Tests.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		167D7D52027A27E8C8DBE3B0CA4E4B07 /* LightweightObservable */ = {
+			isa = PBXGroup;
+			children = (
+				3D5526D77F4741C532176B7E1DD587FA /* Disposable.swift */,
+				3C307AAF4EDDD51017D809AD9AE1636C /* Observable.swift */,
+				0D127C56EBEEA608CA588C46DF055AE0 /* Extensions */,
+				F670DC02D34F911EF0CB8067E0DB46A6 /* Pod */,
+				8E54A9296AFFAC5784A9E0A46786FEB2 /* Support Files */,
+			);
+			name = LightweightObservable;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		1EB962D0A8201C06AC0BA8309DD4FA81 /* Pods-LightweightObservable_Example */ = {
@@ -183,7 +204,7 @@
 		53D1194234F922BDAAAEDE97BD67845D /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DF2272C3CE6C1CC5EF35C23E9083C114 /* LightweightObservable */,
+				167D7D52027A27E8C8DBE3B0CA4E4B07 /* LightweightObservable */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -193,6 +214,7 @@
 			children = (
 				4A93726AF8E11A1BEB3E6F8D5D6D533B /* Support Files */,
 			);
+			name = SwiftLint;
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
@@ -212,6 +234,20 @@
 				53D3A49A001BFD9799D1B53C33F841A7 /* SwiftLint */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8E54A9296AFFAC5784A9E0A46786FEB2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FC98960B81719A417D601C03D7F9B5AB /* LightweightObservable.modulemap */,
+				9FA724602D9FBC0B1D1DB21F49A86BB6 /* LightweightObservable.xcconfig */,
+				26EFD6D34B37C8FB3C68DC6311A398F7 /* LightweightObservable-dummy.m */,
+				983298D6BBC40F03ED5537F8C1AB54E0 /* LightweightObservable-Info.plist */,
+				CFAB91189C3914269A772FBFD55EBF76 /* LightweightObservable-prefix.pch */,
+				594F73128B49C757DB77B801018DD086 /* LightweightObservable-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/LightweightObservable";
 			sourceTree = "<group>";
 		};
 		9E21FB2BA0D41C01FFA3E308F69DF17E /* Pods-LightweightObservable_Tests */ = {
@@ -235,6 +271,7 @@
 			children = (
 				8930EC6D1973325C6724E7FC84A890A0 /* Support Files */,
 			);
+			name = SwiftFormat;
 			path = SwiftFormat;
 			sourceTree = "<group>";
 		};
@@ -244,20 +281,6 @@
 				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		CDC8F9A06781B99700619C787019A3D2 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				EAB98ED5A872D80997B7D5A797C19098 /* LightweightObservable.modulemap */,
-				BD95D6F814D7BB6424A124EB3EB6C5EB /* LightweightObservable.xcconfig */,
-				4181287B590B19F8FA264D5B23D1CD8F /* LightweightObservable-dummy.m */,
-				8FBD3AA57CE048221F7C27FAC3E9C747 /* LightweightObservable-Info.plist */,
-				FCB32841EF19674DDFF7E171A43F1076 /* LightweightObservable-prefix.pch */,
-				2BFA0D99B24BC58BA37BA87B5670D67C /* LightweightObservable-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/LightweightObservable";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -270,16 +293,6 @@
 				14EA04B20FB662711E47FBDFE54AB6D0 /* Products */,
 				D81D47ACA6D78618750F6B87C218F7AF /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		D07587984B62CF90598D28069CE70D0E /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				91D24F681D578BD7FC0FA42DEDC805E2 /* Observable+Equatable.swift */,
-				DC138BE6240C642E0080F9BF /* Observable+KeyPath.swift */,
-			);
-			name = Extensions;
-			path = LightweightObservable/Classes/Extensions;
 			sourceTree = "<group>";
 		};
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
@@ -299,27 +312,14 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		D9AFE4E24073FB115DC08AAD52FE2C7E /* Pod */ = {
+		F670DC02D34F911EF0CB8067E0DB46A6 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				3D28E0C6285280430AA93D836834393A /* LICENSE */,
-				9C131D626881112DA0788E78F1A1A3B7 /* LightweightObservable.podspec */,
-				7C79002861EAD4220B4D01C78B200490 /* README.md */,
+				C55D238692015E1F2BCE33E45C2768AA /* LICENSE */,
+				5782493589F95073DE2B7D755E58E33E /* LightweightObservable.podspec */,
+				CDE65F2E8D02A3F6E9A46A85E8F6724B /* README.md */,
 			);
 			name = Pod;
-			sourceTree = "<group>";
-		};
-		DF2272C3CE6C1CC5EF35C23E9083C114 /* LightweightObservable */ = {
-			isa = PBXGroup;
-			children = (
-				F6EE2482ADDB7AFBE5B3F24FFBDADFDE /* Disposable.swift */,
-				98F0113A0BD634E1C64EBE0C5790CBD8 /* Observable.swift */,
-				D07587984B62CF90598D28069CE70D0E /* Extensions */,
-				D9AFE4E24073FB115DC08AAD52FE2C7E /* Pod */,
-				CDC8F9A06781B99700619C787019A3D2 /* Support Files */,
-			);
-			name = LightweightObservable;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,11 +341,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF5E270980B87255D5182AB16ADEA693 /* Headers */ = {
+		B59E00D5ACD022777BC7B545CF15EFE3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				846881AEB2E4695D8541EFD66E834D5D /* LightweightObservable-umbrella.h in Headers */,
+				B9CD3914703720D29018CDD1A95C7BE8 /* LightweightObservable-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,12 +354,12 @@
 /* Begin PBXNativeTarget section */
 		086F937CFC9099EB74E4B66BE7CBCB93 /* LightweightObservable */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B5BC3B5BB46C0D81EA19DA96FC2D668 /* Build configuration list for PBXNativeTarget "LightweightObservable" */;
+			buildConfigurationList = 6C99F95D3B4250229B0FF37323F1D9CD /* Build configuration list for PBXNativeTarget "LightweightObservable" */;
 			buildPhases = (
-				BF5E270980B87255D5182AB16ADEA693 /* Headers */,
-				A01DFD2DEFFDFBCC8432EAB6FF11B24B /* Sources */,
-				80DD2BF3FAE6F39A598EAFE4C5609B88 /* Frameworks */,
-				2C767907C74A62BC8EBD8ADB01F72450 /* Resources */,
+				B59E00D5ACD022777BC7B545CF15EFE3 /* Headers */,
+				8BADDD0F0E9E95433594600C25DCFC70 /* Sources */,
+				0E18DCECF917E467B6C940F7811473C7 /* Frameworks */,
+				655CEB4E33FC49DA68C3659175ED8561 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -442,7 +442,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2C767907C74A62BC8EBD8ADB01F72450 /* Resources */ = {
+		655CEB4E33FC49DA68C3659175ED8561 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -474,23 +474,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BADDD0F0E9E95433594600C25DCFC70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B57606FBCAD115F4F5FD77C915D43F46 /* Disposable.swift in Sources */,
+				888E4488BD3928F5C6D1AEB63B1A1808 /* LightweightObservable-dummy.m in Sources */,
+				68A73EC4E6DC59695D9E2DCFE4881E95 /* Observable+Equatable.swift in Sources */,
+				12D40E9E4AE370BDAD37F786D5C30C8A /* Observable+KeyPath.swift in Sources */,
+				12EB1573E0CBD8AACA200911C6336038 /* Observable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C99395D351C45C8EE33DC987BBCEB9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3BBF50F02BF090279FBB87E2F82227C2 /* Pods-LightweightObservable_Example-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A01DFD2DEFFDFBCC8432EAB6FF11B24B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				219DF127375D40826C86FA7B2CCCF2B4 /* Disposable.swift in Sources */,
-				F0C44578C4892D0EC74335F247DD567E /* LightweightObservable-dummy.m in Sources */,
-				DC138BE7240C642E0080F9BF /* Observable+KeyPath.swift in Sources */,
-				D914498CD2545D863BDE57368ED5467C /* Observable+Equatable.swift in Sources */,
-				BC345775DA94E1D27A8F063E348359EA /* Observable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,9 +524,9 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1319DBECE73D61ACA7A1FF23B7730E6B /* Release */ = {
+		183E6F7F99C35F61799B5D15E17DF903 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD95D6F814D7BB6424A124EB3EB6C5EB /* LightweightObservable.xcconfig */;
+			baseConfigurationReference = 9FA724602D9FBC0B1D1DB21F49A86BB6 /* LightweightObservable.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -555,6 +555,37 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		373E220E589741F4F932891F133D16DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FA724602D9FBC0B1D1DB21F49A86BB6 /* LightweightObservable.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LightweightObservable/LightweightObservable-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LightweightObservable/LightweightObservable-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LightweightObservable/LightweightObservable.modulemap";
+				PRODUCT_MODULE_NAME = LightweightObservable;
+				PRODUCT_NAME = LightweightObservable;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		496522CC545DF8B657DD670F554E0955 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -704,7 +735,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -867,49 +899,9 @@
 			};
 			name = Debug;
 		};
-		F0C4B9EE1FDAA7F9DD32766390F0CFFF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD95D6F814D7BB6424A124EB3EB6C5EB /* LightweightObservable.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/LightweightObservable/LightweightObservable-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LightweightObservable/LightweightObservable-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LightweightObservable/LightweightObservable.modulemap";
-				PRODUCT_MODULE_NAME = LightweightObservable;
-				PRODUCT_NAME = LightweightObservable;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0B5BC3B5BB46C0D81EA19DA96FC2D668 /* Build configuration list for PBXNativeTarget "LightweightObservable" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F0C4B9EE1FDAA7F9DD32766390F0CFFF /* Debug */,
-				1319DBECE73D61ACA7A1FF23B7730E6B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		21D1B599910A7C4EBB7AE42A6E4DFB23 /* Build configuration list for PBXNativeTarget "Pods-LightweightObservable_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -933,6 +925,15 @@
 			buildConfigurations = (
 				A8A39F86ED80874B567AC60703BA6FA1 /* Debug */,
 				61D16562C88F67A248B236668FAC8E96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C99F95D3B4250229B0FF37323F1D9CD /* Build configuration list for PBXNativeTarget "LightweightObservable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				373E220E589741F4F932891F133D16DD /* Debug */,
+				183E6F7F99C35F61799B5D15E17DF903 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

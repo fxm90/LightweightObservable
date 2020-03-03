@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ---
 
 ## [Unreleased]
+## [2.1.0] - 2020-03-03
+### Added
+ - Add method `bind(to:on)` to use Swift's KeyPath feature to bind an observable directly to a property.
 
 ## [2.0.0] - 2019-28-11
 ### Added
@@ -34,7 +37,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Initial release.
 
 
-[Unreleased]: https://github.com/fxm90/LightweightObservable/compare/2.0.0...master
+[Unreleased]: https://github.com/fxm90/LightweightObservable/compare/2.1.0...master
+[2.1.0]: https://github.com/fxm90/LightweightObservable/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/fxm90/LightweightObservable/compare/1.0.3...2.0.0
 [1.0.3]: https://github.com/fxm90/LightweightObservable/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/fxm90/LightweightObservable/compare/1.0.1...1.0.2
