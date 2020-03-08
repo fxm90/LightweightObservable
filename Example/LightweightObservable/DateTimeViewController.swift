@@ -12,8 +12,9 @@ import LightweightObservable
 class DateTimeViewController: UIViewController {
     // MARK: - Outlets
 
-    @IBOutlet private var dateLabel: UILabel!
-    @IBOutlet private var timeLabel: UILabel!
+    @IBOutlet private var dateTimeLabel: UILabel!
+
+    @IBOutlet private var savedFormattedDateTimesTextView: UITextView!
 
     // MARK: - Private properties
 
@@ -32,17 +33,23 @@ class DateTimeViewController: UIViewController {
         bindViewModelToView()
     }
 
+    @IBAction func didTapSaveTimeButton(_: Any) {
+        dateTimeViewModel.didTapSaveTimeButton()
+    }
+
     // MARK: - Private methods
 
     private func bindViewModelToView() {
         dateTimeViewModel
-            .formattedDate
-            .bind(to: \.text, on: dateLabel)
+            .formattedDateTime
+            .bind(to: \.text, on: dateTimeLabel)
             .disposed(by: &disposeBag)
 
         dateTimeViewModel
-            .formattedTime
-            .bind(to: \.text, on: timeLabel)
+            .saveFormattedDateTime
+            .subscribe { [weak self] newValue, _ in
+                self?.savedFormattedDateTimesTextView.text.append(newValue)
+            }
             .disposed(by: &disposeBag)
     }
 }

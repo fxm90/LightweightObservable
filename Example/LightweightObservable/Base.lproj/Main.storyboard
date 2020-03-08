@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9xA-Oj-2Nx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9xA-Oj-2Nx">
     <device id="retina6_5" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -10,49 +11,15 @@
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="DateTimeViewController" customModule="LightweightObservable_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jU-uO-s3W" userLabel="Wrapper View">
-                                <rect key="frame" x="0.0" y="181.33333333333331" width="414" height="714.66666666666674"/>
+                                <rect key="frame" x="0.0" y="182.33333333333331" width="414" height="713.66666666666674"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUR-d1-7pV" userLabel="Border Top View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
-                                        <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="OGT-EP-Pzb"/>
-                                        </constraints>
-                                    </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PpZ-OI-pSP" userLabel="Label Stack View">
-                                        <rect key="frame" x="16" y="15.999999999999998" width="382" height="20.333333333333329"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apr 20, 2019" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPr-GM-r44" userLabel="Date Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="98.333333333333329" height="20.333333333333332"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="–" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPs-a0-fgK" userLabel="Separator Label">
-                                                <rect key="frame" x="102.33333333333333" y="0.0" width="8.3333333333333286" height="20.333333333333332"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="4:20:00 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5U-p0-NKY" userLabel="Time Label">
-                                                <rect key="frame" x="114.66666666666666" y="0.0" width="267.33333333333337" height="20.333333333333332"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
                                     <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Its always wine oclock" translatesAutoresizingMaskIntoConstraints="NO" id="qNt-jB-lbN" userLabel="Wine Image View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="714.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="713.66666666666663"/>
                                         <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
@@ -60,34 +27,77 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUR-d1-7pV" userLabel="Border Top View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                        <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="OGT-EP-Pzb"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MMMM d, YYYY at HH:MM:SS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFL-Eh-gad">
+                                        <rect key="frame" x="24" y="17" width="366" height="21"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yit-Ez-dlG">
+                                        <rect key="frame" x="24" y="54" width="366" height="33"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Save current time"/>
+                                        <connections>
+                                            <action selector="didTapSaveTimeButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QDW-5H-r6r"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BaV-HM-lE5">
+                                        <rect key="frame" x="24" y="102.99999999999994" width="366" height="594.66666666666652"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="textContainer.lineFragmentPadding">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="rect" keyPath="textContainerInset">
+                                                <rect key="value" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="PpZ-OI-pSP" firstAttribute="top" secondItem="4jU-uO-s3W" secondAttribute="top" constant="16" id="ADt-n8-npZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="PpZ-OI-pSP" secondAttribute="trailing" constant="16" id="BPs-ug-jgl"/>
+                                    <constraint firstItem="yit-Ez-dlG" firstAttribute="top" secondItem="kFL-Eh-gad" secondAttribute="bottom" constant="16" id="5FU-9Z-lNR"/>
+                                    <constraint firstItem="yit-Ez-dlG" firstAttribute="leading" secondItem="4jU-uO-s3W" secondAttribute="leading" constant="24" id="Bpa-A0-9kj"/>
+                                    <constraint firstAttribute="trailing" secondItem="yit-Ez-dlG" secondAttribute="trailing" constant="24" id="EBS-Zo-EI8"/>
+                                    <constraint firstAttribute="trailing" secondItem="kFL-Eh-gad" secondAttribute="trailing" constant="24" id="Kdt-gW-dTP"/>
                                     <constraint firstItem="RUR-d1-7pV" firstAttribute="leading" secondItem="4jU-uO-s3W" secondAttribute="leading" id="MbW-Ws-fUP"/>
                                     <constraint firstItem="RUR-d1-7pV" firstAttribute="top" secondItem="4jU-uO-s3W" secondAttribute="top" id="O4e-er-A8k"/>
                                     <constraint firstItem="qNt-jB-lbN" firstAttribute="leading" secondItem="4jU-uO-s3W" secondAttribute="leading" id="OMO-Pc-3hw"/>
                                     <constraint firstAttribute="trailing" secondItem="RUR-d1-7pV" secondAttribute="trailing" id="PaM-iz-npe"/>
+                                    <constraint firstAttribute="trailing" secondItem="BaV-HM-lE5" secondAttribute="trailing" constant="24" id="WZA-5Y-jgX"/>
+                                    <constraint firstItem="kFL-Eh-gad" firstAttribute="leading" secondItem="4jU-uO-s3W" secondAttribute="leading" constant="24" id="Zaa-db-jDC"/>
                                     <constraint firstItem="qNt-jB-lbN" firstAttribute="top" secondItem="4jU-uO-s3W" secondAttribute="top" id="apR-8G-nqb"/>
                                     <constraint firstAttribute="bottom" secondItem="qNt-jB-lbN" secondAttribute="bottom" id="hQ9-Wb-iz6"/>
-                                    <constraint firstItem="PpZ-OI-pSP" firstAttribute="leading" secondItem="4jU-uO-s3W" secondAttribute="leading" constant="16" id="pwi-pb-bLg"/>
+                                    <constraint firstItem="BaV-HM-lE5" firstAttribute="top" secondItem="yit-Ez-dlG" secondAttribute="bottom" constant="16" id="p03-pk-n8F"/>
                                     <constraint firstAttribute="trailing" secondItem="qNt-jB-lbN" secondAttribute="trailing" id="vB5-ii-QTO"/>
+                                    <constraint firstItem="BaV-HM-lE5" firstAttribute="leading" secondItem="4jU-uO-s3W" secondAttribute="leading" constant="24" id="wZH-Dr-8ap"/>
+                                    <constraint firstAttribute="bottom" secondItem="BaV-HM-lE5" secondAttribute="bottom" constant="16" id="xKb-hu-RFu"/>
+                                    <constraint firstItem="kFL-Eh-gad" firstAttribute="top" secondItem="RUR-d1-7pV" secondAttribute="bottom" constant="16" id="xoO-Sq-Qav"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4jU-uO-s3W" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="QMa-K5-01y"/>
-                            <constraint firstItem="4jU-uO-s3W" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Sbu-z1-NqP"/>
+                            <constraint firstItem="4jU-uO-s3W" firstAttribute="leading" secondItem="OLj-Wd-QOa" secondAttribute="leading" id="QMa-K5-01y"/>
+                            <constraint firstItem="4jU-uO-s3W" firstAttribute="top" secondItem="OLj-Wd-QOa" secondAttribute="top" id="Sbu-z1-NqP"/>
                             <constraint firstAttribute="bottom" secondItem="4jU-uO-s3W" secondAttribute="bottom" id="qGW-gf-DWS"/>
-                            <constraint firstAttribute="trailing" secondItem="4jU-uO-s3W" secondAttribute="trailing" id="z77-TV-bQl"/>
+                            <constraint firstItem="OLj-Wd-QOa" firstAttribute="trailing" secondItem="4jU-uO-s3W" secondAttribute="trailing" id="z77-TV-bQl"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="OLj-Wd-QOa"/>
                     </view>
                     <navigationItem key="navigationItem" title="Current Date &amp; Time ⏰" prompt="Lightweight Observable Example" id="V9R-9v-GpT"/>
                     <connections>
-                        <outlet property="dateLabel" destination="UPr-GM-r44" id="6Fh-9B-OLE"/>
-                        <outlet property="timeLabel" destination="i5U-p0-NKY" id="Fmg-7x-JJk"/>
+                        <outlet property="dateTimeLabel" destination="kFL-Eh-gad" id="p1i-ua-Uh4"/>
+                        <outlet property="savedFormattedDateTimesTextView" destination="BaV-HM-lE5" id="tJi-xg-5Kn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -111,7 +121,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uiC-bP-Yao" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="269.60000000000002" y="792.95352323838085"/>
+            <point key="canvasLocation" x="78" y="133"/>
         </scene>
     </scenes>
     <resources>

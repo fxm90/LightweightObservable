@@ -12,57 +12,56 @@ import LightweightObservable
 class DateTimeViewModel {
     // MARK: - Public properties
 
-    /// The current date as a formatted string.
+    /// The current date and time as a formatted string.
     ///
     /// - Note: As this is a public property the value is immutable, so you can only subscribe to changes.
-    var formattedDate: Observable<String> {
-        formattedDateSubject
+    var formattedDateTime: Observable<String> {
+        formattedDateTimeSubject
     }
 
-    /// The current time as a formatted string.
+    /// The formatted date and time the user wants to save.
     ///
     /// - Note: As this is a public property the value is immutable, so you can only subscribe to changes.
-    var formattedTime: Observable<String> {
-        formattedTimeSubject
+    var saveFormattedDateTime: Observable<String> {
+        saveFormattedDateTimeSubject
     }
 
     // MARK: - Private properties
 
-    /// The current date as a formatted string.
+    /// The current date and time as a formatted string.
     ///
     /// - Note: As this is our private property the value is mutable, so only this class can modify it.
-    private let formattedDateSubject = Variable(DateTimeViewModel.makeFormattedDate())
+    private let formattedDateTimeSubject = Variable(DateTimeViewModel.makeFormattedDateAndTime())
 
-    /// The current time as a formatted string.
+    /// The formatted date and time the user wants to save.
     ///
     /// - Note: As this is our private property the value is mutable, so only this class can modify it.
-    private let formattedTimeSubject = Variable(DateTimeViewModel.makeFormattedTime())
+    private let saveFormattedDateTimeSubject = PublishSubject<String>()
 
     private var timer: Timer?
 
     // MARK: - Initializer
 
     init() {
-        // Update variables with current date and time every second.
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
-            guard let self = self else { return }
-
-            self.formattedDateSubject.value = Self.makeFormattedDate()
-            self.formattedTimeSubject.value = Self.makeFormattedTime()
+            self?.formattedDateTimeSubject.value = Self.makeFormattedDateAndTime()
         })
+    }
+
+    // MARK: - Public methods
+
+    func didTapSaveTimeButton() {
+        let delimiter = "\n"
+        let textToSave = Self.makeFormattedDateAndTime() + delimiter
+
+        saveFormattedDateTimeSubject.update(textToSave)
     }
 
     // MARK: - Private methods
 
-    private static func makeFormattedDate() -> String {
+    private static func makeFormattedDateAndTime() -> String {
         DateFormatter.localizedString(from: Date(),
-                                      dateStyle: .medium,
-                                      timeStyle: .none)
-    }
-
-    private static func makeFormattedTime() -> String {
-        DateFormatter.localizedString(from: Date(),
-                                      dateStyle: .none,
+                                      dateStyle: .long,
                                       timeStyle: .medium)
     }
 }
