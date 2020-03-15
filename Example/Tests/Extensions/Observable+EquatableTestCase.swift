@@ -130,7 +130,7 @@ class ObservableEquatableTestCase: XCTestCase {
             }
         }
 
-        waitForExpectations(timeout: 0.001, handler: nil)
+        waitForExpectations(timeout: .ulpOfOne, handler: nil)
     }
 
     func testPublishSubjectShouldUpdateDistinctSubscriberJustOnceForSameValue() {
@@ -155,7 +155,7 @@ class ObservableEquatableTestCase: XCTestCase {
             XCTAssertNil(oldValue)
         }
 
-        waitForExpectations(timeout: 0.001, handler: nil)
+        waitForExpectations(timeout: .ulpOfOne, handler: nil)
     }
 }
 

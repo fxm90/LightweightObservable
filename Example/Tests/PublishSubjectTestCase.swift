@@ -105,7 +105,6 @@ class PublishSubjectTestCase: XCTestCase {
         }.disposed(by: &disposeBag)
 
         // When
-        publishSubject.update(1)
         publishSubject.update(nil)
 
         // Then

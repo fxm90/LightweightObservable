@@ -10,7 +10,9 @@ import XCTest
 import LightweightObservable
 
 class DisposableTestCase: XCTestCase {
-    func testDisposeClosureShouldNotBeCalledBeforeDeinit() {
+    // MARK: - Test `deinit`
+
+    func testDisposeClosureShouldNotBeCalledBeforeDeInit() {
         // Given
         let expectation = self.expectation(description: "Expect dispose closure not to be called.")
         expectation.isInverted = true
@@ -27,10 +29,10 @@ class DisposableTestCase: XCTestCase {
         // ...
 
         // Then
-        wait(for: [expectation], timeout: 1.0)
+        wait(for: [expectation], timeout: 0.1)
     }
 
-    func testDisposeClosureShouldBeCalledOnDeinit() {
+    func testDisposeClosureShouldBeCalledOnDeInit() {
         // Given
         let expectation = self.expectation(description: "Expect dispose closure to be called on deinit.")
 
@@ -46,6 +48,7 @@ class DisposableTestCase: XCTestCase {
         disposable = nil
 
         // Then
-        wait(for: [expectation], timeout: 0.001)
+        wait(for: [expectation], timeout: .ulpOfOne)
+    }
     }
 }
