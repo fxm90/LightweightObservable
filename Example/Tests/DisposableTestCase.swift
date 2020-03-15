@@ -50,5 +50,19 @@ class DisposableTestCase: XCTestCase {
         // Then
         wait(for: [expectation], timeout: .ulpOfOne)
     }
+
+    // MARK: - Test method `disposed(by:)`
+
+    func testDisposedByShouldAddDisposableToGivenDisposeBag() {
+        // Given
+        var disposeBag = DisposeBag()
+        let disposable = Disposable {}
+
+        // When
+        disposable.disposed(by: &disposeBag)
+
+        // Then
+        XCTAssertEqual(disposeBag.count, 1)
+        XCTAssertTrue(disposeBag.first === disposable)
     }
 }
