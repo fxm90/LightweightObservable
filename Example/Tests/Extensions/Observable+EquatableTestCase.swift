@@ -36,7 +36,7 @@ class ObservableEquatableTestCase: XCTestCase {
 
     // MARK: - Test method `subscribe(filter:)`
 
-    func testPublishSubjectShouldUpdateSubscriberOnlyOnFilterMatched() {
+    func testPublishSubjectShouldUpdateFilteredSubscriberWithCorrectNewValueOnFilterSucceed() {
         // Given
         let assertNewValueIsEvenFilter: (Int, Int?) -> Bool = { newValue, _ in
             newValue.isEven
@@ -47,7 +47,10 @@ class ObservableEquatableTestCase: XCTestCase {
 
         let publishSubject = PublishSubject<Int>()
         publishSubject.subscribe(filter: assertNewValueIsEvenFilter, observer: { newValue, _ in
-            guard newValue.isEven else { return }
+            guard newValue.isEven else {
+                XCTFail("Our filter passed to `subscribe` succeeded, even though \(newValue) is not an even number.")
+                return
+            }
 
             expectation.fulfill()
         }).disposed(by: &disposeBag)
@@ -59,6 +62,28 @@ class ObservableEquatableTestCase: XCTestCase {
 
         // Then
         waitForExpectations(timeout: 0.001, handler: nil)
+    }
+
+    func testPublishSubjectShouldUpdateFilteredSubscriberWithCorrectOldValueOnFilterSucceed() {
+        // Given
+        let assertNewValueIsEvenFilter: (Int, Int?) -> Bool = { newValue, _ in
+            newValue.isEven
+        }
+
+        var previousNewValue: Int?
+
+        let publishSubject = PublishSubject<Int>()
+        publishSubject.subscribe(filter: assertNewValueIsEvenFilter, observer: { newValue, oldValue in
+            // Then
+            XCTAssertEqual(previousNewValue, oldValue)
+
+            previousNewValue = newValue
+        }).disposed(by: &disposeBag)
+
+        // When
+        for value in 0 ..< 10 {
+            publishSubject.update(value)
+        }
     }
 
     // MARK: - Test method `subscribeDistinct(:)`
