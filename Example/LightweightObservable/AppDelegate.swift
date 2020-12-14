@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  LightweightObservable_Example
 //
-//  Created by Felix Mau on 04/27/19.
+//  Created by Felix Mau on 27.04.19.
 //  Copyright © 2019 Felix Mau. All rights reserved.
 //
 

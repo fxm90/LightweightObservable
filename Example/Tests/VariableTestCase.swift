@@ -2,8 +2,8 @@
 //  VariableTestCase.swift
 //  LightweightObservable_Tests
 //
-//  Created by Felix Mau on 22/11/19.
-//  Copyright © 2019 CocoaPods. All rights reserved.
+//  Created by Felix Mau on 11.02.19.
+//  Copyright © 2019 Felix Mau. All rights reserved.
 //
 
 import XCTest

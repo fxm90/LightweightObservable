@@ -2,8 +2,8 @@
 //  DateTimeViewModel.swift
 //  LightweightObservable_Example
 //
-//  Created by Felix Mau on 27/04/19.
-//  Copyright © 2019 CocoaPods. All rights reserved.
+//  Created by Felix Mau on 27.04.19.
+//  Copyright © 2019 Felix Mau. All rights reserved.
 //
 
 import Foundation

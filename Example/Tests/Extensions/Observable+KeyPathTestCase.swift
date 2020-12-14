@@ -2,7 +2,7 @@
 //  Observable+KeyPathTestCase.swift
 //  LightweightObservable_Tests
 //
-//  Created by Felix Mau on 13/02/20.
+//  Created by Felix Mau on 13.02.20.
 //  Copyright © 2020 Felix Mau. All rights reserved.
 //
 
@@ -32,7 +32,6 @@ class ObservableKeyPathTestCase: XCTestCase {
 
     func testBindToShouldUpdatePropertyAccordingly() {
         // Given
-        // swiftlint:disable:next nesting
         class IntStorage {
             var value = 0
         }
@@ -55,7 +54,6 @@ class ObservableKeyPathTestCase: XCTestCase {
 
     func testBindToShouldUpdateOptionalPropertyAccordingly() {
         // Given
-        // swiftlint:disable:next nesting
         class IntStorage {
             var value: Int?
         }

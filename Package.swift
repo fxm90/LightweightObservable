@@ -6,12 +6,12 @@ import PackageDescription
 let package = Package(name: "LightweightObservable",
                       products: [
                           .library(name: "LightweightObservable",
-                                   targets: ["LightweightObservable"])
+                                   targets: ["LightweightObservable"]),
                       ],
                       targets: [
                           .target(name: "LightweightObservable",
                                   path: "LightweightObservable/Classes/"),
                           .testTarget(name: "LightweightObservableTests",
                                       dependencies: ["LightweightObservable"],
-                                      path: "Example/Tests/")
+                                      path: "Example/Tests/"),
                       ])

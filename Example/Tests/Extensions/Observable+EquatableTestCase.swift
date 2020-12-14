@@ -2,7 +2,7 @@
 //  Observable+EquatableTestCase.swift
 //  LightweightObservable_Tests
 //
-//  Created by Felix Mau on 18/05/19.
+//  Created by Felix Mau on 18.05.19.
 //  Copyright © 2019 Felix Mau. All rights reserved.
 //
 
