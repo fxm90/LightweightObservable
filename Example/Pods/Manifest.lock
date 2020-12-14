@@ -1,12 +1,14 @@
 PODS:
   - LightweightObservable (2.1.1)
-  - SwiftFormat/CLI (0.47.0)
-  - SwiftLint (0.40.3)
+  - SwiftConfigurationFiles (0.0.1)
+  - SwiftFormat/CLI (0.47.8)
+  - SwiftLint (0.42.0)
 
 DEPENDENCIES:
   - LightweightObservable (from `../`)
+  - SwiftConfigurationFiles (from `https://github.com/fxm90/Swift-Configuration-Files.git`)
   - SwiftFormat/CLI (~> 0.41)
-  - SwiftLint (~> 0.37)
+  - SwiftLint (~> 0.42)
 
 SPEC REPOS:
   trunk:
@@ -16,12 +18,20 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   LightweightObservable:
     :path: "../"
+  SwiftConfigurationFiles:
+    :git: https://github.com/fxm90/Swift-Configuration-Files.git
+
+CHECKOUT OPTIONS:
+  SwiftConfigurationFiles:
+    :commit: 14523cf1d67be4801432e3498c9b7b31acb80974
+    :git: https://github.com/fxm90/Swift-Configuration-Files.git
 
 SPEC CHECKSUMS:
   LightweightObservable: 52abe2a01c8273921b1f66cd66526eb3328ca35a
-  SwiftFormat: cb9bd6f3aa76ad9b24043f1f89305ea3449c17b8
-  SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
+  SwiftConfigurationFiles: 1cf2228a911ebed9f42f8dec077bb634f04ca6c8
+  SwiftFormat: 30c4c1b17a6c0c911760ada94b1bdb40769c95b9
+  SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
 
-PODFILE CHECKSUM: 190ae8698a97e5352c4b462a64ef399c8feb8349
+PODFILE CHECKSUM: da6ad500f2be8dc73ad11bec36e529c3c99a4034
 
 COCOAPODS: 1.9.3
