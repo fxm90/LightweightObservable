@@ -20,4 +20,11 @@ file_header:
                     \/\/  Copyright © \d{4} .*?\. All rights reserved\.
                     \/\/
 
+included:
+  - ./
+  - ../LightweightObservable
+
+excluded:
+  - Pods
+
 parent_config: Pods/SwiftConfigurationFiles/.swiftlint.yml
