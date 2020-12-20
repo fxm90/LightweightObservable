@@ -23,7 +23,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftConfigurationFiles:
-    :commit: 14523cf1d67be4801432e3498c9b7b31acb80974
+    :commit: 349e9f3eba24551acb372397ca953b5414bd9131
     :git: https://github.com/fxm90/SwiftConfigurationFiles.git
 
 SPEC CHECKSUMS:
