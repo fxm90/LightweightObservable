@@ -105,4 +105,32 @@ class VariableTestCase: XCTestCase {
         // Then
         XCTAssertNil(newValue)
     }
+
+    /// Test case for <https://github.com/fxm90/LightweightObservable/pull/5>.
+    func testVariableShouldUpdateValueFromSubscriptionClosure() {
+        // Given
+        enum Counter {
+            case one
+            case two
+        }
+
+        let counterVariable = Variable<Counter>(.one)
+        var receivedValues = [Counter]()
+
+        // When
+        counterVariable.subscribe { newValue, _ in
+            receivedValues.append(newValue)
+
+            switch newValue {
+            case .one:
+                counterVariable.value = .two
+
+            case .two:
+                break
+            }
+        }.disposed(by: &disposeBag)
+
+        // Then
+        XCTAssertEqual(receivedValues, [.one, .two])
+    }
 }
