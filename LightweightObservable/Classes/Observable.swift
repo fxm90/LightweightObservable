@@ -157,8 +157,9 @@ public final class Variable<T>: Observable<T> {
     // MARK: - Public methods
 
     override public func subscribe(_ observer: @escaping Observer) -> Disposable {
-        // A variable should inform the observer with the initial value.
         let disposable = super.subscribe(observer)
+
+        // A variable should inform the observer with the initial value.
         observer(_value, nil)
 
         return disposable
