@@ -3,7 +3,8 @@
 # Created by Felix Mau (https://felix.hamburg)
 #
 # Based on:
-# https://futurestud.io/tutorials/github-actions-trigger-builds-on-schedule-cron#schedulegithubactionsusingacron
+#  - https://futurestud.io/tutorials/github-actions-trigger-builds-on-schedule-cron#schedulegithubactionsusingacron
+#  - https://about.codecov.io/blog/code-coverage-for-ios-development-using-swift-xcode-and-github-actions/
 #
 
 name: Continuous Integration
@@ -11,7 +12,7 @@ on:
   push:
   pull_request:
   schedule:
-    - cron: '0 0 * * *'  # every day at midnight
+    - cron: '0 0 * * *' # Every day at midnight.
 jobs:
   build-and-test:
     runs-on: macos-latest
@@ -50,5 +51,8 @@ jobs:
         working-directory: ./Example
         run: |
           bundle exec fastlane pod_lint
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1.2.1
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
