@@ -12,9 +12,6 @@ on: [push]
 jobs:
   build-and-test:
     runs-on: macos-latest
-    defaults:
-      run:
-        working-directory: Example
 
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -27,22 +24,27 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
       - name: Install dependencies
+        working-directory: ./Example
         run: |
           bundle install
 
       - name: Execute SwiftFormat and treat any formatting errors as real errors.
+        working-directory: ./Example
         run: |
           bundle exec fastlane format
 
       - name: Execute SwiftLint and treat any formatting errors as real errors.
+        working-directory: ./Example
         run: |
           bundle exec fastlane format
 
       - name: Execute tests.
+        working-directory: ./Example
         run: |
           bundle exec fastlane tests
 
       - name: Execute validation of library.
+        working-directory: ./Example
         run: |
           bundle exec fastlane pod_lint
 
