@@ -2,9 +2,16 @@
 # github-actions.yml
 # Created by Felix Mau (https://felix.hamburg)
 #
+# Based on:
+# https://futurestud.io/tutorials/github-actions-trigger-builds-on-schedule-cron#schedulegithubactionsusingacron
+#
 
 name: Continuous Integration
-on: [push, pull_request]
+on:  
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 0 * * *'  # every day at midnight
 jobs:
   build-and-test:
     runs-on: macos-latest
