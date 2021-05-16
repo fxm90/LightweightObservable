@@ -13,14 +13,24 @@ on:
   pull_request:
   schedule:
     - cron: '0 0 * * *' # Every day at midnight.
+strategy:
+  max-parallel: 1 # Runs GitHub actions sequentially.
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
+  # This workflow starts with a job called "set-up".
   set-up:
+    # The type of runner that the job will run on.
     runs-on: macos-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job.
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
 
+  check-out-repository:
+    runs-on: macos-latest
+    steps:
       - name: Check out repository code
         uses: actions/checkout@v2
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
@@ -28,6 +38,7 @@ jobs:
 
   install-dependencies:
     runs-on: macos-latest
+    steps:
       - name: Install dependencies
         working-directory: ./Example
         run: |
@@ -35,6 +46,7 @@ jobs:
 
   swiftformat:
     runs-on: macos-latest
+    steps:
       - name: Execute SwiftFormat and treat any formatting errors as real errors.
         working-directory: ./Example
         run: |
@@ -42,6 +54,7 @@ jobs:
 
   swiftlint:
     runs-on: macos-latest
+    steps:
       - name: Execute SwiftLint and treat any formatting errors as real errors.
         working-directory: ./Example
         run: |
@@ -49,6 +62,7 @@ jobs:
 
   execute-tests:
     runs-on: macos-latest
+    steps:
       - name: Execute tests.
         working-directory: ./Example
         run: |
@@ -56,6 +70,7 @@ jobs:
 
   pod-lint:
     runs-on: macos-latest
+    steps:
       - name: Execute validation of library.
         working-directory: ./Example
         run: |
@@ -63,9 +78,11 @@ jobs:
 
   upload-codecov:
     runs-on: macos-latest
+    steps:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.2.1
 
   tear-down:
     runs-on: macos-latest
+    steps:
       - run: echo "🍏 This job's status is ${{ job.status }}."
