@@ -16,9 +16,6 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
-  strategy:
-    # Runs GitHub actions sequentially.
-    max-parallel: 1 
   # This workflow starts with a job called "set-up".
   set-up:
     # The type of runner that the job will run on.
@@ -31,6 +28,7 @@ jobs:
 
   check-out-repository:
     runs-on: macos-latest
+    needs: set-up
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
@@ -39,6 +37,7 @@ jobs:
 
   install-dependencies:
     runs-on: macos-latest
+    needs: check-out-repository
     steps:
       - name: Install dependencies
         working-directory: ./Example
@@ -47,6 +46,7 @@ jobs:
 
   swiftformat:
     runs-on: macos-latest
+    needs: install-dependencies
     steps:
       - name: Execute SwiftFormat and treat any formatting errors as real errors.
         working-directory: ./Example
@@ -55,6 +55,7 @@ jobs:
 
   swiftlint:
     runs-on: macos-latest
+    needs: swiftformat
     steps:
       - name: Execute SwiftLint and treat any formatting errors as real errors.
         working-directory: ./Example
@@ -63,6 +64,7 @@ jobs:
 
   execute-tests:
     runs-on: macos-latest
+    needs: swiftlint
     steps:
       - name: Execute tests.
         working-directory: ./Example
@@ -71,6 +73,7 @@ jobs:
 
   pod-lint:
     runs-on: macos-latest
+    needs: execute-tests
     steps:
       - name: Execute validation of library.
         working-directory: ./Example
@@ -79,11 +82,13 @@ jobs:
 
   upload-codecov:
     runs-on: macos-latest
+    needs: pod-lint
     steps:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.2.1
 
   tear-down:
     runs-on: macos-latest
+    needs: upload-codecov
     steps:
       - run: echo "🍏 This job's status is ${{ job.status }}."
