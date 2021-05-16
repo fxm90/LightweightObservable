@@ -28,10 +28,11 @@ jobs:
 
   check-out-repository:
     runs-on: macos-latest
+    # To run jobs sequentially, you can define dependencies on other jobs using the jobs.<job_id>.needs keyword.
     needs: set-up
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
@@ -40,8 +41,9 @@ jobs:
     needs: check-out-repository
     steps:
       - name: Install dependencies
-        working-directory: ./Example
-        run: |
+      - uses: ruby/setup-ruby@v1
+      - working-directory: ./Example
+      - run: |
           bundle install
 
   swiftformat:
