@@ -41,10 +41,8 @@ jobs:
     needs: check-out-repository
     steps:
       - name: Install dependencies
-        uses: ruby/setup-ruby@v1
         working-directory: ./Example
-      - run: |
-          bundle install
+      - run: bundle install
 
   swiftformat:
     runs-on: macos-latest
@@ -52,8 +50,7 @@ jobs:
     steps:
       - name: Execute SwiftFormat and treat any formatting errors as real errors.
         working-directory: ./Example
-        run: |
-          bundle exec fastlane format
+        run: bundle exec fastlane format
 
   swiftlint:
     runs-on: macos-latest
@@ -61,8 +58,7 @@ jobs:
     steps:
       - name: Execute SwiftLint and treat any formatting errors as real errors.
         working-directory: ./Example
-        run: |
-          bundle exec fastlane format
+        run: bundle exec fastlane format
 
   execute-tests:
     runs-on: macos-latest
@@ -70,8 +66,7 @@ jobs:
     steps:
       - name: Execute tests.
         working-directory: ./Example
-        run: |
-          bundle exec fastlane tests
+        run: bundle exec fastlane tests
 
   pod-lint:
     runs-on: macos-latest
@@ -79,8 +74,7 @@ jobs:
     steps:
       - name: Execute validation of library.
         working-directory: ./Example
-        run: |
-          bundle exec fastlane pod_lint
+        run: bundle exec fastlane pod_lint
 
   upload-codecov:
     runs-on: macos-latest
