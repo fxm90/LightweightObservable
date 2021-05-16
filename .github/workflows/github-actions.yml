@@ -13,11 +13,12 @@ on:
   pull_request:
   schedule:
     - cron: '0 0 * * *' # Every day at midnight.
-strategy:
-  max-parallel: 1 # Runs GitHub actions sequentially.
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
+  strategy:
+    # Runs GitHub actions sequentially.
+    max-parallel: 1 
   # This workflow starts with a job called "set-up".
   set-up:
     # The type of runner that the job will run on.
