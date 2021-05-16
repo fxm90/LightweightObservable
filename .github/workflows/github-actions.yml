@@ -14,9 +14,8 @@ on:
   schedule:
     - cron: '0 0 * * *' # Every day at midnight.
 jobs:
-  build-and-test:
+  set-up:
     runs-on: macos-latest
-
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -27,32 +26,46 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
 
+  install-dependencies:
+    runs-on: macos-latest
       - name: Install dependencies
         working-directory: ./Example
         run: |
           bundle install
 
+  swiftformat:
+    runs-on: macos-latest
       - name: Execute SwiftFormat and treat any formatting errors as real errors.
         working-directory: ./Example
         run: |
           bundle exec fastlane format
 
+  swiftlint:
+    runs-on: macos-latest
       - name: Execute SwiftLint and treat any formatting errors as real errors.
         working-directory: ./Example
         run: |
           bundle exec fastlane format
 
+  execute-tests:
+    runs-on: macos-latest
       - name: Execute tests.
         working-directory: ./Example
         run: |
           bundle exec fastlane tests
 
+  pod-lint:
+    runs-on: macos-latest
       - name: Execute validation of library.
         working-directory: ./Example
         run: |
           bundle exec fastlane pod_lint
 
+  upload-codecov:
+    runs-on: macos-latest
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.2.1
 
+  tear-down:
+    runs-on: macos-latest
       - run: echo "🍏 This job's status is ${{ job.status }}."
