@@ -2,7 +2,7 @@
 
 <p align="center">
 	<img src="https://img.shields.io/badge/Swift-5.0-green.svg?style=flat" alt="Swift Version" />
-	<img src="http://img.shields.io/travis/com/fxm90/LightweightObservable.svg?style=flat" alt="CI Status" />
+	<img src="https://img.shields.io/github/workflow/status/fxm90/LightweightObservable/Continuous%20Integration" alt="CI Status" />
 	<img src="https://img.shields.io/codecov/c/github/fxm90/LightweightObservable.svg?style=flat" alt="Code Coverage" />
 	<img src="https://img.shields.io/cocoapods/v/LightweightObservable.svg?style=flat" alt="Version" />
 	<img src="https://img.shields.io/cocoapods/l/LightweightObservable.svg?style=flat" alt="License" />

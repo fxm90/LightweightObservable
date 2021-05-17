@@ -37,9 +37,12 @@ platform :ios do
 
   desc "Execute tests."
   lane :tests do
-    run_tests(workspace: "LightweightObservable.xcworkspace",
-              devices: ["iPhone 11 Pro"],
-              scheme: "LightweightObservable-Example")
+    run_tests(
+      workspace: "LightweightObservable.xcworkspace",
+      devices: ["iPhone 11 Pro"],
+      scheme: "LightweightObservable-Example",
+      code_coverage: true
+    )
   end
 
   desc "Execute validation of library."
