@@ -28,6 +28,9 @@ To run the example project, clone the repo, and open the workspace from the Exam
 - Xcode 10.2+
 - iOS 9.0+
 
+### Projects targeting iOS >= 13.0
+In case your minimum required version is greater equal iOS 13.0, I highly recommend using [Combine](https://developer.apple.com/documentation/combine) instead of adding `Lightweight Observable` as a dependency. If you rely on having a current and previous value in your subscription closure, please have a look at this extension: [Combine+Pairwise.swift](https://gist.github.com/fxm90/be62335d987016c84d2f8b3731197c98).
+
 ### Integration
 ##### CocoaPods
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Lightweight Observable into your Xcode project using CocoaPods, specify it in your `Podfile`:
