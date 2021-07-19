@@ -1,5 +1,7 @@
-platform :ios, '9.0'
+# Fixes warning `Your project does not explicitly specify the CocoaPods master specs repo`.
+source 'https://github.com/CocoaPods/Specs.git'
 
+platform :ios, '9.0'
 use_frameworks!
 
 target 'LightweightObservable_Example' do
