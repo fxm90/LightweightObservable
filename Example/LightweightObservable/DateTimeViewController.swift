@@ -33,7 +33,7 @@ class DateTimeViewController: UIViewController {
         bindViewModelToView()
     }
 
-    @IBAction func didTapSaveTimeButton(_: Any) {
+    @IBAction private func didTapSaveTimeButton(_: Any) {
         dateTimeViewModel.didTapSaveTimeButton()
     }
 
