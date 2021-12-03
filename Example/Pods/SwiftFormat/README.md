@@ -1,7 +1,7 @@
 ![](EditorExtension/Application/Assets.xcassets/AppIcon.appiconset/icon_256x256.png)
 
 [![PayPal](https://img.shields.io/badge/paypal-donate-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9ZGWNK5FEZFF6&source=url)
-[![Travis](https://api.travis-ci.com/nicklockwood/SwiftFormat.svg?branch=master)](https://travis-ci.com/github/nicklockwood/SwiftFormat)
+[![Build](https://github.com/nicklockwood/SwiftFormat/actions/workflows/build.yml/badge.svg)](https://github.com/nicklockwood/SwiftFormat/actions/workflows/build.yml)
 [![Codecov](https://codecov.io/gh/nicklockwood/SwiftFormat/graphs/badge.svg)](https://codecov.io/gh/nicklockwood/SwiftFormat)
 [![Swift 4.2](https://img.shields.io/badge/swift-4.2-red.svg?style=flat)](https://developer.apple.com/swift)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://opensource.org/licenses/MIT)
@@ -21,6 +21,7 @@ Table of Contents
     - [Sublime Text plugin](#sublime-text-plugin)
     - [Git pre-commit hook](#git-pre-commit-hook)
     - [On CI using Danger](#on-ci-using-danger)
+    - [Bazel build](#bazel-build)
 - [Configuration](#configuration)
     - [Options](#options)
     - [Rules](#rules)
@@ -257,7 +258,7 @@ let package = Package(
 
     ```bash
     cd BuildTools
-    SDKROOT=macosx
+    SDKROOT=(xcrun --sdk macosx --show-sdk-path)
     #swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file
     swift run -c release swiftformat "$SRCROOT"
     ```
@@ -375,6 +376,13 @@ To setup SwiftFormat to be used by your continuous integration system using [Dan
     ```
 
     **NOTE:** It is recommended to add the `swiftformat` binary to your project directory to ensure the same version is used each time (see the [Xcode build phase](#xcode-build-phase) instructions above).
+
+
+Bazel Build
+-----------
+
+If you use [Bazel](https://bazel.build/) to build your Swift projects and want to ensure that only properly formatted code is merged to your main branch, try [rules_swiftformat](https://github.com/cgrindel/rules_swiftformat). The repository contains Bazel rules and macros that format Swift source files using SwiftFormat, test that the formatted files exist in the workspace directory, and copy the formatted files to the workspace directory.
+
 
 Configuration
 -------------
