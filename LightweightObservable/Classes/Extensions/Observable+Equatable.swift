@@ -30,7 +30,7 @@ public extension Observable where T: Equatable {
     ///   - observer: The closure that is notified on changes if the filter succeeds.
     ///
     ///  - Note:
-    ///   The `oldValue` of the observer always contains the previous value that passed the filter! E.g. if you filter for even numbers:
+    ///   The `oldValue` of the observer always contains the previous value that passed the filter! E.g. if you filter for **even numbers**:
     ///   ```
     ///   | Emitted values:            | 0        | 1        | 2        | 3        | 4        | 5        |
     ///   | -------------------------- | -------- | -------- | -------- | -------- | -------- | -------- |
