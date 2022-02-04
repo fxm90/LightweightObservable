@@ -9,7 +9,7 @@
 import XCTest
 import LightweightObservable
 
-class PublishSubjectTestCase: XCTestCase {
+final class PublishSubjectTestCase: XCTestCase {
     // MARK: - Private properties
 
     var disposeBag: DisposeBag!

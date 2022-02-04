@@ -9,7 +9,7 @@
 import XCTest
 import LightweightObservable
 
-class DisposableTestCase: XCTestCase {
+final class DisposableTestCase: XCTestCase {
     // MARK: - Test `deinit`
 
     func testDisposeClosureShouldNotBeCalledBeforeDeInit() {
