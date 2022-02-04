@@ -27,7 +27,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/fxm90/SwiftConfigurationFiles.git
 
 SPEC CHECKSUMS:
-  LightweightObservable: c5ac85423a5edbed9a920b4d5c7b8f94ab3688c4
+  LightweightObservable: 6ed138efd35e2fa53203d054c22665afb8052688
   SwiftConfigurationFiles: 1cf2228a911ebed9f42f8dec077bb634f04ca6c8
   SwiftFormat: 16b41f3229f5e7edb130ac4cd631cceed7af7d5e
   SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761

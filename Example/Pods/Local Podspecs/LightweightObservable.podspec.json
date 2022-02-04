@@ -19,6 +19,6 @@
   "platforms": {
     "ios": "9.0"
   },
-  "source_files": "LightweightObservable/Classes/**/*",
+  "source_files": "LightweightObservable/**/*",
   "swift_version": "5.1"
 }

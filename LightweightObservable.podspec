@@ -32,7 +32,7 @@ With Lightweight Observable you can easily set up UI-Bindings in an MVVM applica
   s.swift_version         = '5.1'
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'LightweightObservable/Classes/**/*'
+  s.source_files = 'LightweightObservable/**/*'
 
   # s.resource_bundles = {
   #   'LightweightObservable' => ['LightweightObservable/Assets/*.png']
