@@ -1,8 +1,8 @@
 PODS:
   - LightweightObservable (2.1.2)
   - SwiftConfigurationFiles (0.0.1)
-  - SwiftFormat/CLI (0.49.1)
-  - SwiftLint (0.45.1)
+  - SwiftFormat/CLI (0.49.3)
+  - SwiftLint (0.46.2)
 
 DEPENDENCIES:
   - LightweightObservable (from `../`)
@@ -27,10 +27,10 @@ CHECKOUT OPTIONS:
     :git: https://github.com/fxm90/SwiftConfigurationFiles.git
 
 SPEC CHECKSUMS:
-  LightweightObservable: 6ed138efd35e2fa53203d054c22665afb8052688
+  LightweightObservable: 8482f132493cf77d42695f192c4b83884cb5f10c
   SwiftConfigurationFiles: 1cf2228a911ebed9f42f8dec077bb634f04ca6c8
-  SwiftFormat: 16b41f3229f5e7edb130ac4cd631cceed7af7d5e
-  SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761
+  SwiftFormat: a3b79e8b5f8ecdec7a716b998aee230d08512894
+  SwiftLint: 6bc52a21f0fd44cab9aa2dc8e534fb9f5e3ec507
 
 PODFILE CHECKSUM: 889fbb9d88c7078251d937b48b17d58fb1478a22
 
