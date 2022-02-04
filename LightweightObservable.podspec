@@ -29,7 +29,7 @@ With Lightweight Observable you can easily set up UI-Bindings in an MVVM applica
   s.author           = { 'Felix Mau' => 'me@felix.hamburg' }
   s.source           = { :git => 'https://github.com/fxm90/LightweightObservable.git', :tag => s.version.to_s }
 
-  s.swift_version         = '5.1'
+  s.swift_version         = '5.5'
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'LightweightObservable/**/*'
