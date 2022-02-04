@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 use_frameworks!
 
-target 'LightweightObservable_Example' do
+target 'Example' do
   pod 'LightweightObservable', :path => '../'
 
   # Development pods.
@@ -12,7 +12,7 @@ target 'LightweightObservable_Example' do
   pod 'SwiftLint', '~> 0.42'
   pod 'SwiftConfigurationFiles', :git => 'https://github.com/fxm90/SwiftConfigurationFiles.git'
 
-  target 'LightweightObservable_Tests' do
+  target 'ExampleTests' do
     inherit! :search_paths
 
   end

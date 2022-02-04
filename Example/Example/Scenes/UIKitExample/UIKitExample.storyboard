@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Kit Example View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="UIKitExampleViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ItsAlwaysWineOClock" translatesAutoresizingMaskIntoConstraints="NO" id="fHP-Ib-2AI" userLabel="Background Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Rws-Re-eY1">
+                                <rect key="frame" x="16" y="60" width="382" height="105"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Date &amp; Time ⏰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltJ-Eg-dZ0" userLabel="Headline Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="161" height="17"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xg6-yj-ETy" userLabel="Current Date Label">
+                                        <rect key="frame" x="0.0" y="25" width="13" height="17"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ci-vY-5VN" userLabel="Tap Me Button">
+                                        <rect key="frame" x="0.0" y="50" width="75.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Tap me!"/>
+                                        <connections>
+                                            <action selector="tapMeButtonTouchUpInside:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Hur-P7-8rO"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tapped at: --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDf-qE-IHb" userLabel="Tap Event Date Label">
+                                        <rect key="frame" x="0.0" y="89" width="80" height="16"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fHP-Ib-2AI" secondAttribute="trailing" id="6zG-1g-M9r"/>
+                            <constraint firstItem="fHP-Ib-2AI" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="LWu-6j-FYf"/>
+                            <constraint firstItem="Rws-Re-eY1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="QdE-Z9-Veh"/>
+                            <constraint firstAttribute="bottom" secondItem="fHP-Ib-2AI" secondAttribute="bottom" id="dp6-Gy-PfD"/>
+                            <constraint firstItem="Rws-Re-eY1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="mn7-ay-R3C"/>
+                            <constraint firstItem="fHP-Ib-2AI" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="pM5-pX-7Py"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Rws-Re-eY1" secondAttribute="trailing" constant="16" id="tnw-hT-hHj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="fHP-Ib-2AI" id="0xB-6k-RSK"/>
+                        <outlet property="contentStackView" destination="Rws-Re-eY1" id="Yer-wZ-j9Z"/>
+                        <outlet property="currentDateLabel" destination="Xg6-yj-ETy" id="X6N-qy-aRy"/>
+                        <outlet property="headlineLabel" destination="ltJ-Eg-dZ0" id="Uab-dU-glX"/>
+                        <outlet property="tapEventDateLabel" destination="cDf-qE-IHb" id="BKN-Lw-sde"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="52"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ItsAlwaysWineOClock" width="895" height="1214"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

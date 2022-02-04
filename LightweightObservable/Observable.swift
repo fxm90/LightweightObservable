@@ -38,8 +38,6 @@ public class Observable<T> {
     /// The current (readonly) value of the observable (if available).
     ///
     /// - Note: We're using a computed property here, cause we need to override this property without nullability in the subclass `Variable`.
-    ///
-    /// - Attention: It's always better to subscribe to a given observable! This **shortcut** should only be used during **testing**.
     public var value: Value? {
         fatalError("⚠️ – Trying to access an abstract property! Subclasses need to overwrite and implement this computed property.")
     }
