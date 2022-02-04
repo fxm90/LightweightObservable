@@ -12,10 +12,10 @@ import LightweightObservable
 final class VariableTestCase: XCTestCase {
     // MARK: - Private properties
 
-    var disposeBag: DisposeBag!
+    private var disposeBag: DisposeBag!
 
-    var oldValue: Int?
-    var newValue: Int?
+    private var oldValue: Int?
+    private var newValue: Int?
 
     // MARK: - Public methods
 

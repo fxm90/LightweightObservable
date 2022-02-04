@@ -12,7 +12,7 @@ import LightweightObservable
 final class ObservableKeyPathTestCase: XCTestCase {
     // MARK: - Private properties
 
-    var disposeBag: DisposeBag!
+    private var disposeBag: DisposeBag!
 
     // MARK: - Public methods
 
