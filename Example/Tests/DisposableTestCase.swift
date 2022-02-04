@@ -14,7 +14,7 @@ final class DisposableTestCase: XCTestCase {
 
     func testDisposeClosureShouldNotBeCalledBeforeDeInit() {
         // Given
-        let expectation = self.expectation(description: "Expect dispose closure not to be called.")
+        let expectation = expectation(description: "Expect dispose closure not to be called.")
         expectation.isInverted = true
 
         var disposable: Disposable?
@@ -34,7 +34,7 @@ final class DisposableTestCase: XCTestCase {
 
     func testDisposeClosureShouldBeCalledOnDeInit() {
         // Given
-        let expectation = self.expectation(description: "Expect dispose closure to be called on deinit.")
+        let expectation = expectation(description: "Expect dispose closure to be called on deinit.")
 
         var disposable: Disposable?
         disposable = Disposable {

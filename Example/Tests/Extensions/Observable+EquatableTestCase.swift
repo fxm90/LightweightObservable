@@ -42,7 +42,7 @@ final class ObservableEquatableTestCase: XCTestCase {
             newValue.isEven
         }
 
-        let expectation = self.expectation(description: "Expected five even numbers between `0` and `9`.")
+        let expectation = expectation(description: "Expected five even numbers between `0` and `9`.")
         expectation.expectedFulfillmentCount = 5
 
         let publishSubject = PublishSubject<Int>()
@@ -105,7 +105,7 @@ final class ObservableEquatableTestCase: XCTestCase {
 
     func testPublishSubjectShouldUpdateDistinctSubscriberWithCorrectValues() {
         // Given
-        let expectation = self.expectation(description: "Expected distinct observer to be informed ten times between `0` and `9`.")
+        let expectation = expectation(description: "Expected distinct observer to be informed ten times between `0` and `9`.")
         expectation.expectedFulfillmentCount = 10
 
         let publishSubject = PublishSubject<Int>()
@@ -135,7 +135,7 @@ final class ObservableEquatableTestCase: XCTestCase {
 
     func testPublishSubjectShouldUpdateDistinctSubscriberJustOnceForSameValue() {
         // Given
-        let expectation = self.expectation(description: "Expected distinct observer to be informed just once.")
+        let expectation = expectation(description: "Expected distinct observer to be informed just once.")
         expectation.expectedFulfillmentCount = 1
 
         let publishSubject = PublishSubject<Int>()

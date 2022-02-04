@@ -62,7 +62,7 @@ final class PublishSubjectTestCase: XCTestCase {
         // Given
         let publishSubject = PublishSubject<Int>()
 
-        let expectation = self.expectation(description: "Expect observer to NOT be informed.")
+        let expectation = expectation(description: "Expect observer to NOT be informed.")
         expectation.isInverted = true
 
         // When
