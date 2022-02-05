@@ -260,27 +260,27 @@ XCTAssertEqual(viewModel.formattedTime.value, "4:20")
 Using the given approach, your view-model could look like this:
 
 ```swift
-class TimeViewModel {
+final class ViewModel {
     // MARK: - Public properties
 
-    /// The current time as a formatted string (**immutable**).
-    var formattedTime: Observable<String> {
-        formattedTimeSubject
+    /// The current date and time as a formatted string (**immutable**).
+    var formattedDate: Observable<String> {
+        formattedDateSubject
     }
 
     // MARK: - Private properties
 
-    /// The current time as a formatted string (**mutable**).
-    private let formattedTimeSubject: Variable<String> = Variable("\(Date())")
+    /// The current date and time as a formatted string (**mutable**).
+    private let formattedDateSubject: Variable<String> = Variable("\(Date())")
 
     private var timer: Timer?
 
     // MARK: - Initializer
 
     init() {
-        // Update variable with current time every second.
+        // Update variable with current date and time every second.
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
-            self?.formattedTimeSubject.value = "\(Date())"
+            self?.formattedDateSubject.value = "\(Date())"
         })
     }
 ```
@@ -288,15 +288,14 @@ class TimeViewModel {
 And your view controller like this:
 
 ```swift
-class TimeViewController: UIViewController {
+final class ViewController: UIViewController {
     // MARK: - Outlets
 
-    @IBOutlet private var timeLabel: UILabel!
+    @IBOutlet private var dateLabel: UILabel!
 
     // MARK: - Private properties
 
-    /// The view model calculating the current time.
-    private let timeViewModel = TimeViewModel()
+    private let viewModel = ViewModel()
 
     /// The dispose bag for this view controller. On it's deallocation, it removes the
     /// subscription-closures from the corresponding observable-properties.
@@ -307,9 +306,9 @@ class TimeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        timeViewModel
-            .formattedTime
-            .bind(to: \.text, on: timeLabel)
+        viewModel
+            .formattedDate
+            .bind(to: \.text, on: dateLabel)
             .disposed(by: &disposeBag)
     }
 ```
