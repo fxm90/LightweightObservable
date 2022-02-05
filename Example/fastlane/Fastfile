@@ -38,7 +38,7 @@ platform :ios do
   desc "Execute tests."
   lane :tests do
     run_tests(
-      workspace: "LightweightObservable.xcworkspace",
+      workspace: "Example.xcworkspace",
       devices: ["iPhone 13"],
       scheme: "Example",
       code_coverage: true
