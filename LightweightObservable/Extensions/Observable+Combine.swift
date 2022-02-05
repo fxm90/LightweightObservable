@@ -19,27 +19,28 @@ extension Observable: Publisher {
     public func receive<S: Subscriber>(subscriber: S) where S.Input == Output, S.Failure == Failure {
         let subscription = Subscription(observable: self, subscriber: subscriber)
         subscriber.receive(subscription: subscription)
+
+        // We explicitly subscribe to our `Observable` instance after passing the `Combine.Subscription` to the `Combine.Subscriber`.
+        // This makes sure when the underlying type of the `Observable` is a `Variable´, we also forward the initial value.
+        subscription.subscribeToObservable()
     }
 }
 
 @available(iOS 13.0, *)
 private extension Observable {
-    ///
-    ///
+    /// A custom subscription to forward events from an `Observable` instance.
     final class Subscription<S: Subscriber> where S.Input == Output, S.Failure == Failure {
-        ///
+        private let observable: Observable<Output>
         private let subscriber: S?
 
-        ///
         private var disposable: Disposable?
 
-        ///
-        ///
         init(observable: Observable<Output>, subscriber: S) {
+            self.observable = observable
             self.subscriber = subscriber
+        }
 
-            //
-            //
+        func subscribeToObservable() {
             disposable = observable.subscribe { [weak self] value, _ in
                 _ = self?.subscriber?.receive(value)
             }
@@ -50,10 +51,13 @@ private extension Observable {
 @available(iOS 13.0, *)
 extension Observable.Subscription: Subscription {
     func request(_: Subscribers.Demand) {
-        // Nothing to do here, as we only want to send events when they occur.
+        // This subscription doesn't respond to demand, since it'll only emit events
+        // according to its underlying `Observable` instance.
     }
 
     func cancel() {
+        // When the subscription was cancelled, we'll release the reference to our observable-subscription
+        // in order to prevent any additional events from being sent.
         disposable = nil
     }
 }

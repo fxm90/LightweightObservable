@@ -14,13 +14,7 @@ struct SwiftUIExampleView: View {
     private let viewModel = SwiftUIExampleViewModel()
 
     @State
-    private var formattedDateTime: String
-
-    // MARK: - Initializer
-
-    init() {
-        formattedDateTime = viewModel.formattedDateTime.value ?? ""
-    }
+    private var formattedDate = ""
 
     // MARK: - Render
 
@@ -29,7 +23,7 @@ struct SwiftUIExampleView: View {
             Text("Current Date & Time ⏰")
                 .font(.headline)
 
-            Text(formattedDateTime)
+            Text(formattedDate)
 
             Spacer()
         }
@@ -42,8 +36,8 @@ struct SwiftUIExampleView: View {
                 .opacity(0.05)
                 .rotationEffect(.radians(0.2))
         )
-        .onReceive(viewModel.formattedDateTime) { formattedDateTime in
-            self.formattedDateTime = formattedDateTime
+        .onReceive(viewModel.formattedDate) { formattedDate in
+            self.formattedDate = formattedDate
         }
         .navigationTitle("🚀 SwiftUI Example")
         .navigationBarTitleDisplayMode(.large)
