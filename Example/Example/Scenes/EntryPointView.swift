@@ -9,13 +9,6 @@
 import SwiftUI
 
 struct EntryPointView: View {
-    // MARK: - Private properties
-
-    @State
-    private var isWebViewExampleVisible = false
-
-    // MARK: - Render
-
     var body: some View {
         NavigationView {
             List {
