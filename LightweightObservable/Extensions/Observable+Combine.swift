@@ -17,12 +17,12 @@ extension Observable: Publisher {
     public typealias Failure = Never
 
     public func receive<S: Subscriber>(subscriber: S) where S.Input == Output, S.Failure == Failure {
-        let subscription = Subscription(observable: self, subscriber: subscriber)
+        let subscription = Subscription(subscriber: subscriber)
         subscriber.receive(subscription: subscription)
 
         // We explicitly subscribe to our `Observable` instance after passing the `Combine.Subscription` to the `Combine.Subscriber`.
-        // This makes sure when the underlying type of the `Observable` is a `Variable´, we also forward the initial value.
-        subscription.subscribeToObservable()
+        // This makes sure when the underlying type of the `Observable` is a `Variable´, we correctly forward the initial value.
+        subscription.subscribe(to: self)
     }
 }
 
@@ -30,17 +30,18 @@ extension Observable: Publisher {
 private extension Observable {
     /// A custom subscription to forward events from an `Observable` instance.
     final class Subscription<S: Subscriber> where S.Input == Output, S.Failure == Failure {
-        private let observable: Observable<Output>
-        private let subscriber: S?
-
+        private var subscriber: S?
         private var disposable: Disposable?
 
-        init(observable: Observable<Output>, subscriber: S) {
-            self.observable = observable
+        init(subscriber: S) {
             self.subscriber = subscriber
         }
 
-        func subscribeToObservable() {
+        /// Updates our `subscriber` (`Combine.Subscriber`) with the values from the observable.
+        ///
+        /// - Note: We explicitly avoid storing a reference to the observable from this instance (`Combine.Subscription`),
+        ///         as this would create a retain cycle!!
+        func subscribe(to observable: Observable<S.Input>) {
             disposable = observable.subscribe { [weak self] value, _ in
                 _ = self?.subscriber?.receive(value)
             }

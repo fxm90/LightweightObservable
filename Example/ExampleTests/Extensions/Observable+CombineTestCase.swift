@@ -87,4 +87,22 @@ final class ObservableCombineTestCase: XCTestCase {
         // Then
         XCTAssertEqual(receivedValues, Array(0 ..< 5))
     }
+
+    func testSinkShouldNotCreateARetainCycle() {
+        // Given
+        weak var optionalPublishSubject: PublishSubject<Int>?
+
+        autoreleasepool {
+            let publishSubject = PublishSubject<Int>()
+            optionalPublishSubject = publishSubject
+
+            // When
+            publishSubject
+                .sink { _ in }
+                .store(in: &subscriptions)
+        }
+
+        // Then
+        XCTAssertNil(optionalPublishSubject)
+    }
 }
