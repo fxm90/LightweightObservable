@@ -29,7 +29,37 @@ To run the example project, clone the repo, and open the workspace from the Exam
 - iOS 9.0+
 
 ### Projects targeting iOS >= 13.0
-In case your minimum required version is greater equal iOS 13.0, I highly recommend using [Combine](https://developer.apple.com/documentation/combine) instead of adding `Lightweight Observable` as a dependency. If you rely on having a current and previous value in your subscription closure, please have a look at this extension: [Combine+Pairwise.swift](https://gist.github.com/fxm90/be62335d987016c84d2f8b3731197c98).
+In case your minimum required version is greater equal iOS 13.0, I recommend using [Combine](https://developer.apple.com/documentation/combine) instead of adding `Lightweight Observable` as a dependency. 
+
+If you rely on having a current and previous value in your subscription closure, please have a look at this extension: [Combine+Pairwise.swift](https://gist.github.com/fxm90/be62335d987016c84d2f8b3731197c98).
+
+#### Since version `2.2` an `Observable` instance conforms to the [`Publisher`](https://developer.apple.com/documentation/combine/publisher) protocol from Swift's `Combine` 🎉 
+
+This makes transitioning from `LightweightObservable` to `Combine` a lot easier, as you can use features from `Combine` without having to change the underlying `Observable` to a `Publisher`. 
+
+**Cheatsheet**
+
+| `LightweightObservable` | `Combine`             |
+| ----------------------- | --------------------- |
+| `PublishSubject`        | `PassthroughSubject`  |
+| `Variable`              | `CurrentValueSubject` |
+
+
+Example Code for using `Combine` functions on an instance of `PublishSubject`:
+
+```swift
+var subscriptions = Set<AnyCancellable>()
+            
+let publishSubject = PublishSubject<Int>()
+publishSubject
+    .map { $0 * 2 }
+    .sink { print($0) }
+    .store(in: &subscriptions)
+
+publishSubject.update(1) // Prints "2"
+publishSubject.update(2) // Prints "4"
+publishSubject.update(3) // Prints "6"
+```
 
 ### Integration
 ##### CocoaPods
