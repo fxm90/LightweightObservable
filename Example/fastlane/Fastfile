@@ -39,8 +39,8 @@ platform :ios do
   lane :tests do
     run_tests(
       workspace: "LightweightObservable.xcworkspace",
-      devices: ["iPhone 11 Pro"],
-      scheme: "LightweightObservable-Example",
+      devices: ["iPhone 13"],
+      scheme: "Example",
       code_coverage: true
     )
   end
