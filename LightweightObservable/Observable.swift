@@ -59,6 +59,14 @@ public class Observable<T> {
 
     // MARK: - Public methods
 
+    /// Updates the current value.
+    ///
+    /// - Parameter value: The new value to apply.
+    public func update(_: Value) {
+        // swiftlint:disable:previous unavailable_function
+        fatalError("⚠️ – Trying to call an abstract function! Subclasses need to overwrite and implement this method.")
+    }
+
     /// Informs the given observer on changes to our underlying property `value`.
     ///
     /// - Parameter observer: The closure that is notified on changes.
@@ -109,8 +117,7 @@ public final class PublishSubject<T>: Observable<T> {
 
     // MARK: - Public methods
 
-    /// Updates the publish subject using the given value.
-    public func update(_ value: Value) {
+    override public func update(_ value: Value) {
         let oldValue = _value
         _value = value
 
@@ -153,6 +160,10 @@ public final class Variable<T>: Observable<T> {
     }
 
     // MARK: - Public methods
+
+    override public func update(_ value: Value) {
+        self.value = value
+    }
 
     override public func subscribe(_ observer: @escaping Observer) -> Disposable {
         let disposable = super.subscribe(observer)
