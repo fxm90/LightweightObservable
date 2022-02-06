@@ -11,35 +11,36 @@ import Foundation
 /// Helper to allow storing multiple disposables and matching name from [RxSwift](https://github.com/ReactiveX/RxSwift).
 public typealias DisposeBag = [Disposable]
 
-/// Executes a given closure on it's deallocation.
+/// Calls a closure on when this instance is deallocated.
 public final class Disposable {
     // MARK: - Types
 
-    /// Type for closure to be executed on deallocation.
+    /// Type for the closure to be called on deallocation.
     public typealias Dispose = () -> Void
 
     // MARK: - Private properties
 
-    /// Closure to be executed on deallocation.
+    /// The closure to be called on deallocation.
     private let dispose: Dispose
 
     // MARK: - Initializer
 
     /// Creates a new instance.
     ///
-    /// - Parameter dispose: The closure that is executed on deallocation.
+    /// - Parameter dispose: The closure that is called on deallocation.
     public init(_ dispose: @escaping Dispose) {
         self.dispose = dispose
     }
 
-    /// Executes our closure.
     deinit {
         dispose()
     }
 
     // MARK: - Public methods
 
-    /// Adds the current instance to the given array of disposables.
+    /// Adds the current instance to the given array of `Disposable`.
+    ///
+    /// - Parameter bag: Reference to the array of `Disposable`.
     public func disposed(by bag: inout DisposeBag) {
         bag.append(self)
     }
