@@ -64,6 +64,24 @@ final class ObservableCombineTestCase: XCTestCase {
         XCTAssertEqual(receivedValue, initialValue)
     }
 
+    func testSinkShouldReceiveCorrectValuesFromVariable() {
+        // Given
+        let publishSubject = Variable(0)
+
+        var receivedValues = [Int]()
+        publishSubject.sink {
+            receivedValues.append($0)
+        }.store(in: &subscriptions)
+
+        // When
+        for value in 1 ..< 10 {
+            publishSubject.value = value
+        }
+
+        // Then
+        XCTAssertEqual(receivedValues, Array(0 ... 9))
+    }
+
     func testSinkShouldNotReceiveValuesAfterRemovingSubscription() {
         // Given
         let publishSubject = PublishSubject<Int>()
