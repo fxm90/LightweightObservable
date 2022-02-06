@@ -117,6 +117,8 @@ let formattedTimeSubject = Variable("4:20 PM")
 // ...
 
 formattedTimeSubject.value = "4:21 PM"
+// or
+formattedTimeSubject.update("4:22 PM")
 ```
 
 #### – Create an `Observable`
