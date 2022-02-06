@@ -17,7 +17,7 @@ final class DisposableTestCase: XCTestCase {
         let expectation = expectation(description: "Expect dispose closure not to be called.")
         expectation.isInverted = true
 
-        var disposable: Disposable? = Disposable {
+        let disposable: Disposable? = Disposable {
             expectation.fulfill()
         }
 
