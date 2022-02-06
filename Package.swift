@@ -13,7 +13,7 @@ let package = Package(name: "LightweightObservable",
                       targets: [
                           .target(name: "LightweightObservable",
                                   path: "LightweightObservable/"),
-                          .testTarget(name: "ExampleTests",
+                          .testTarget(name: "LightweightObservableTests",
                                       dependencies: ["LightweightObservable"],
                                       path: "Example/ExampleTests/"),
                       ])
