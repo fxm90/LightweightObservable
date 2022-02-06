@@ -56,7 +56,7 @@ final class PublishSubjectTestCase: XCTestCase {
         XCTAssertEqual(publishSubject.value, newValue)
     }
 
-    // MARK: - Test method `observe(:)`
+    // MARK: - Test method `observe(_:)`
 
     func testPublishSubjectShouldNotInformSubscriberWithInitialValue() {
         // Given

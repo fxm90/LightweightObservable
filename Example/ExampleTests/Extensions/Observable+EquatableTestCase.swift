@@ -86,7 +86,7 @@ final class ObservableEquatableTestCase: XCTestCase {
         }
     }
 
-    // MARK: - Test method `subscribeDistinct(:)`
+    // MARK: - Test method `subscribeDistinct(_:)`
 
     func testVariableShouldInformDistinctSubscriberWithInitialValues() {
         // Given
