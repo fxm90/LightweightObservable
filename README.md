@@ -279,9 +279,9 @@ final class ViewModel {
 
     init() {
         // Update variable with current date and time every second.
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             self?.formattedDateSubject.value = "\(Date())"
-        })
+        }
     }
 ```
 

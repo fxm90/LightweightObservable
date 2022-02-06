@@ -31,9 +31,9 @@ final class SwiftUIExampleViewModel {
     // MARK: - Initializer
 
     init() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             self?.formattedDateSubject.value = Date.localizedDateAndTime
-        })
+        }
     }
 }
 
