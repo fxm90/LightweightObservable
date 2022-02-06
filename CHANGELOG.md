@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+## [2.2.0] - 2022-06-02
+### Added
+ - Added conformance of `Observable` to the `Combine.Publisher` protocol.
+ - Unify `PublishSubject` and `Variable` to both have an `update(_:)` method.
+
 ## [2.1.2] - 2021-15-01
 ### Fixed
  - Fix observer not informed when updating value in subscription closure. [#5](https://github.com/fxm90/LightweightObservable/pull/5). Thanks [Snakeyh](https://github.com/Snakeyh).
@@ -46,8 +51,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Initial release.
 
 
-[Unreleased]: https://github.com/fxm90/LightweightObservable/compare/2.1.2...master
-[2.1.1]: https://github.com/fxm90/LightweightObservable/compare/2.1.1...2.1.2
+[Unreleased]: https://github.com/fxm90/LightweightObservable/compare/2.2.0...master
+[2.2.0]: https://github.com/fxm90/LightweightObservable/compare/2.1.2...2.2.0
+[2.1.2]: https://github.com/fxm90/LightweightObservable/compare/2.1.1...2.1.2
 [2.1.1]: https://github.com/fxm90/LightweightObservable/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/fxm90/LightweightObservable/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/fxm90/LightweightObservable/compare/1.0.3...2.0.0
