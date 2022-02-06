@@ -12,14 +12,14 @@ import LightweightObservable
 final class UIKitExampleViewModel {
     // MARK: - Public properties
 
-    /// The current date and time as a formatted string.
+    /// The observable for the current date and time as a formatted string.
     ///
     /// - Note: The underlying subject is a `Variable`, therefore a new subscriber will be informed with the **current value up on subscription**!
     var currentDate: Observable<String> {
         currentDateSubject
     }
 
-    /// The date and time of a tap-event as a formatted string.
+    /// The observable for the date and time of a tap-event as a formatted string.
     ///
     /// - Note: The underlying subject is a `PublishSubject`, therefore a new subscriber will be informed **only with upcoming values**!
     var tapEventDate: Observable<String> {

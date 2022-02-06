@@ -16,8 +16,8 @@ struct ExampleApp: App {
                 .onAppear {
                     // Use iOS 13 navigation bar appearance.
                     //
-                    // While the entry point scene looks better with an opaque background, the child scenes look
-                    // better with the default background. As we can't update the appearance per scene we fallback
+                    // While the entry point scene looks better with an opaque navigation background, the child scenes look
+                    // better with the default navigation background. As we can't update the appearance per scene we fallback
                     // to an appearance with the default background here.
                     //
                     // Based on: https://sarunw.com/posts/uinavigationbar-changes-in-ios13/

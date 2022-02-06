@@ -14,7 +14,7 @@ final class SwiftUIExampleViewModel {
 
     /// The observable for the current date and time as a formatted string.
     ///
-    /// - Note: This value is immutable (meaning you can only subscribe to changes), therefore we have it with an `internal` access level.
+    /// - Note: The underlying subject is a `Variable`, therefore a new subscriber will be informed with the **current value up on subscription**!
     var formattedDate: Observable<String> {
         formattedDateSubject
     }
@@ -23,7 +23,7 @@ final class SwiftUIExampleViewModel {
 
     /// The current date and time as a formatted string.
     ///
-    /// - Note: This value is mutable and thereof the we store it with a `private` access level.
+    /// - Note: This value is mutable and therefore the we store it with a `private` access level.
     private let formattedDateSubject = Variable(Date.localizedDateAndTime)
 
     private var timer: Timer?
