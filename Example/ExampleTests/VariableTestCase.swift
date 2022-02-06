@@ -45,19 +45,21 @@ final class VariableTestCase: XCTestCase {
         XCTAssertEqual(variable.value, initialValue)
     }
 
-    func testValueShouldContainNewValueAfterUpdating() {
+    // MARK: - Test method `update(_:)`
+
+    func testUpdateShouldUpdatePropertyValue() {
         // Given
         let variable = Variable(123)
         let newValue = 456
 
         // When
-        variable.value = newValue
+        variable.update(newValue)
 
         // Then
         XCTAssertEqual(variable.value, newValue)
     }
 
-    // MARK: - Test method `observe(:)`
+    // MARK: - Test method `observe(_:)`
 
     func testVariableShouldInformSubscriberWithInitialValue() {
         // Given
