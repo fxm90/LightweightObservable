@@ -36,7 +36,7 @@ final class VariableTestCase: XCTestCase {
 
     // MARK: - Test property `value`
 
-    func testValueShouldContainTheInitialValue() {
+    func test_value_shouldContainInitialValue() {
         // Given
         let initialValue = 123
         let variable = Variable(initialValue)
@@ -47,7 +47,7 @@ final class VariableTestCase: XCTestCase {
 
     // MARK: - Test method `update(_:)`
 
-    func testUpdateShouldUpdatePropertyValue() {
+    func test_update_shouldUpdatePropertyValue() {
         // Given
         let variable = Variable(123)
         let newValue = 456
@@ -61,7 +61,7 @@ final class VariableTestCase: XCTestCase {
 
     // MARK: - Test method `observe(_:)`
 
-    func testVariableShouldInformSubscriberWithInitialValue() {
+    func test_variable_shouldInformSubscriber_withInitialValue() {
         // Given
         let variable = Variable(0)
 
@@ -76,7 +76,7 @@ final class VariableTestCase: XCTestCase {
         XCTAssertNil(oldValue)
     }
 
-    func testVariableShouldUpdateSubscriberWithCorrectValues() {
+    func test_variable_shouldUpdateSubscriber_withCorrectValues() {
         // Given
         let variable = Variable(0)
         variable.subscribe { newValue, oldValue in
@@ -94,7 +94,7 @@ final class VariableTestCase: XCTestCase {
         }
     }
 
-    func testVariableShouldUpdateSubscriberWithNilValueWithoutCrashing() {
+    func test_variable_shouldUpdateSubscriber_withNilValueWithoutCrashing() {
         // Given
         let variable: Variable<Int?> = Variable(0)
         variable.subscribe { newValue, _ in
@@ -109,7 +109,7 @@ final class VariableTestCase: XCTestCase {
     }
 
     /// Test case for <https://github.com/fxm90/LightweightObservable/pull/5>.
-    func testVariableShouldUpdateValueFromSubscriptionClosure() {
+    func test_variable_shouldUpdateValue_fromSubscriptionClosure() {
         // Given
         enum Counter {
             case one

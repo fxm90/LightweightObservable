@@ -32,7 +32,7 @@ final class ObservableCombineTestCase: XCTestCase {
 
     // MARK: - Test `sink`
 
-    func testSinkShouldReceiveCorrectValuesFromPublishSubject() {
+    func test_sink_shouldReceiveCorrectValues_fromPublishSubject() {
         // Given
         let publishSubject = PublishSubject<Int>()
 
@@ -50,7 +50,7 @@ final class ObservableCombineTestCase: XCTestCase {
         XCTAssertEqual(receivedValues, Array(0 ... 9))
     }
 
-    func testSinkShouldReceiveInitialValueFromVariable() {
+    func test_sink_shouldReceiveInitialValue_fromVariable() {
         // When
         let initialValue = 123
         let publishSubject = Variable(initialValue)
@@ -64,7 +64,7 @@ final class ObservableCombineTestCase: XCTestCase {
         XCTAssertEqual(receivedValue, initialValue)
     }
 
-    func testSinkShouldReceiveCorrectValuesFromVariable() {
+    func test_sink_shouldReceiveCorrectValues_fromVariable() {
         // Given
         let publishSubject = Variable(0)
 
@@ -82,7 +82,7 @@ final class ObservableCombineTestCase: XCTestCase {
         XCTAssertEqual(receivedValues, Array(0 ... 9))
     }
 
-    func testSinkShouldNotReceiveValuesAfterRemovingSubscription() {
+    func test_sink_shouldNotReceiveValues_afterRemovingSubscription() {
         // Given
         let publishSubject = PublishSubject<Int>()
 
@@ -106,7 +106,7 @@ final class ObservableCombineTestCase: XCTestCase {
         XCTAssertEqual(receivedValues, Array(0 ..< 5))
     }
 
-    func testSinkShouldNotCreateARetainCycle() {
+    func test_sink_shouldNotCreateARetainCycle() {
         // Given
         weak var optionalPublishSubject: PublishSubject<Int>?
 

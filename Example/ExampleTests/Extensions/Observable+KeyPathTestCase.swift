@@ -30,47 +30,47 @@ final class ObservableKeyPathTestCase: XCTestCase {
 
     // MARK: - Test method `bind(to:on)`
 
-    func testBindToShouldUpdatePropertyAccordingly() {
+    func test_bindTo_shouldUpdatePropertyAccordingly() {
         // Given
-        class IntStorage {
+        final class Storage {
             var value = 0
         }
 
-        let intStorage = IntStorage()
+        let storage = Storage()
 
         let variable = Variable(0)
         let observable: Observable<Int> = variable
 
         // When
         observable
-            .bind(to: \.value, on: intStorage)
+            .bind(to: \.value, on: storage)
             .disposed(by: &disposeBag)
 
         variable.value = 123
 
         // Then
-        XCTAssertEqual(variable.value, intStorage.value)
+        XCTAssertEqual(variable.value, storage.value)
     }
 
-    func testBindToShouldUpdateOptionalPropertyAccordingly() {
+    func test_bindTo_shouldUpdateOptionalPropertyAccordingly() {
         // Given
-        class IntStorage {
+        final class Storage {
             var value: Int?
         }
 
-        let intStorage = IntStorage()
+        let storage = Storage()
 
         let variable = Variable(0)
         let observable: Observable<Int> = variable
 
         // When
         observable
-            .bind(to: \.value, on: intStorage)
+            .bind(to: \.value, on: storage)
             .disposed(by: &disposeBag)
 
         variable.value = 456
 
         // Then
-        XCTAssertEqual(variable.value, intStorage.value)
+        XCTAssertEqual(variable.value, storage.value)
     }
 }

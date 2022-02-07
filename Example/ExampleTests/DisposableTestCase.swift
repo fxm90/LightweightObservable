@@ -12,7 +12,7 @@ import LightweightObservable
 final class DisposableTestCase: XCTestCase {
     // MARK: - Test `deinit`
 
-    func testDisposeClosureShouldNotBeCalledBeforeDeInit() {
+    func test_validInstance_shouldNotInvokeClosure() {
         // Given
         let expectation = expectation(description: "Expect dispose closure not to be called.")
         expectation.isInverted = true
@@ -28,10 +28,10 @@ final class DisposableTestCase: XCTestCase {
         // ...
 
         // Then
-        wait(for: [expectation], timeout: 0.1)
+        wait(for: [expectation], timeout: .ulpOfOne)
     }
 
-    func testDisposeClosureShouldBeCalledOnDeInit() {
+    func test_deinit_shouldInvokeClosure() {
         // Given
         let expectation = expectation(description: "Expect dispose closure to be called on deinit.")
 
@@ -51,7 +51,7 @@ final class DisposableTestCase: XCTestCase {
 
     // MARK: - Test method `disposed(by:)`
 
-    func testDisposedByShouldAddDisposableToGivenDisposeBag() {
+    func test_disposedBy_shouldAddDisposable_toGivenDisposeBag() {
         // Given
         var disposeBag = DisposeBag()
         let disposable = Disposable {}

@@ -36,7 +36,7 @@ final class ObservableTestCase: XCTestCase {
 
     // MARK: - Test `deinit`
 
-    func testObservableShouldNotInformSubscriberAfterDeallocatedDisposable() {
+    func test_observable_shouldNotInformSubscriber_afterDeallocatedDisposable() {
         // Given
         let variable = Variable(0)
         let observable: Observable<Int> = variable
@@ -58,7 +58,7 @@ final class ObservableTestCase: XCTestCase {
         XCTAssertNil(oldValue)
     }
 
-    func testObservableShouldNotInformSubscriberAfterDeallocatedDisposeBag() {
+    func test_observable_shouldNotInformSubscriber_afterDeallocatedDisposeBag() {
         // Given
         let variable = Variable(0)
         let observable: Observable<Int> = variable

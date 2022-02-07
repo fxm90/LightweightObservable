@@ -36,7 +36,7 @@ final class PublishSubjectTestCase: XCTestCase {
 
     // MARK: - Test property `value`
 
-    func testValueShouldContainNilInitially() {
+    func test_value_shouldContainNil_initially() {
         // Given
         let publishSubject = PublishSubject<Int>()
 
@@ -44,7 +44,9 @@ final class PublishSubjectTestCase: XCTestCase {
         XCTAssertNil(publishSubject.value)
     }
 
-    func testValueShouldContainNewValueAfterUpdating() {
+    // MARK: - Test method `update(_:)`
+
+    func test_update_shouldUpdatePropertyValue() {
         // Given
         let publishSubject = PublishSubject<Int>()
         let newValue = 123
@@ -58,7 +60,7 @@ final class PublishSubjectTestCase: XCTestCase {
 
     // MARK: - Test method `observe(_:)`
 
-    func testPublishSubjectShouldNotInformSubscriberWithInitialValue() {
+    func test_publishSubject_shouldNotInformSubscriber_withInitialValue() {
         // Given
         let publishSubject = PublishSubject<Int>()
 
@@ -71,10 +73,10 @@ final class PublishSubjectTestCase: XCTestCase {
         }.disposed(by: &disposeBag)
 
         // Then
-        wait(for: [expectation], timeout: 0.1)
+        wait(for: [expectation], timeout: .ulpOfOne)
     }
 
-    func testPublishSubjectShouldUpdateSubscriberWithGivenValues() {
+    func test_publishSubject_shouldUpdateSubscriber_withGivenValues() {
         // Given
         let publishSubject = PublishSubject<Int>()
         publishSubject.subscribe { newValue, oldValue in
@@ -97,7 +99,7 @@ final class PublishSubjectTestCase: XCTestCase {
         }
     }
 
-    func testPublishSubjectShouldUpdateSubscriberWithNilValueWithoutCrashing() {
+    func test_publishSubject_shouldUpdateSubscriber_withNilValueWithoutCrashing() {
         // Given
         let publishSubject = PublishSubject<Int?>()
         publishSubject.subscribe { newValue, _ in

@@ -36,7 +36,7 @@ final class ObservableEquatableTestCase: XCTestCase {
 
     // MARK: - Test method `subscribe(filter:)`
 
-    func testPublishSubjectShouldUpdateFilteredSubscriberWithCorrectNewValueOnFilterSucceed() {
+    func test_publishSubject_shouldUpdateFilteredSubscriber_withCorrectNewValues() {
         // Given
         let assertNewValueIsEvenFilter: (Int, Int?) -> Bool = { newValue, _ in
             newValue.isEven
@@ -64,7 +64,7 @@ final class ObservableEquatableTestCase: XCTestCase {
         waitForExpectations(timeout: 0.001, handler: nil)
     }
 
-    func testPublishSubjectShouldUpdateFilteredSubscriberWithCorrectOldValueOnFilterSucceed() {
+    func test_publishSubject_shouldUpdateFilteredSubscriber_withCorrectOldValues() {
         // Given
         let assertNewValueIsEvenFilter: (Int, Int?) -> Bool = { newValue, _ in
             newValue.isEven
@@ -88,7 +88,7 @@ final class ObservableEquatableTestCase: XCTestCase {
 
     // MARK: - Test method `subscribeDistinct(_:)`
 
-    func testVariableShouldInformDistinctSubscriberWithInitialValues() {
+    func test_variable_shouldInformDistinctSubscriber_withInitialValue() {
         // Given
         let variable = Variable(0)
 
@@ -103,7 +103,7 @@ final class ObservableEquatableTestCase: XCTestCase {
         XCTAssertNil(oldValue)
     }
 
-    func testPublishSubjectShouldUpdateDistinctSubscriberWithCorrectValues() {
+    func test_publishSubject_shouldUpdateDistinctSubscriber_withCorrectValues() {
         // Given
         let expectation = expectation(description: "Expected distinct observer to be informed ten times between `0` and `9`.")
         expectation.expectedFulfillmentCount = 10
@@ -133,7 +133,7 @@ final class ObservableEquatableTestCase: XCTestCase {
         waitForExpectations(timeout: .ulpOfOne, handler: nil)
     }
 
-    func testPublishSubjectShouldUpdateDistinctSubscriberJustOnceForSameValue() {
+    func test_publishSubject_shouldUpdateDistinctSubscriber_justOnceForSameValue() {
         // Given
         let expectation = expectation(description: "Expected distinct observer to be informed just once.")
         expectation.expectedFulfillmentCount = 1
