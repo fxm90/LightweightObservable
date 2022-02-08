@@ -14,7 +14,7 @@ final class DisposableTestCase: XCTestCase {
 
     func test_validInstance_shouldNotInvokeClosure() {
         // Given
-        let expectation = expectation(description: "Expect dispose closure not to be called.")
+        let expectation = expectation(description: "As we've NOT deallocated our disposable we expect the closure to also NOT be invoked.")
         expectation.isInverted = true
 
         let disposable: Disposable? = Disposable {
@@ -33,7 +33,7 @@ final class DisposableTestCase: XCTestCase {
 
     func test_deinit_shouldInvokeClosure() {
         // Given
-        let expectation = expectation(description: "Expect dispose closure to be called on deinit.")
+        let expectation = expectation(description: "As we've deallocated our disposable we expect the closure to be invoked.")
 
         var disposable: Disposable? = Disposable {
             expectation.fulfill()

@@ -32,11 +32,7 @@ final class ObservableKeyPathTestCase: XCTestCase {
 
     func test_bindTo_shouldUpdatePropertyAccordingly() {
         // Given
-        final class Storage {
-            var value = 0
-        }
-
-        let storage = Storage()
+        let storage = Storage(0)
 
         let variable = Variable(0)
         let observable: Observable<Int> = variable
@@ -54,11 +50,7 @@ final class ObservableKeyPathTestCase: XCTestCase {
 
     func test_bindTo_shouldUpdateOptionalPropertyAccordingly() {
         // Given
-        final class Storage {
-            var value: Int?
-        }
-
-        let storage = Storage()
+        let storage = Storage<Int?>(nil)
 
         let variable = Variable(0)
         let observable: Observable<Int> = variable
@@ -72,5 +64,15 @@ final class ObservableKeyPathTestCase: XCTestCase {
 
         // Then
         XCTAssertEqual(variable.value, storage.value)
+    }
+}
+
+// MARK: - Helpers
+
+private final class Storage<T: Equatable> {
+    var value: T
+
+    init(_ value: T) {
+        self.value = value
     }
 }

@@ -14,18 +14,12 @@ final class PublishSubjectTestCase: XCTestCase {
 
     private var disposeBag: DisposeBag!
 
-    private var oldValue: Int?
-    private var newValue: Int?
-
     // MARK: - Public methods
 
     override func setUp() {
         super.setUp()
 
         disposeBag = DisposeBag()
-
-        oldValue = nil
-        newValue = nil
     }
 
     override func tearDown() {
@@ -78,38 +72,52 @@ final class PublishSubjectTestCase: XCTestCase {
 
     func test_publishSubject_shouldUpdateSubscriber_withGivenValues() {
         // Given
+        var receivedNewValues = [Int]()
+        var receivedOldValues = [Int?]()
+
+        let expectation = expectation(description: "Expected observer to be invoked ten times between `0` and `9`.")
+        expectation.expectedFulfillmentCount = 10
+
         let publishSubject = PublishSubject<Int>()
         publishSubject.subscribe { newValue, oldValue in
-            self.newValue = newValue
-            self.oldValue = oldValue
+            receivedNewValues.append(newValue)
+            receivedOldValues.append(oldValue)
+
+            expectation.fulfill()
         }.disposed(by: &disposeBag)
 
         // When
         for value in 0 ..< 10 {
             publishSubject.update(value)
-
-            // Then
-            XCTAssertEqual(newValue, value)
-
-            if value == 0 {
-                XCTAssertNil(oldValue, "As a `PublishSubject` doesn't have an initial value, the `oldValue` should still be `nil` during the first iteration.")
-            } else {
-                XCTAssertEqual(oldValue, value - 1)
-            }
         }
+
+        // Then
+        wait(for: [expectation], timeout: .ulpOfOne)
+
+        let expectedNewValues = Array(0 ..< 10)
+        XCTAssertEqual(receivedNewValues, expectedNewValues)
+
+        let expectedOldValues = [nil] + expectedNewValues.dropLast()
+        XCTAssertEqual(receivedOldValues, expectedOldValues)
     }
 
     func test_publishSubject_shouldUpdateSubscriber_withNilValueWithoutCrashing() {
         // Given
+        var receivedNewValue: Int?
+        let expectation = expectation(description: "Expect observer to be informed with `nil`.")
+
         let publishSubject = PublishSubject<Int?>()
         publishSubject.subscribe { newValue, _ in
-            self.newValue = newValue
+            receivedNewValue = newValue
+            expectation.fulfill()
         }.disposed(by: &disposeBag)
 
         // When
         publishSubject.update(nil)
 
         // Then
-        XCTAssertNil(newValue)
+        wait(for: [expectation], timeout: .ulpOfOne)
+
+        XCTAssertNil(receivedNewValue)
     }
 }

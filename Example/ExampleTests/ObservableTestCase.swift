@@ -10,40 +10,18 @@ import XCTest
 import LightweightObservable
 
 final class ObservableTestCase: XCTestCase {
-    // MARK: - Private properties
+    // MARK: - Test method `subscribe(_:)`
 
-    private var disposeBag: DisposeBag!
-
-    private var oldValue: Int?
-    private var newValue: Int?
-
-    // MARK: - Public methods
-
-    override func setUp() {
-        super.setUp()
-
-        disposeBag = DisposeBag()
-
-        oldValue = nil
-        newValue = nil
-    }
-
-    override func tearDown() {
-        disposeBag = nil
-
-        super.tearDown()
-    }
-
-    // MARK: - Test `deinit`
-
-    func test_observable_shouldNotInformSubscriber_afterDeallocatedDisposable() {
+    func test_subscribe_shouldNotInformSubscriber_afterDeallocatedDisposable() {
         // Given
-        let variable = Variable(0)
-        let observable: Observable<Int> = variable
+        let expectation = expectation(description: "Expect subscription closure to NOT be invoked!")
+        expectation.isInverted = true
 
-        var disposable: Disposable? = observable.subscribe { newValue, oldValue in
-            self.newValue = newValue
-            self.oldValue = oldValue
+        let publishSubject = PublishSubject<Int>()
+        let observable: Observable<Int> = publishSubject
+
+        var disposable: Disposable? = observable.subscribe { _, _ in
+            expectation.fulfill()
         }
 
         // Workaround to fix warning `Variable 'disposable' was written to, but never read`
@@ -51,29 +29,30 @@ final class ObservableTestCase: XCTestCase {
 
         // When
         disposable = nil
-        variable.value = 1
+        publishSubject.update(1)
 
         // Then
-        XCTAssertEqual(newValue, 0, "As we've deallocated our disposable the observer should not be updated.")
-        XCTAssertNil(oldValue)
+        wait(for: [expectation], timeout: .ulpOfOne)
     }
 
-    func test_observable_shouldNotInformSubscriber_afterDeallocatedDisposeBag() {
+    func test_subscribe_shouldNotInformSubscriber_afterDeallocatedDisposeBag() {
         // Given
-        let variable = Variable(0)
-        let observable: Observable<Int> = variable
+        let expectation = expectation(description: "Expect subscription closure to NOT be invoked!")
+        expectation.isInverted = true
 
-        observable.subscribe { newValue, oldValue in
-            self.newValue = newValue
-            self.oldValue = oldValue
+        let publishSubject = PublishSubject<Int>()
+        let observable: Observable<Int> = publishSubject
+
+        var disposeBag = DisposeBag()
+        observable.subscribe { _, _ in
+            expectation.fulfill()
         }.disposed(by: &disposeBag)
 
         // When
-        disposeBag = nil
-        variable.value = 1
+        disposeBag.removeAll()
+        publishSubject.update(1)
 
         // Then
-        XCTAssertEqual(newValue, 0, "As we've deallocated our disposable the observer should not be updated.")
-        XCTAssertNil(oldValue)
+        wait(for: [expectation], timeout: .ulpOfOne)
     }
 }

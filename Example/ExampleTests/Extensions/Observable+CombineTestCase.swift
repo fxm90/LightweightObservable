@@ -30,7 +30,7 @@ final class ObservableCombineTestCase: XCTestCase {
         super.tearDown()
     }
 
-    // MARK: - Test `sink`
+    // MARK: - Test method `sink(_:)`
 
     func test_sink_shouldReceiveCorrectValues_fromPublishSubject() {
         // Given
@@ -103,7 +103,7 @@ final class ObservableCombineTestCase: XCTestCase {
         }
 
         // Then
-        XCTAssertEqual(receivedValues, Array(0 ..< 5))
+        XCTAssertEqual(receivedValues, Array(0 ... 4))
     }
 
     func test_sink_shouldNotCreateARetainCycle() {

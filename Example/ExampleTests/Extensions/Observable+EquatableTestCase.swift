@@ -14,18 +14,12 @@ final class ObservableEquatableTestCase: XCTestCase {
 
     private var disposeBag: DisposeBag!
 
-    private var oldValue: Int?
-    private var newValue: Int?
-
     // MARK: - Public methods
 
     override func setUp() {
         super.setUp()
 
         disposeBag = DisposeBag()
-
-        oldValue = nil
-        newValue = nil
     }
 
     override func tearDown() {
@@ -34,26 +28,23 @@ final class ObservableEquatableTestCase: XCTestCase {
         super.tearDown()
     }
 
-    // MARK: - Test method `subscribe(filter:)`
+    // MARK: - Test method `subscribe(filter:observer:)`
 
-    func test_publishSubject_shouldUpdateFilteredSubscriber_withCorrectNewValues() {
+    func test_publishSubject_shouldUpdateFilteredSubscriber_withCorrectValues() {
         // Given
-        let assertNewValueIsEvenFilter: (Int, Int?) -> Bool = { newValue, _ in
-            newValue.isEven
-        }
+        var receivedNewValues = [Int]()
+        var receivedOldValues = [Int?]()
 
-        let expectation = expectation(description: "Expected five even numbers between `0` and `9`.")
+        let expectation = expectation(description: "Expected observer to be invoked five times for even numbers between `0` and `9`.")
         expectation.expectedFulfillmentCount = 5
 
         let publishSubject = PublishSubject<Int>()
-        publishSubject.subscribe(filter: assertNewValueIsEvenFilter, observer: { newValue, _ in
-            guard newValue.isEven else {
-                XCTFail("Our filter passed to `subscribe` succeeded, even though \(newValue) is not an even number.")
-                return
-            }
+        publishSubject.subscribe(filter: assertNewValueIsEven) { newValue, oldValue in
+            receivedNewValues.append(newValue)
+            receivedOldValues.append(oldValue)
 
             expectation.fulfill()
-        }).disposed(by: &disposeBag)
+        }.disposed(by: &disposeBag)
 
         // When
         for value in 0 ..< 10 {
@@ -61,57 +52,47 @@ final class ObservableEquatableTestCase: XCTestCase {
         }
 
         // Then
-        waitForExpectations(timeout: 0.001, handler: nil)
-    }
+        wait(for: [expectation], timeout: .ulpOfOne)
 
-    func test_publishSubject_shouldUpdateFilteredSubscriber_withCorrectOldValues() {
-        // Given
-        let assertNewValueIsEvenFilter: (Int, Int?) -> Bool = { newValue, _ in
-            newValue.isEven
-        }
+        let expectedNewValues = Array(stride(from: 0, to: 10, by: 2))
+        XCTAssertEqual(receivedNewValues, expectedNewValues)
 
-        var previousNewValue: Int?
-
-        let publishSubject = PublishSubject<Int>()
-        publishSubject.subscribe(filter: assertNewValueIsEvenFilter, observer: { newValue, oldValue in
-            // Then
-            XCTAssertEqual(previousNewValue, oldValue)
-
-            previousNewValue = newValue
-        }).disposed(by: &disposeBag)
-
-        // When
-        for value in 0 ..< 10 {
-            publishSubject.update(value)
-        }
+        let expectedOldValues = [nil] + expectedNewValues.dropLast()
+        XCTAssertEqual(receivedOldValues, expectedOldValues)
     }
 
     // MARK: - Test method `subscribeDistinct(_:)`
 
     func test_variable_shouldInformDistinctSubscriber_withInitialValue() {
         // Given
+        var receivedNewValue: Int?
+        var receivedOldValue: Int?
+
         let variable = Variable(0)
 
         // When
         variable.subscribeDistinct { newValue, oldValue in
-            self.newValue = newValue
-            self.oldValue = oldValue
+            receivedNewValue = newValue
+            receivedOldValue = oldValue
         }.disposed(by: &disposeBag)
 
         // Then
-        XCTAssertEqual(newValue, 0)
-        XCTAssertNil(oldValue)
+        XCTAssertEqual(receivedNewValue, 0)
+        XCTAssertNil(receivedOldValue)
     }
 
     func test_publishSubject_shouldUpdateDistinctSubscriber_withCorrectValues() {
         // Given
-        let expectation = expectation(description: "Expected distinct observer to be informed ten times between `0` and `9`.")
+        var receivedNewValues = [Int]()
+        var receivedOldValues = [Int?]()
+
+        let expectation = expectation(description: "Expected distinct observer to be invoked ten times between `0` and `9`.")
         expectation.expectedFulfillmentCount = 10
 
         let publishSubject = PublishSubject<Int>()
         publishSubject.subscribeDistinct { newValue, oldValue in
-            self.newValue = newValue
-            self.oldValue = oldValue
+            receivedNewValues.append(newValue)
+            receivedOldValues.append(oldValue)
 
             expectation.fulfill()
         }.disposed(by: &disposeBag)
@@ -119,29 +100,30 @@ final class ObservableEquatableTestCase: XCTestCase {
         // When
         for value in 0 ..< 10 {
             publishSubject.update(value)
-
-            // Then
-            XCTAssertEqual(newValue, value)
-
-            if value == 0 {
-                XCTAssertNil(oldValue, "As a `PublishSubject` doesn't have an initial value `oldValue` should still be `nil` during the first iteration.")
-            } else {
-                XCTAssertEqual(oldValue, value - 1)
-            }
         }
 
-        waitForExpectations(timeout: .ulpOfOne, handler: nil)
+        // Then
+        wait(for: [expectation], timeout: .ulpOfOne)
+
+        let expectedNewValues = Array(0 ..< 10)
+        XCTAssertEqual(receivedNewValues, expectedNewValues)
+
+        let expectedOldValues = [nil] + expectedNewValues.dropLast()
+        XCTAssertEqual(receivedOldValues, expectedOldValues)
     }
 
     func test_publishSubject_shouldUpdateDistinctSubscriber_justOnceForSameValue() {
         // Given
-        let expectation = expectation(description: "Expected distinct observer to be informed just once.")
+        var receivedNewValue: Int?
+        var receivedOldValue: Int?
+
+        let expectation = expectation(description: "Expected distinct observer to be invoked just once.")
         expectation.expectedFulfillmentCount = 1
 
         let publishSubject = PublishSubject<Int>()
         publishSubject.subscribeDistinct { newValue, oldValue in
-            self.newValue = newValue
-            self.oldValue = oldValue
+            receivedNewValue = newValue
+            receivedOldValue = oldValue
 
             expectation.fulfill()
         }.disposed(by: &disposeBag)
@@ -149,20 +131,21 @@ final class ObservableEquatableTestCase: XCTestCase {
         // When
         for _ in 0 ..< 10 {
             publishSubject.update(1)
-
-            // Then
-            XCTAssertEqual(newValue, 1)
-            XCTAssertNil(oldValue)
         }
 
-        waitForExpectations(timeout: .ulpOfOne, handler: nil)
+        // Then
+        wait(for: [expectation], timeout: .ulpOfOne)
+
+        XCTAssertEqual(receivedNewValue, 1)
+        XCTAssertNil(receivedOldValue)
     }
 }
 
 // MARK: - Helpers
 
-private extension Int {
-    var isEven: Bool {
-        isMultiple(of: 2)
+private extension ObservableEquatableTestCase {
+    // swiftformat:disable:next unusedArguments
+    func assertNewValueIsEven(_ newValue: Int, oldValue _: Int?) -> Bool {
+        newValue.isMultiple(of: 2)
     }
 }

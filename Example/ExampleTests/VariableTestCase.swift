@@ -14,18 +14,12 @@ final class VariableTestCase: XCTestCase {
 
     private var disposeBag: DisposeBag!
 
-    private var oldValue: Int?
-    private var newValue: Int?
-
     // MARK: - Public methods
 
     override func setUp() {
         super.setUp()
 
         disposeBag = DisposeBag()
-
-        oldValue = nil
-        newValue = nil
     }
 
     override func tearDown() {
@@ -63,49 +57,79 @@ final class VariableTestCase: XCTestCase {
 
     func test_variable_shouldInformSubscriber_withInitialValue() {
         // Given
+        var receivedNewValue: Int?
+        var receivedOldValue: Int?
+
+        let expectation = expectation(description: "Expect observer to be informed.")
+
         let variable = Variable(0)
 
         // When
         variable.subscribe { newValue, oldValue in
-            self.newValue = newValue
-            self.oldValue = oldValue
+            receivedNewValue = newValue
+            receivedOldValue = oldValue
+
+            expectation.fulfill()
         }.disposed(by: &disposeBag)
 
         // Then
-        XCTAssertEqual(newValue, 0)
-        XCTAssertNil(oldValue)
+        wait(for: [expectation], timeout: .ulpOfOne)
+
+        XCTAssertEqual(receivedNewValue, 0)
+        XCTAssertNil(receivedOldValue)
     }
 
     func test_variable_shouldUpdateSubscriber_withCorrectValues() {
         // Given
+        var receivedNewValues = [Int]()
+        var receivedOldValues = [Int?]()
+
+        let expectation = expectation(description: "Expected observer to be invoked ten times between `0` and `9`.")
+        expectation.expectedFulfillmentCount = 10
+
         let variable = Variable(0)
         variable.subscribe { newValue, oldValue in
-            self.newValue = newValue
-            self.oldValue = oldValue
+            receivedNewValues.append(newValue)
+            receivedOldValues.append(oldValue)
+
+            expectation.fulfill()
         }.disposed(by: &disposeBag)
 
         // When
         for value in 1 ..< 10 {
-            variable.value = value
-
-            // Then
-            XCTAssertEqual(newValue, value)
-            XCTAssertEqual(oldValue, value - 1)
+            variable.update(value)
         }
+
+        // Then
+        wait(for: [expectation], timeout: .ulpOfOne)
+
+        let expectedNewValues = Array(0 ..< 10)
+        XCTAssertEqual(receivedNewValues, expectedNewValues)
+
+        let expectedOldValues = [nil] + expectedNewValues.dropLast()
+        XCTAssertEqual(receivedOldValues, expectedOldValues)
     }
 
     func test_variable_shouldUpdateSubscriber_withNilValueWithoutCrashing() {
         // Given
+        var receivedNewValue: Int?
+
+        let expectation = expectation(description: "Expect observer to be informed two times: Once with the initial value and second with `nil`.")
+        expectation.expectedFulfillmentCount = 2
+
         let variable: Variable<Int?> = Variable(0)
         variable.subscribe { newValue, _ in
-            self.newValue = newValue
+            receivedNewValue = newValue
+            expectation.fulfill()
         }.disposed(by: &disposeBag)
 
         // When
-        variable.value = nil
+        variable.update(nil)
 
         // Then
-        XCTAssertNil(newValue)
+        wait(for: [expectation], timeout: .ulpOfOne)
+
+        XCTAssertNil(receivedNewValue)
     }
 
     /// Test case for <https://github.com/fxm90/LightweightObservable/pull/5>.
@@ -116,8 +140,8 @@ final class VariableTestCase: XCTestCase {
             case two
         }
 
-        let counterVariable = Variable<Counter>(.one)
         var receivedValues = [Counter]()
+        let counterVariable = Variable<Counter>(.one)
 
         // When
         counterVariable.subscribe { newValue, _ in
