@@ -24,7 +24,7 @@ If you want to update from version 1.x.x, please have a look at the [Lightweight
 To run the example project, clone the repo, and open the workspace from the Example directory.
 
 ### Requirements
-- Swift 5.0
+- Swift 5.5
 - Xcode 10.2+
 - iOS 9.0+
 
