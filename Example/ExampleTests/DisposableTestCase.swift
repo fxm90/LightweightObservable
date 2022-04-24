@@ -21,14 +21,13 @@ final class DisposableTestCase: XCTestCase {
             expectation.fulfill()
         }
 
-        // Workaround to fix warning `Variable 'disposable' was written to, but never read`
-        XCTAssertNotNil(disposable, "Precondition failed - Expected to have a valid instance at this point.")
+        withExtendedLifetime(disposable) {
+            // When
+            // ...
 
-        // When
-        // ...
-
-        // Then
-        wait(for: [expectation], timeout: .ulpOfOne)
+            // Then
+            wait(for: [expectation], timeout: .ulpOfOne)
+        }
     }
 
     func test_deinit_shouldInvokeClosure() {
