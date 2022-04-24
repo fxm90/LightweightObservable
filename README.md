@@ -25,7 +25,7 @@ To run the example project, clone the repo, and open the workspace from the Exam
 
 ### Requirements
 - Swift 5.5
-- Xcode 10.2+
+- Xcode 13.2+
 - iOS 9.0+
 
 ### Projects targeting iOS >= 13.0
