@@ -23,7 +23,7 @@ platform :ios do
       config: "Pods/SwiftConfigurationFiles/.swiftformat",
       path: "../",
       lint: true
-      )
+    )
   end
 
   desc "Execute SwiftLint and treat any formatting errors as real errors."
