@@ -51,7 +51,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Initial release.
 
 
-[Unreleased]: https://github.com/fxm90/LightweightObservable/compare/2.2.0...master
+[Unreleased]: https://github.com/fxm90/LightweightObservable/compare/2.2.0...main
 [2.2.0]: https://github.com/fxm90/LightweightObservable/compare/2.1.2...2.2.0
 [2.1.2]: https://github.com/fxm90/LightweightObservable/compare/2.1.1...2.1.2
 [2.1.1]: https://github.com/fxm90/LightweightObservable/compare/2.1.0...2.1.1
