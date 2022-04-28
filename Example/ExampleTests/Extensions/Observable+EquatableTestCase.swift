@@ -141,7 +141,7 @@ final class ObservableEquatableTestCase: XCTestCase {
     }
 }
 
-// MARK: - Helpers
+// MARK: - Helper
 
 private extension ObservableEquatableTestCase {
     // swiftformat:disable:next unusedArguments

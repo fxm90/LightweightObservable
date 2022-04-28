@@ -11,6 +11,7 @@ import SwiftUI
 import LightweightObservable
 
 final class UIKitExampleViewController: UIViewController {
+
     // MARK: - Config
 
     private enum Config {
@@ -89,7 +90,7 @@ final class UIKitExampleViewController: UIViewController {
     }
 }
 
-// MARK: - Helpers
+// MARK: - Helper
 
 struct UIKitExampleView: View {
     var body: some View {

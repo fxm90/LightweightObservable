@@ -67,7 +67,7 @@ final class ObservableKeyPathTestCase: XCTestCase {
     }
 }
 
-// MARK: - Helpers
+// MARK: - Helper
 
 private final class Storage<T: Equatable> {
     var value: T

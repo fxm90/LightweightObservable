@@ -10,6 +10,7 @@ import Foundation
 import LightweightObservable
 
 final class SwiftUIExampleViewModel {
+
     // MARK: - Public properties
 
     /// The observable for the current date and time as a formatted string.
@@ -28,7 +29,7 @@ final class SwiftUIExampleViewModel {
 
     private var timer: Timer?
 
-    // MARK: - Initializer
+    // MARK: - Instance Lifecycle
 
     init() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
@@ -37,7 +38,7 @@ final class SwiftUIExampleViewModel {
     }
 }
 
-// MARK: - Helpers
+// MARK: - Helper
 
 private extension Date {
     static var localizedDateAndTime: String {

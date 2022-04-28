@@ -277,7 +277,7 @@ final class ViewModel {
 
     private var timer: Timer?
 
-    // MARK: - Initializer
+    // MARK: - Instance Lifecycle
 
     init() {
         // Update variable with current date and time every second.

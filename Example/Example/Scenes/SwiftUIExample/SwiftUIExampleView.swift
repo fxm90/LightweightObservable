@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct SwiftUIExampleView: View {
+
     // MARK: - Private properties
 
     private let viewModel = SwiftUIExampleViewModel()
