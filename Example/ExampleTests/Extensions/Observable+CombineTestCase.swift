@@ -12,6 +12,7 @@ import LightweightObservable
 
 @available(iOS 13.0, *)
 final class ObservableCombineTestCase: XCTestCase {
+
     // MARK: - Private properties
 
     private var subscriptions: Set<AnyCancellable>!

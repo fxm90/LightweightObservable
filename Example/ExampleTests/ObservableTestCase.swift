@@ -10,6 +10,7 @@ import XCTest
 import LightweightObservable
 
 final class ObservableTestCase: XCTestCase {
+
     // MARK: - Test method `subscribe(_:)`
 
     func test_subscribe_shouldNotInformSubscriber_afterDeallocatedDisposable() {

@@ -10,6 +10,7 @@ import XCTest
 import LightweightObservable
 
 final class DisposableTestCase: XCTestCase {
+
     // MARK: - Test `deinit`
 
     func test_validInstance_shouldNotInvokeClosure() {
