@@ -51,7 +51,7 @@ public class Observable<T> {
     /// Map with all **active** observers.
     private var observers = [Index: Observer]()
 
-    // MARK: - Initalizer
+    // MARK: - Instance Lifecycle
 
     /// Initializes a new observable.
     ///
