@@ -134,7 +134,7 @@ lazy var formattedTime: Observable<String> = formattedTimeSubject
 ```
 
 #### – Subscribe to changes
-A subscriber will be informed at different times, depending on the corresponding subclass of the observable:
+A subscriber will be informed at different times, depending on the subclass of the corresponding observable:
 
  - `PublishSubject`: Starts empty and only emits new elements to subscribers.
  - `Variable`: Starts with an initial value and replays it or the latest element to new subscribers.
@@ -156,7 +156,7 @@ formattedTime.subscribe { [weak self] newFormattedTime, oldFormattedTime in
 
 Please notice that the old value (`oldFormattedTime`) is an optional of the underlying type, as we might not have this value on the initial call to the subscriber.
 
-**Important:** To avoid retain cycles and/or crashes, **always** use `[weak self]` when self is needed by an observer.
+**Important:** To avoid retain cycles and/or crashes, **always** use `[weak self]` when an instance of `self` is needed by an observer.
 
 ##### - KeyPath based subscription
 **Declaration**
@@ -240,16 +240,15 @@ typealias Filter = (NewValue, OldValue) -> Bool
 func subscribe(filter: @escaping Filter, observer: @escaping Observer) -> Disposable {}
 ```
 
-Using this method, the observer will only be notified on changes if the corresponding filter matches.
+Using this method, the observer will only be notified on changes if the corresponding filter matches (returns `true`).
 
-This pod comes with one predefined filter method, called `subscribeDistinct`. Subscribing to an observable using this method, will only notify the observer if the new value is different from the old value. This is useful to prevent unnecessary UI-Updates.
+This pod comes with one predefined filter method, called `subscribeDistinct`. Subscribing to an observable using this method will only notify the observer, if the new value is different from the old value. This is useful to prevent unnecessary UI-Updates.
 
 Feel free to add more filters, by extending the `Observable` like this:
 
 ```swift
 extension Observable where T: Equatable {}
 ```
-
 
 #### – Getting the current value synchronously
 You can get the current value of the `Observable` by accessing the property `value`. However it is always better to subscribe to a given observable! This **shortcut** should only be used during **testing**.
@@ -263,6 +262,7 @@ Using the given approach, your view-model could look like this:
 
 ```swift
 final class ViewModel {
+
     // MARK: - Public properties
 
     /// The current date and time as a formatted string (**immutable**).
@@ -291,6 +291,7 @@ And your view controller like this:
 
 ```swift
 final class ViewController: UIViewController {
+
     // MARK: - Outlets
 
     @IBOutlet private var dateLabel: UILabel!
