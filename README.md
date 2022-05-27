@@ -61,6 +61,15 @@ publishSubject.update(3) // Prints "6"
 | `Variable`              | `CurrentValueSubject` |
 
 
+Furthermore, using the property [`values`](https://developer.apple.com/documentation/combine/publisher/values-1dm9r) of a `Combine.Publisher`, you can use an `Observable` in an asynchronous sequence:
+
+```swift
+for await value in observable.values {
+    // ...
+}
+```
+
+
 ### Integration
 ##### CocoaPods
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Lightweight Observable into your Xcode project using CocoaPods, specify it in your `Podfile`:
