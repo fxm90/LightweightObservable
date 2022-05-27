@@ -124,4 +124,30 @@ final class ObservableCombineTestCase: XCTestCase {
         // Then
         XCTAssertNil(optionalPublishSubject)
     }
+
+    func test_asyncSequence() async {
+        // Given
+        let publishSubject = PublishSubject<Int>()
+        let valuesToSend = [0, 1, 2]
+
+        Task {
+            for valueToSend in valuesToSend {
+                _ = try await Task.sleep(nanoseconds: 100)
+                publishSubject.update(valueToSend)
+            }
+        }
+
+        // When
+        var receivedValues = [Int]()
+        for await value in publishSubject.values {
+            receivedValues.append(value)
+
+            if receivedValues.count == valuesToSend.count {
+                break
+            }
+        }
+
+        // Then
+        XCTAssertEqual(receivedValues, valuesToSend)
+    }
 }
