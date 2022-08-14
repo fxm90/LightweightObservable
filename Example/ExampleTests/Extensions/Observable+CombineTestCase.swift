@@ -6,9 +6,9 @@
 //  Copyright © 2022 Felix Mau. All rights reserved.
 //
 
-import XCTest
 import Combine
 import LightweightObservable
+import XCTest
 
 @available(iOS 13.0, *)
 final class ObservableCombineTestCase: XCTestCase {
