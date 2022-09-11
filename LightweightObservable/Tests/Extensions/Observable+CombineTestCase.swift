@@ -125,6 +125,7 @@ final class ObservableCombineTestCase: XCTestCase {
         XCTAssertNil(optionalPublishSubject)
     }
 
+    @available(iOS 15.0, *)
     func test_asyncSequence() async {
         // Given
         let publishSubject = PublishSubject<Int>()
