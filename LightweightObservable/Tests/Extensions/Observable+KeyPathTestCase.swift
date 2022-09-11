@@ -1,6 +1,6 @@
 //
 //  Observable+KeyPathTestCase.swift
-//  ExampleTests
+//  LightweightObservableTests
 //
 //  Created by Felix Mau on 13.02.20.
 //  Copyright © 2020 Felix Mau. All rights reserved.

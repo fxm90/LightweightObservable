@@ -5,17 +5,12 @@ platform :ios, '15.0'
 use_frameworks!
 
 target 'Example' do
-  pod 'LightweightObservable', :path => '../'
+  pod 'LightweightObservable', :path => '../', :testspecs => ['Tests']
 
   # Development pods.
   pod 'SwiftFormat/CLI', '~> 0.41'
   pod 'SwiftLint', '~> 0.42'
   pod 'SwiftConfigurationFiles', :git => 'https://github.com/fxm90/SwiftConfigurationFiles.git'
-
-  target 'ExampleTests' do
-    inherit! :search_paths
-
-  end
 
   post_install do |installer|
 

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'LightweightObservable'
   s.version          = '2.2.1'
-  s.summary          = 'Lightweight Obserservable is a simple implementation of an observable sequence that you can subscribe to.'
+  s.summary          = 'Lightweight Observable is a simple implementation of an observable sequence that you can subscribe to.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -32,7 +32,11 @@ With Lightweight Observable you can easily set up UI-Bindings in an MVVM applica
   s.swift_version         = '5.5'
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'LightweightObservable/**/*'
+  s.source_files = 'LightweightObservable/Sources/**/*.swift'
+
+  s.test_spec 'Tests' do |test_spec|
+    test_spec.source_files = 'LightweightObservable/Tests/**/*.swift'
+  end
 
   # s.resource_bundles = {
   #   'LightweightObservable' => ['LightweightObservable/Assets/*.png']

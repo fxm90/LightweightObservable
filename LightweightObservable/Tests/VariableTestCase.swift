@@ -1,6 +1,6 @@
 //
 //  VariableTestCase.swift
-//  ExampleTests
+//  LightweightObservableTests
 //
 //  Created by Felix Mau on 11.02.19.
 //  Copyright © 2019 Felix Mau. All rights reserved.

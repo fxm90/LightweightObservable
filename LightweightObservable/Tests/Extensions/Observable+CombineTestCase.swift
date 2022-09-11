@@ -1,6 +1,6 @@
 //
 //  Observable+CombineTestCase.swift
-//  ExampleTests
+//  LightweightObservableTests
 //
 //  Created by Felix Mau on 05.02.22.
 //  Copyright © 2022 Felix Mau. All rights reserved.

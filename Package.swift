@@ -12,8 +12,8 @@ let package = Package(name: "LightweightObservable",
                       ],
                       targets: [
                           .target(name: "LightweightObservable",
-                                  path: "LightweightObservable/"),
+                                  path: "LightweightObservable/Sources/"),
                           .testTarget(name: "LightweightObservableTests",
                                       dependencies: ["LightweightObservable"],
-                                      path: "Example/ExampleTests/"),
+                                      path: "LightweightObservable/Tests/"),
                       ])
