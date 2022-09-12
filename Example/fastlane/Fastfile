@@ -38,6 +38,8 @@ platform :ios do
   desc "Execute tests."
   lane :tests do
     run_tests(
+      # Running `pod install` will add the scheme `LightweightObservable-Unit-Tests` as non shared.
+      # As a workaround we added the test target to the `Example` scheme.
       workspace: "Example.xcworkspace",
       devices: ["iPhone 13"],
       scheme: "Example",
@@ -49,7 +51,11 @@ platform :ios do
   lane :pod_lint do
     Dir.chdir("..") do
       # Move outside of `Example/` directory.
-      pod_lib_lint()
+      #
+      # - Note: `pod lib lint` will also run the tests.
+      pod_lib_lint(
+        verbose: true
+      )
     end
   end
 end
