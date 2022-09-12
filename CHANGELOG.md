@@ -7,6 +7,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+## [2.2.2] - 2022-12-09
+### Changed
+ - Optimized test setup
+### Fixed
+ - Fixed wrong minimum iOS deployment target when using Carthage. ([#09])
+
+[#09]: https://github.com/fxm90/LightweightObservable/issues/9
+
 ## [2.2.1] - 2022-28-05
 ### Changed
  - Internal refactoring and added documentation.
@@ -18,11 +26,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [2.1.2] - 2021-15-01
 ### Fixed
- - Fix observer not informed when updating value in subscription closure. [#5](https://github.com/fxm90/LightweightObservable/pull/5). Thanks [Snakeyh](https://github.com/Snakeyh).
+ - Fixed observer not informed when updating value in subscription closure. [#5](https://github.com/fxm90/LightweightObservable/pull/5). Thanks [Snakeyh](https://github.com/Snakeyh).
 
 ## [2.1.1] - 2020-15-03
 ### Fixed
- - Fix sending incorrect `oldValue` to filtered observer.
+ - Fixed sending incorrect `oldValue` to filtered observer.
 
 ## [2.1.0] - 2020-03-03
 ### Added
@@ -49,13 +57,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [1.0.1] - 2019-09-06
 ### Fixed
- - Fix Carthage build failed due to non shared scheme.
+ - Fixed Carthage build failed due to non shared scheme.
 
 ## [1.0.0] - 2019-18-05
 - Initial release.
 
 
-[Unreleased]: https://github.com/fxm90/LightweightObservable/compare/2.2.1...main
+[Unreleased]: https://github.com/fxm90/LightweightObservable/compare/2.2.2...main
+[2.2.2]: https://github.com/fxm90/LightweightObservable/compare/2.2.1...2.2.2
 [2.2.1]: https://github.com/fxm90/LightweightObservable/compare/2.2.0...2.2.1
 [2.2.0]: https://github.com/fxm90/LightweightObservable/compare/2.1.2...2.2.0
 [2.1.2]: https://github.com/fxm90/LightweightObservable/compare/2.1.1...2.1.2
