@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "086F937CFC9099EB74E4B66BE7CBCB93"
-               BuildableName = "LightweightObservable.framework"
-               BlueprintName = "LightweightObservable"
+               BlueprintIdentifier = "627B605ABB2037F96035DA1FEDF23A3A"
+               BuildableName = "LightweightObservable-Unit-Tests.xctest"
+               BlueprintName = "LightweightObservable-Unit-Tests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "627B605ABB2037F96035DA1FEDF23A3A"
+               BuildableName = "LightweightObservable-Unit-Tests.xctest"
+               BlueprintName = "LightweightObservable-Unit-Tests"
+               ReferencedContainer = "container:Pods.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -47,15 +57,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "086F937CFC9099EB74E4B66BE7CBCB93"
-            BuildableName = "LightweightObservable.framework"
-            BlueprintName = "LightweightObservable"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
