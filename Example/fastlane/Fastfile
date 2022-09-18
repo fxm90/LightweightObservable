@@ -45,7 +45,7 @@ platform :ios do
       # therefore we explicitly specify the pods project here.
       project: "Pods/Pods.xcodeproj",
       devices: ["iPhone 13"],
-      scheme: "LightweightObservable",
+      scheme: "LightweightObservable-Unit-Tests",
       code_coverage: true,
       number_of_retries: 1
     )
