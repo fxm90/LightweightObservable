@@ -35,6 +35,19 @@ platform :ios do
     )
   end
 
+  desc "Verify Carthage support by making sure the scheme `LightweightObservable` is shared."
+  lane :verify_carthage do
+    #
+    # For Carthage support we explicitly have to mark the scheme `LightweightObservable` as shared.
+    # Source: https://www.amerhukic.com/how-to-add-carthage-support-in-existing-cocoapod-project
+    #
+    build_app(
+      project: "Pods/Pods.xcodeproj",
+      scheme: "LightweightObservable",
+      skip_archive: true
+    )
+  end
+
   desc "Execute tests."
   lane :tests do
     run_tests(
@@ -49,9 +62,11 @@ platform :ios do
   desc "Execute validation of library."
   lane :pod_lint do
     Dir.chdir("..") do
+      #
       # Move outside of `Example/` directory.
       #
       # - Note: We skip running the tests here, as we have a separate lane for this which allows better customization.
+      #
       pod_lib_lint(
         verbose: true,
         skip_tests: true
