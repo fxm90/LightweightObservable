@@ -38,7 +38,8 @@ platform :ios do
   desc "Execute tests."
   lane :tests do
     run_tests(
-      workspace: "Example.xcworkspace",
+      project: "Pods/Pods.xcodeproj",
+      scheme: "LightweightObservable-Unit-Tests",
       devices: ["iPhone 13"],
       code_coverage: true,
       number_of_retries: 1
