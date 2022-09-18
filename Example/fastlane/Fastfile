@@ -38,12 +38,16 @@ platform :ios do
   desc "Execute tests."
   lane :tests do
     run_tests(
-      # Running `pod install` will add the scheme `LightweightObservable-Unit-Tests` as non shared.
-      # As a workaround we added the test target to the `Example` scheme.
-      workspace: "Example.xcworkspace",
+      # For Carthage support we explicitly have to mark the scheme `LightweightObservable` as shared.
+      # Source: https://www.amerhukic.com/how-to-add-carthage-support-in-existing-cocoapod-project
+      #
+      # Unfortunately fastlane doesn't find this shared scheme in our workspace file,
+      # therefore we explicitly specify the pods project here.
+      project: "Pods/Pods.xcodeproj",
       devices: ["iPhone 13"],
-      scheme: "Example",
-      code_coverage: true
+      scheme: "LightweightObservable",
+      code_coverage: true,
+      number_of_retries: 1
     )
   end
 
@@ -52,9 +56,10 @@ platform :ios do
     Dir.chdir("..") do
       # Move outside of `Example/` directory.
       #
-      # - Note: `pod lib lint` will also run the tests.
+      # - Note: We skip running the tests here, as we have a separate lane for this which allows better customization.
       pod_lib_lint(
-        verbose: true
+        verbose: true,
+        skip_tests: true
       )
     end
   end

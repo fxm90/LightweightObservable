@@ -50,11 +50,11 @@ jobs:
         working-directory: ./Example
         run: bundle exec fastlane lint
 
-      # - name: Execute tests.
-      #   working-directory: ./Example
-      #   run: bundle exec fastlane tests
+      - name: Execute tests.
+        working-directory: ./Example
+        run: bundle exec fastlane tests
 
-      - name: Execute validation of library (incl. running tests).
+      - name: Execute validation of library.
         working-directory: ./Example
         run: bundle exec fastlane pod_lint
 
